@@ -33,7 +33,7 @@
 - 그 외 추가하고 싶은 기능이 있다면 마음껏 추가해 주세요!
 
 참고로 이번 과제는 다음주까지 이어지는 과제이므로 **확장성**을 충분히 고려해 주세요. 참고로 **4주차 과제에서는 유저 및 기능 추가와 Routing을** 진행합니다.
-이를 위해 [`recoil`](https://recoiljs.org/ko/)이나 [`redux`](https://ko.redux.js.org/introduction/getting-started/)를 이용한 상태관리를 미리 해보시는 것을 추천합니다!! redux와 [`redux-toolkit`](https://redux-toolkit.js.org/)의 조합은 개인적으로 제가 좋아하는 조합입니다 ㅎㅎ 모두 공식문서 많이 읽어보시고 자신만의 상태관리 조합도 찾아보면 재밌을 거에요XD
+이를 위해 [`recoil`](https://recoiljs.org/ko/)이나 [`redux`](https://ko.redux.js.org/introduction/getting-started/)를 이용한 상태관리를 미리 해보시는 것을 추천합니다!! redux와 [`redux-toolkit`](https://redux-toolkit.js.org/)의 조합은 개인적으로 제가 좋아하는 조합입니다 ㅎㅎ 모두 공식문서 많이 읽어보시고 자신만의 상태관리 조합도 찾아보면 재밌을 거에요XD ( 다음주 과제 스포 [결과화면](https://react-messenger2-16th.vercel.app/) )
 
 ## 링크 및 참고자료
 - [React docs - Hook](https://ko.reactjs.org/docs/hooks-intro.html)
