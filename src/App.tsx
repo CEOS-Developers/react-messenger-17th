@@ -1,7 +1,9 @@
+import { RecoilRoot } from "recoil";
+
 function App() {
   return (
     <div>
-      React Messanger
+      <RecoilRoot>React Messanger</RecoilRoot>
     </div>
   );
 }
