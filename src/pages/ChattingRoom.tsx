@@ -3,6 +3,8 @@ import { inputTextState, isTypingState } from "../recoil/recoil";
 import styled from "styled-components";
 import SmallButton from "../components/SmallButton";
 import Profile from "../components/Profile";
+import LeftChat from "../components/LeftChat";
+import RightChat from "../components/RightChat";
 
 const ChattingRoom = () => {
   const [inputText, setInputText] = useRecoilState<string>(inputTextState);
@@ -25,7 +27,17 @@ const ChattingRoom = () => {
         <SmallButton text={"⋮"} handleClick={() => console.log("hehe")} />
       </Header>
 
-      <Main></Main>
+      <Main>
+        <LeftChat
+          imgSrc={
+            "https://imageirl.imageresizer.io/pRKCViJVl1-s895x715-q85.jpg"
+          }
+          name={"Phoebe 🐈"}
+          message={"smelly cat"}
+          time={new Date()}
+        />
+        <RightChat message={"smelly cat ~"} time={new Date()} />
+      </Main>
 
       <Form isTyping={isTyping}>
         <textarea
@@ -74,6 +86,15 @@ let Main = styled.main`
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0.3rem;
+    height: 100%;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--gray-font);
+    border-radius: 1rem;
+  }
 `;
 
 let Form = styled.form<{ isTyping?: boolean }>`
