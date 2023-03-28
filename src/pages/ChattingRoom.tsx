@@ -1,6 +1,7 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { inputTextState, isTypingState } from "../recoil/atom";
 import styled from "styled-components";
+import SmallButton from "../components/SmallButton";
 
 const ChattingRoom = () => {
   const [inputText, setInputText] = useRecoilState<string>(inputTextState);
@@ -13,9 +14,9 @@ const ChattingRoom = () => {
   return (
     <Wrapper>
       <Header>
-        <div>&lt;</div>
-        <span>Phoebe</span>
-        <div>⋮</div>
+        <SmallButton text={"<"} handleClick={() => console.log("hehe")} />
+        <span>Phoebe 🐈</span>
+        <SmallButton text={"⋮"} handleClick={() => console.log("hehe")} />
       </Header>
 
       <Main></Main>
@@ -50,7 +51,20 @@ let Header = styled.header`
   padding: 1rem;
   display: flex;
   align-items: center;
-  // background-color: yellow;
+
+  span {
+    width: calc(100% - 6rem);
+    padding: 0 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &:last-child {
+    margin: 0 0 0 auto;
+  }
 `;
 
 let Main = styled.main`
