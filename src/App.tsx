@@ -1,8 +1,11 @@
+import GlobalStyle from './styles/GlobalStyle';
+import Main from './views/Main';
 function App() {
   return (
-    <div>
-      React Messanger
-    </div>
+    <>
+      <GlobalStyle/>
+      <Main/>
+    </>
   );
 }
 
