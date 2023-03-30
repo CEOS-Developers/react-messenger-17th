@@ -1,0 +1,40 @@
+{
+    "user": [
+      {
+        "userId": 0,
+        "name": "예린🥦👩‍🦱",
+        "statusMessage": "내가 여기 주인이다",
+        "profileImg": ""
+      },
+      {
+        "userId": 1,
+        "name": "Joy😄",
+        "statusMessage": "꺅 너무 행복해",
+        "profileImg": ""
+      },
+      {
+        "userId": 2,
+        "name": "Sadness😭",
+        "statusMessage": "슬픔을 둘로 나누면 스프..",
+        "profileImg": ""
+      },
+      {
+        "userId": 3,
+        "name": "Disgust😒",
+        "statusMessage": "브로콜리 저리가",
+        "profileImg": ""
+      },
+      {
+        "userId": 4,
+        "name": "Anger🤬",
+        "statusMessage": "!!@&!@%!#$&",
+        "profileImg": ""
+      },
+      {
+        "userId": 5,
+        "name": "Fear😨",
+        "statusMessage": "ㅎㄷㄷ",
+        "profileImg": ""
+      }
+    ]
+}
