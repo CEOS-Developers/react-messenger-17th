@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "userId": 0,
+      "userName": "권가은",
+      "profileImage": "https://avatars.githubusercontent.com/u/65700066?v=4",
+      "statusMessage": "quantum leap!"
+    },
+    {
+      "userId": 10,
+      "userName": "Phoebe 🐈",
+      "profileImage": "https://imageirl.imageresizer.io/pRKCViJVl1-s895x715-q85.jpg",
+      "statusMessage": "smelly cat"
+    },
+    {
+      "userId": 11,
+      "userName": "Ross 🦖",
+      "profileImage": "https://i2-prod.mirror.co.uk/incoming/article13468656.ece/ALTERNATES/s1200c/4_RLP_MDG_071216ROSS_31JPG.jpg",
+      "statusMessage": "We were on a break"
+    },
+    {
+      "userId": 12,
+      "userName": "Monica 🧼",
+      "profileImage": "https://i.insider.com/5c8279ebeb3ce821ef1247a2?width=700",
+      "statusMessage": "I KNOW"
+    },
+    {
+      "userId": 13,
+      "userName": "Joey 🥪",
+      "profileImage": "https://pbs.twimg.com/media/FiafAChUAAABfuT.jpg",
+      "statusMessage": "How you doin"
+    },
+    {
+      "userId": 14,
+      "userName": "Rachel 🍣",
+      "profileImage": "https://images.entertainment.ie/uploads/2021/05/26145602/Rachel-Green-Friends-Jennifer-Aniston-2.jpg?w=1280&h=768&q=high",
+      "statusMessage": "salmon skin roll"
+    },
+    {
+      "userId": 15,
+      "userName": "Chandler 💻",
+      "profileImage": "https://i.pinimg.com/736x/6c/c2/50/6cc250432833c9a1a26f4a40da6038fd.jpg",
+      "statusMessage": "could i BE"
+    }
+  ]
+}
