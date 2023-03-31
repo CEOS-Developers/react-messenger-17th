@@ -1,18 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
-  inputTextState,
-  isTypingState,
-  typingUserState,
   currentUsersState,
-  isVisibleAlertState,
+  typingUserState,
+  // currentChatListState,
 } from "../recoil/recoil";
 import styled from "styled-components";
 import SmallButton from "../components/SmallButton";
 import Profile from "../components/Profile";
 import LeftChat from "../components/LeftChat";
 import RightChat from "../components/RightChat";
-import { chatInterface } from "../json/interface";
+import { chatInterface } from "../interfaces/interface";
 import chatsData from "../json/chatsData.json";
 import Alert from "../components/Alert";
 
@@ -25,10 +23,12 @@ const ChattingRoom = () => {
   const [chatList, setChatList] = useState<chatInterface[]>(
     chatsData.chattings[0].chatList
   ); // TODO - recoil로 변경
-  const [inputText, setInputText] = useRecoilState<string>(inputTextState);
-  const isTyping = useRecoilValue<boolean>(isTypingState);
-  const [isVisibleAlert, setIsVisibleAlert] =
-    useRecoilState<boolean>(isVisibleAlertState);
+  // const [chatList, setChatList] = useRecoilState(currentChatListState);
+
+  const [inputText, setInputText] = useState<string>("");
+  const isTyping: boolean = inputText.trim() ? true : false;
+
+  const [isVisibleAlert, setIsVisibleAlert] = useState<boolean>(false);
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const bottomDivRef = useRef<HTMLDivElement>(null);
@@ -68,7 +68,7 @@ const ChattingRoom = () => {
 
   useEffect(() => {
     setTimeout(() => setIsVisibleAlert(false), 3000);
-  }, [isVisibleAlert, setIsVisibleAlert]);
+  }, [isVisibleAlert]);
 
   return (
     <Wrapper>

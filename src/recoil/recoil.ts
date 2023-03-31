@@ -1,36 +1,17 @@
-import { atom, selector, selectorFamily } from "recoil";
+import { atom, selector, selectorFamily, RecoilState } from "recoil";
 import usersData from "../json/usersData.json";
 import chatsData from "../json/chatsData.json";
 import {
   chatInterface,
   chattingInterface,
   userInterface,
-} from "../json/interface";
+} from "../interfaces/interface";
 
-export const inputTextState = atom<string>({
-  key: "inputTextState",
-  default: "",
-});
-
-export const isTypingState = selector<boolean>({
-  key: "isTypingState",
-  get: ({ get }) => {
-    return get(inputTextState).trim() ? true : false;
-  },
-});
-
-export const isVisibleAlertState = atom<boolean>({
-  key: "isVisibleAlertState",
-  default: false,
-});
-
-// 현재 채팅방 id
 export const currentChattingId = atom<number>({
   key: "currentChattingId",
   default: 0,
 });
 
-// 현재 채팅방 obj
 export const currentChattingState = selector<chattingInterface>({
   key: "currentChattingState",
   get: ({ get }) => {
@@ -38,12 +19,12 @@ export const currentChattingState = selector<chattingInterface>({
       (chatting) => chatting.chattingId === get(currentChattingId)
     )[0];
   },
-  //   set: ({ set }, newObj) => set(currentChattingState, newObj),
+  // set: ({ set }, newObj) => set(currentChattingState, newObj),
 });
 
 // 현재 채팅방 userId list
-export const usersIdListState = selector<number[]>({
-  key: "usersIdListState",
+export const currentUsersIdListState = selector<number[]>({
+  key: "currentUsersIdListState",
   get: ({ get }) => {
     return get(currentChattingState).userIdList;
   },
@@ -60,7 +41,7 @@ export const currentUsersState = selector<userInterface[]>({
   key: "currentUsersState",
   get: ({ get }) => {
     return usersData.users.filter((user) =>
-      get(usersIdListState).includes(user.userId)
+      get(currentUsersIdListState).includes(user.userId)
     );
   },
 });
@@ -75,12 +56,17 @@ export const typingUserState = selector<userInterface>({
 });
 
 // 현재 채팅방 메시지 list
-export const currentChatListState = selector<chatInterface[]>({
-  key: "currentChatListState",
-  get: ({ get }) => {
-    const chatObj: chattingInterface = get(currentChattingState);
-    return chatObj.chatList;
-  },
-  // set: ({ set }, newChatList) =>
-  //   set(currentChattingState.chatList, newChatList),
-});
+// export const currentChatListState: RecoilState<chatInterface[]> = selector<
+//   chatInterface[]
+// >({
+//   key: "currentChatListState",
+//   get: ({ get }) => {
+//     const chatObj: chattingInterface = get(currentChattingState);
+//     return chatObj.chatList;
+//   },
+//   set: ({ set, get }, newChatObj) => {
+//     const newChatting = Object.assign(get(currentChattingState));
+//     newChatting.chatList = [...currentChatListState, newChatObj];
+//     set(currentChattingState, newChatting);
+//   },
+// });
