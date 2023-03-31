@@ -23,9 +23,9 @@ const Wrapper = styled.div`
     height: 1rem;
     padding: 0.5rem;
     text-align: center;
-    border-radius: 1rem;
-    // color: white;
-    background-color: var(--light-blue-tag);
+    border-radius: 0.2rem;
+    color: var(--brown-tag);
+    background-color: var(--yellow-tag);
   }
 `;
 
