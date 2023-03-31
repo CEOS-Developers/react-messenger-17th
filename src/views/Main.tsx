@@ -8,7 +8,9 @@ import {showDivState, hideButtonState} from '../store/atom';
 function Main(): JSX.Element {
   const [showDiv, setShowDiv] = useRecoilState(showDivState);
   const [hideButton, setHideButton] = useRecoilState(hideButtonState);
-
+  const handleContextMenuClick = (e : any) => {
+    e.preventDefault();
+  }
   const handleButtonClick = () => {
     setShowDiv(true);
     setHideButton(true);
@@ -16,7 +18,7 @@ function Main(): JSX.Element {
 
   return (
     <>
-      <Container>
+      <Container onContextMenu = {handleContextMenuClick}>
         <ButtonWrapper>
           {!hideButton &&
           <>
