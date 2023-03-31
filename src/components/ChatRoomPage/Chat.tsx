@@ -6,14 +6,17 @@ import userData from '../../db/userData.json';
 
 const Chat = (chat: IChat) => {
   const currentUser = useRecoilValue(currentUserState);
-  const otherUserId = chat.userId;
 
   return (
     <>
       {chat.userId === currentUser.userId ? (
         //오른쪽으로
         <div>
-          {/*<img />*/} {/* userImg */}
+          <img
+            src={`${process.env.PUBLIC_URL}/Imgs/${currentUser.userImg}.jpg`}
+            alt={currentUser.userName}
+          />
+          {/* userImg */}
           <div>
             <div>{currentUser.userName}</div> {/* userName */}
             <div>{chat.content}</div> {/* chatContent */}
@@ -23,9 +26,15 @@ const Chat = (chat: IChat) => {
       ) : (
         //왼쪽으로
         <div>
-          {/*<img />*/} {/* userImg */}
+          <img
+            src={`${process.env.PUBLIC_URL}/Imgs/${
+              userData[chat.userId].userImg
+            }.jpg`}
+            alt={userData[chat.userId].userName}
+          />
+          {/* userImg */}
           <div>
-            <div>{userData[otherUserId].userName}</div> {/* userName */}
+            <div>{userData[chat.userId].userName}</div> {/* userName */}
             <div>{chat.content}</div> {/* chatContent */}
           </div>
           <span>{chat.time}</span> {/* chatTime */}

@@ -18,7 +18,11 @@ const Header = () => {
     <header>
       <button>◀</button> {/* 채팅룸 나가기 버튼 */}
       <button onClick={toggleUser}>
-        {/* <img /> */} {/* userImg */}
+        <img
+          src={`${process.env.PUBLIC_URL}/Imgs/${currentUser.userImg}.jpg`}
+          alt={currentUser.userName}
+        />
+        {/* userImg */}
         <span>{currentUser.userName}</span> {/* userName */}
       </button>
     </header>

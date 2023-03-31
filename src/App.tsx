@@ -1,18 +1,29 @@
 import { RecoilRoot } from 'recoil';
-//import { IChat } from './interface/interface';
-//import chatData from './db/chatData.json';
+import styled from 'styled-components';
+import GlobalStyle from './styles/GlobalStyles';
 import ChatRoomPage from './components/ChatRoomPage/ChatRoomPage';
 
 function App() {
-  //const [chats, setChats] = useState<IChat[]>(chatData);
-
   return (
     <RecoilRoot>
-      <div>
+      <GlobalStyle />
+      <Container>
         <ChatRoomPage />
-      </div>
+      </Container>
     </RecoilRoot>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  width: 26rem;
+  height: 52rem;
+
+  background-color: aquamarine;
+  border-radius: 2.3rem;
+  box-shadow: 0px 0px 5px #444;
+
+  display: flex;
+  flex-direction: column;
+`;
