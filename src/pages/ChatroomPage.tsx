@@ -12,12 +12,7 @@ const ChatroomPage = () => {
       {chatrooms.map((room) => (
         <Link to={`/chatrooms/${room.roomId}`}>
           <div>
-            {getRoomMembers(room.roomId, false).map((member) => (
-              <ProfileImage src={`${member.profileImage}`} />
-            ))}
-            {getRoomMembers(room.roomId, false).map((member) => (
-              <span>{member.name}, </span>
-            ))}
+            시작 페이지는 다음 과제에..! :)
           </div>
         </Link>
       ))}

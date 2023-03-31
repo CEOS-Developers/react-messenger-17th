@@ -12,6 +12,7 @@ const App = () => {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
+          <Route path="/*" element={<ChatroomPage/>}></Route>
           {/* <Route element={<Start/>}>
             <Route path="/" element={<FriendPage />} />
             <Route path="/chatrooms" element={<ChatroomPage />} />
