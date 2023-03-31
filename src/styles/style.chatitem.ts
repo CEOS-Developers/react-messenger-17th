@@ -20,6 +20,7 @@ export const MyMessage = styled.div`
     min-width: 18px;
     padding:10px;
     margin-bottom: 20px;
+    word-break : break-all;
     
 `
 
@@ -28,8 +29,8 @@ export const PartnerMessage = styled.div`
 `
 
 export const UserImage = styled.img`
-    width : 4rem;
-    height : 4rem;
+    width : 3rem;
+    height : 3rem;
     border-radius : 2rem;
     user-select : none;
 `
@@ -38,6 +39,7 @@ export const MessageWrapper = styled.div`
     margin-bottom: 20px;
     margin-left : 10px;
     display : flex;
+    width : 84%;
     flex-direction : column;
 `
 export const UserInfoWrapper = styled.div`
@@ -53,7 +55,7 @@ export const UserName = styled.span`
 export const UserMessage = styled.div`
     font-size: 1rem;
     line-height: 1.5rem;
-    width:80%;
+    word-break : break-all;
 `
 
 export const SendTime = styled.span`
