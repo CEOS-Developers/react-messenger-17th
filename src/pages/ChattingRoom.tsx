@@ -5,6 +5,7 @@ import {
   isTypingState,
   typingUserState,
   currentUsersState,
+  isVisibleAlertState,
 } from "../recoil/recoil";
 import styled from "styled-components";
 import SmallButton from "../components/SmallButton";
@@ -13,21 +14,21 @@ import LeftChat from "../components/LeftChat";
 import RightChat from "../components/RightChat";
 import { chatInterface } from "../json/interface";
 import chatsData from "../json/chatsData.json";
+import Alert from "../components/Alert";
 
 const ChattingRoom = () => {
-  // const [chatList, setChatList] = useRecoilState(currentChatListState); // TODO - recoil 사용.
-  const [chatList, setChatList] = useState<chatInterface[]>(
-    chatsData.chattings[0].chatList
-  );
-
   const currentUsers = useRecoilValue(currentUsersState);
   const [typingUser, setTypingUser] = useRecoilState(typingUserState);
   const nonTypingUser = currentUsers.filter(
     (user) => user.userId !== typingUser.userId
   )[0];
-
+  const [chatList, setChatList] = useState<chatInterface[]>(
+    chatsData.chattings[0].chatList
+  ); // TODO - recoil로 변경
   const [inputText, setInputText] = useRecoilState<string>(inputTextState);
   const isTyping = useRecoilValue<boolean>(isTypingState);
+  const [isVisibleAlert, setIsVisibleAlert] =
+    useRecoilState<boolean>(isVisibleAlertState);
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const bottomDivRef = useRef<HTMLDivElement>(null);
@@ -57,16 +58,24 @@ const ChattingRoom = () => {
     textareaRef.current?.focus();
   };
 
+  const hadleNotyetClick = () => {
+    setIsVisibleAlert(true);
+  };
+
   useEffect(() => {
     bottomDivRef.current?.scrollIntoView(false);
   }, [chatList]);
 
+  useEffect(() => {
+    setTimeout(() => setIsVisibleAlert(false), 3000);
+  }, [isVisibleAlert, setIsVisibleAlert]);
+
   return (
     <Wrapper>
       <Header>
-        <SmallButton text={"<"} handleClick={() => console.log("hehe")} />
+        <SmallButton text={"<"} handleClick={hadleNotyetClick} />
         <Profile nonTypingUser={nonTypingUser} setTypingUser={setTypingUser} />
-        <SmallButton text={"⋮"} handleClick={() => console.log("hehe")} />
+        <SmallButton text={"⋮"} handleClick={hadleNotyetClick} />
       </Header>
 
       <Main>
@@ -105,6 +114,7 @@ const ChattingRoom = () => {
         ></textarea>
         <button>전송</button>
       </Form>
+      {isVisibleAlert && <Alert />}
     </Wrapper>
   );
 };
@@ -118,6 +128,8 @@ let Wrapper = styled.div`
   color: var(--dark-gray-tag);
   background-color: var(--light-blue-tag);
   box-shadow: 0 0 20px rgba(0, 0, 0, 20%);
+
+  position: relative;
 `;
 
 let Header = styled.header`

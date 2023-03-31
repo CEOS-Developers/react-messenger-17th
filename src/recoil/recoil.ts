@@ -19,6 +19,11 @@ export const isTypingState = selector<boolean>({
   },
 });
 
+export const isVisibleAlertState = atom<boolean>({
+  key: "isVisibleAlertState",
+  default: false,
+});
+
 // 현재 채팅방 id
 export const currentChattingId = atom<number>({
   key: "currentChattingId",
