@@ -33,6 +33,8 @@ export const ChatWrapper = styled.div`
     height: 600px;
     opacity: 0;
     position : absolute;
+    display:flex;
+    flex-direction : column;
     right : 24px;
     bottom : 24px;
     box-shadow: rgba(255, 255, 255, 0.12) 0px 0px 2px 0px inset, rgba(0, 0, 0, 0.05) 0px 0px 2px 1px, rgba(0, 0, 0, 0.3) 0px 12px 60px;

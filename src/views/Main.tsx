@@ -1,17 +1,9 @@
 import {Container, Title, ChatButton, ChatWrapper,ButtonWrapper} from '../styles/style.main';
 import Chat from '../components/Chat';
-import { atom, useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import {TbBrandHipchat} from 'react-icons/tb';
+import {showDivState, hideButtonState} from '../store/atom';
 
-const showDivState = atom<boolean>({
-  key: 'showDivState',
-  default: false,
-});
-
-const hideButtonState = atom<boolean>({
-  key: 'hideButtonState',
-  default: false,
-});
 
 function Main(): JSX.Element {
   const [showDiv, setShowDiv] = useRecoilState(showDivState);
