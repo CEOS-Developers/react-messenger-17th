@@ -3,6 +3,8 @@ import { createGlobalStyle } from "styled-components";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ChatroomPage from "./pages/ChatroomPage";
 import Chatroom from "./pages/ChatRoom";
+import Start from "./pages/Start";
+
 
 const App = () => {
   return (
@@ -10,12 +12,12 @@ const App = () => {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          {/* <Route element={<Layout />}> */}
-            {/* <Route path="/" element={<FriendPage />} /> */}
+          {/* <Route element={<Start/>}>
+            <Route path="/" element={<FriendPage />} />
             <Route path="/chatrooms" element={<ChatroomPage />} />
-            {/* <Route path="/setting" element={<SettingPage />} /> */}
-          {/* </Route> */}
-          <Route path="/chatrooms/:id" element={<Chatroom />} />
+            <Route path="/setting" element={<SettingPage />} />
+          </Route>*/
+          <Route path="/chatrooms/:id" element={<Chatroom />} /> }
         </Routes>
       </BrowserRouter>
     </>
