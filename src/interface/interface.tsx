@@ -7,4 +7,5 @@ export interface IUser {
 export interface IChat {
   userId: number;
   content: string;
+  time: string;
 }

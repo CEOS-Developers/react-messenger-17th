@@ -18,7 +18,7 @@ const Chat = (chat: IChat) => {
             <div>{currentUser.userName}</div> {/* userName */}
             <div>{chat.content}</div> {/* chatContent */}
           </div>
-          <span></span> {/* chatTime */}
+          <span>{chat.time}</span> {/* chatTime */}
         </div>
       ) : (
         //왼쪽으로
@@ -28,7 +28,7 @@ const Chat = (chat: IChat) => {
             <div>{userData[otherUserId].userName}</div> {/* userName */}
             <div>{chat.content}</div> {/* chatContent */}
           </div>
-          <span></span> {/* chatTime */}
+          <span>{chat.time}</span> {/* chatTime */}
         </div>
       )}
     </>

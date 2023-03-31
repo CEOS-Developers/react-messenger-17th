@@ -8,7 +8,17 @@ const ChatInput = () => {
   const currentUser = useRecoilValue(currentUserState);
 
   const addChat = () => {
-    setChats([...chats, { userId: currentUser.userId, content: text }]);
+    setChats([
+      ...chats,
+      { userId: currentUser.userId, content: text, time: currentTime() },
+    ]);
+  };
+
+  const currentTime = () => {
+    let hours = new Date().getHours();
+    let minutes = new Date().getMinutes();
+
+    return hours + ':' + minutes;
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
