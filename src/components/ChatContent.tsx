@@ -48,6 +48,8 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
         }
         if(prevUserValue.current === item.userid && prevUserValue !== null)
             showUser = true;
+        if( prevTimeValue.current !== time)
+            showUser = false;
         prevTimeValue.current = time;
         prevUserValue.current = item.userid;
       return (
