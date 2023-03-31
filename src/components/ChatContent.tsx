@@ -4,8 +4,8 @@ import {roomList,userInfo} from '../store/atom';
 import ChatItem from './ChatItem';
 import {useRef,useEffect} from 'react';
 function ChatContent(): JSX.Element {
-  const [roomLists, setChatLists] = useRecoilState(roomList);
-  const [currentUser, setCurrentUser] = useRecoilState(userInfo);
+  const [roomLists] = useRecoilState(roomList);
+  const [currentUser] = useRecoilState(userInfo);
   const chatList = roomLists[0].messages;
   const chatContent = useRef<HTMLDivElement>(null);
   
@@ -16,7 +16,7 @@ function ChatContent(): JSX.Element {
   
   useEffect(() => {
     scrollChat();
-  },[roomLists,userInfo])
+  },[roomLists,currentUser])
   return (
     <ChatContentWrapper ref = {chatContent}>
       {chatList.map((item) => (

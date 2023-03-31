@@ -4,8 +4,8 @@ import {userInfo,partnerInfo} from '../store/atom';
 import {IChat} from '../store/interface';
 
 function ChatItem({id,userid,message} : IChat) : JSX.Element {
-  const [currentUser, setCurrentUser] = useRecoilState(userInfo);
-  const [partnerUser, setPartnerUser] = useRecoilState(partnerInfo);
+  const [currentUser] = useRecoilState(userInfo);
+  const [partnerUser] = useRecoilState(partnerInfo);
   const time = new Date(id);
   const hours = time.getHours();
   const minutes = time.getMinutes();

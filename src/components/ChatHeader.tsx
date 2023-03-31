@@ -1,7 +1,6 @@
 import {IoChevronBackOutline, IoCloseOutline} from 'react-icons/io5';
 import {Header, BackButton, UserName, CloseButton} from '../styles/style.chatheader';
 import {showDivState, hideButtonState, userInfo, partnerInfo} from '../store/atom';
-import message from '../data/message.json';
 import {useRecoilState } from 'recoil';
 
 function ChatHeader(): JSX.Element {

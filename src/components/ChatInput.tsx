@@ -6,7 +6,7 @@ import {IChatRoom} from '../store/interface';
 import {roomList,userInfo} from '../store/atom';
 
 function ChatInput() : JSX.Element {
-  const [currentUser, setCurrentUser] = useRecoilState(userInfo);
+  const [currentUser] = useRecoilState(userInfo);
   const [roomLists, setRoomLists] = useRecoilState<IChatRoom[]>(roomList);
   const [inputValue, setInputValue] = useState("");
   const roomIndex = roomLists.findIndex((room) => room.roomid === 1);
