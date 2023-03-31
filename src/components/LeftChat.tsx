@@ -29,14 +29,12 @@ const LeftChat = ({ imgSrc, name, message, date }: LeftChatProps) => {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 3.3rem;
   display: flex;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
 `;
 
 const ImgContainer = styled.div`
   width: 2rem;
-  height: 100%;
   margin-right: 1rem;
 
   img {
@@ -50,8 +48,7 @@ const ImgContainer = styled.div`
 `;
 
 const MainContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 3rem);
   display: flex;
   flex-direction: column;
 `;
@@ -62,18 +59,18 @@ const Name = styled.span`
 `;
 
 const ChatContainer = styled.div`
-  width: 100%;
-  height: calc(3.3rem - 0.8rem - 0.5rem);
   display: flex;
 `;
 
 const Chat = styled.span`
+  max-width: calc(100% - 5rem);
   padding: 0.5rem;
   font-size: 0.8rem;
   background-color: white;
   border-radius: 0.2rem;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 10%);
   position: relative;
+  word-break: break-all;
 
   &::before {
     content: "";
@@ -89,6 +86,7 @@ const Chat = styled.span`
 `;
 
 let Time = styled.span`
+  width: 5rem;
   display: flex;
   align-items: flex-end;
   span {

@@ -18,15 +18,15 @@ const RightChat = ({ message, date }: RightChatProps) => {
 };
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: calc(3.3rem - 0.8rem - 0.5rem);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
   display: flex;
   justify-content: flex-end;
 `;
 
 let Time = styled.span`
+  width: 5rem;
   display: flex;
+  justify-content: flex-end;
   align-items: flex-end;
   span {
     margin-right: 0.5rem;
@@ -35,14 +35,17 @@ let Time = styled.span`
 `;
 
 const Chat = styled.span`
+  max-width: calc(100% - 5rem - 1rem);
   padding: 0.5rem;
   font-size: 0.8rem;
   background-color: var(--yellow-tag);
   border-radius: 0.2rem;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 10%);
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   position: relative;
+  word-break: break-all;
 
   &::after {
     content: "";
