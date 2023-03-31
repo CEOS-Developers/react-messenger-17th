@@ -39,12 +39,15 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
       {chatList.map((item,index) => {
         let time = makeTime(item.id);
         let showTime = true;
+        let showUser = false;
         if(chatList.length -1 !== index){
           let nextTime = makeTime(chatList[index+1].id);
           if(chatList[index+1].userid === item.userid && time === nextTime){
             showTime = false;
           }    
         }
+        if(prevUserValue.current === item.userid)
+            showUser = true;
         prevTimeValue.current = time;
         prevUserValue.current = item.userid;
       return (
@@ -54,6 +57,7 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
           userid={item.userid}
           message={item.message}
           time = {showTime ? time : ''}
+          user = {showUser}
           /> 
       );
     })}

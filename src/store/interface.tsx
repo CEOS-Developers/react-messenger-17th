@@ -6,6 +6,7 @@ export interface IChat {
 
 export interface IChatProps extends IChat{
     time? : string | null;
+    user? : boolean | null;
 }
 
 export interface IChatRoom{

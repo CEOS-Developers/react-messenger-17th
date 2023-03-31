@@ -3,7 +3,7 @@ import {MyMessageWrapper,MyMessage,MySendTime, PartnerMessage,UserImage,MessageW
 import {userInfo,partnerInfo} from '../store/atom';
 import {IChatProps,IUser} from '../store/interface';
 
-function ChatItem({id,userid,message,time} : IChatProps) : JSX.Element {
+function ChatItem({id,userid,message,time,user} : IChatProps) : JSX.Element {
   const currentUser = useRecoilValue<IUser>(userInfo);
   const partnerUser = useRecoilValue<IUser>(partnerInfo);
   return (
@@ -19,11 +19,14 @@ function ChatItem({id,userid,message,time} : IChatProps) : JSX.Element {
         </MyMessageWrapper>
       ) : (
         <PartnerMessage>
-          <UserImage src = {`${process.env.PUBLIC_URL}/images/${userid}.jpg`} />
+          <UserImage 
+            src = {`${process.env.PUBLIC_URL}/images/${userid}.jpg`} 
+            className={`${user ? 'notShow' : ''}`}/>
           <MessageWrapper>
-            <UserName>
+            <UserName className={`${user ? 'notShow' : ''}`}>   
               {partnerUser.username}
             </UserName>
+            
             <UserInfoWrapper>
               <UserMessage>
                 {message}
