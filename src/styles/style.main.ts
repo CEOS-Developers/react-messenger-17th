@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
     display:flex;
@@ -31,11 +31,14 @@ export const ChatButton = styled.button`
 export const ChatWrapper = styled.div`
     width: 380px;
     height: 600px;
-    background-color: wheat;
     opacity: 0;
     position : absolute;
     right : 24px;
     bottom : 24px;
+    box-shadow: rgba(255, 255, 255, 0.12) 0px 0px 2px 0px inset, rgba(0, 0, 0, 0.05) 0px 0px 2px 1px, rgba(0, 0, 0, 0.3) 0px 12px 60px;
+    background-color: rgba(247, 247, 248, 0.9);
+    backdrop-filter: blur(60px);
+    border-radius : 25px;
     &.show{
         opacity : 1;
     }

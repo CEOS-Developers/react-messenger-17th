@@ -1,4 +1,5 @@
 import {Container, Title, ChatButton, ChatWrapper,ButtonWrapper} from '../styles/style.main';
+import Chat from '../components/Chat';
 import { atom, useRecoilState } from 'recoil';
 import {TbBrandHipchat} from 'react-icons/tb';
 
@@ -36,7 +37,9 @@ function Main(): JSX.Element {
         </ButtonWrapper>
         {showDiv &&
         <>
-          <ChatWrapper className={`${showDiv ? 'show' : ''}`}></ChatWrapper>
+          <ChatWrapper className={`${showDiv ? 'show' : ''}`}>
+            <Chat/>
+          </ChatWrapper>
         </>
         }
       </Container>
