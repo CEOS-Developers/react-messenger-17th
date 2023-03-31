@@ -1,47 +1,15 @@
 {
-    "chatList": [
+    "rooms" : [
         {
-            "chatRoomId": 0,
-            "user": 0,
-            "chats" : [
-                {
-                    "chatId": 0,
-                    "userId": 0,
-                    "myUserId" : true,
-                    "time": "3월 26일",
-                    "text": "안뇽"
-                },
-                {
-                    "chatId": 1,
-                    "userId": 0,
-                    "myUserId" : true,
-                    "time": "3월 26일",
-                    "text": "세오스 과제는 금요일 자정까지🚀"
-                }
-            ]
-        },
-        {
-            "chatRoomId": 1,
-            "user": 1,
-            "chats" : [
-                {
-                    "chatId": 0,
-                    "userId": 1,
-                    "myUserId" : false,
-                    "time": "3월 26일",
-                    "text": "세상 모든 게 너무 행복하지 않니? 아하하🤣😂🌞🌈"
-                },
-                {
-                    "chatId": 1,
-                    "userId": 0,
-                    "myUserId" : true,
-                    "time": "3월 26일",
-                    "text": "허허."
-                }
-            ]
-        } 
+            "roomId": 0,
+            "users": [0,1],
+            "chats":
+                [
+                    { "id": 0, "senderId": 0, "text": "오늘 너무 행복하지 않니", "date": "Sat Mar 26 2023 02:49:31 GMT+0900" },
+                    { "id": 1, "senderId": 0, "text": "", "date": "Sat Mar 26 2023 02:49:31 GMT+0900" }
+                ]
+        }
     ]
 }
-
 
 
