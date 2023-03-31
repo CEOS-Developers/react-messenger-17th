@@ -20,7 +20,12 @@ const Container = styled.div`
   width: 26rem;
   height: 52rem;
 
-  background-color: aquamarine;
+  background: rgb(126, 246, 247);
+  background: linear-gradient(
+    0deg,
+    rgba(126, 246, 247, 1) 0%,
+    rgba(167, 80, 255, 1) 86%
+  );
   border-radius: 2.3rem;
   box-shadow: 0px 0px 5px #444;
 

@@ -26,8 +26,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
-    /* outline: none; */
-    /* border: none; */
+    outline: none;
+    border: none;
+    background-color: transparent;
     cursor: pointer;
   }
 `;

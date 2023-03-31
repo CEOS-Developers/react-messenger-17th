@@ -44,8 +44,8 @@ const ChatContainer = styled.div<{ isActive: boolean }>`
 `;
 
 const UserImg = styled.img<{ isActive: boolean }>`
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
 `;
 
@@ -65,10 +65,16 @@ const ChatBox = styled.div<{ isActive: boolean }>`
 `;
 
 const ChatContent = styled.div<{ isActive: boolean }>`
-  background-color: yellow;
+  background: rgb(246, 255, 218);
+  background: radial-gradient(
+    circle,
+    rgba(246, 255, 218, 1) 13%,
+    rgba(242, 255, 177, 1) 100%
+  );
   padding: 0.5rem;
-  border: 1px solid #797676e1;
+  border: 1px solid #8b8989df;
   margin: 0.3rem 0.4rem;
+  font-size: 0.88rem;
 
   border-radius: ${(props) =>
     props.isActive ? ' 1rem 0 1rem 1rem' : '0 1rem 1rem 1rem'};
