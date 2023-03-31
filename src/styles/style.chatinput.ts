@@ -6,7 +6,8 @@ export const ChatInputWrapper = styled.form`
 `
 
 export const Input = styled.input`
-    width:100%;
+    padding: 10px;
+    width:80%;
     border: none;
     font-size: 1.2rem;
     line-height: 1.5rem;
@@ -14,7 +15,7 @@ export const Input = styled.input`
 
 export const SubmitButton = styled.button`
     padding: 10px;
-    font-size: 30px;
+    font-size: 1.2rem;
     cursor: pointer;
     border : none;
 `

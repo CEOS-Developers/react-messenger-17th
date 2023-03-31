@@ -8,6 +8,7 @@ export const MyMessage = styled.div`
     border-radius: 18px;
     min-width: 18px;
     padding:10px;
+    margin-bottom: 20px;
     
 `
 
@@ -23,7 +24,10 @@ export const UserImage = styled.img`
 `
 
 export const MessageWrapper = styled.div`
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-left : 10px;
+    display : flex;
+    flex-direction : column;
 `
 export const UserInfoWrapper = styled.div`
     display:flex;
@@ -31,6 +35,8 @@ export const UserInfoWrapper = styled.div`
 
 export const UserName = styled.span`
     font-size : 0.8rem;
+    margin-bottom : 3px;
+    user-select : none;
 `
 
 export const UserMessage = styled.div`
@@ -42,4 +48,5 @@ export const UserMessage = styled.div`
 export const SendTime = styled.span`
     font-size : 0.3rem;
     margin-top : auto;
+    margin-left : 3px;
 `
