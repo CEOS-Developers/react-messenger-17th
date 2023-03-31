@@ -1,11 +1,11 @@
 import {useRecoilValue } from 'recoil';
 import {MyMessageWrapper,MyMessage,MySendTime, PartnerMessage,UserImage,MessageWrapper,UserName,UserInfoWrapper,UserMessage,SendTime } from '../styles/style.chatitem';
 import {userInfo,partnerInfo} from '../store/atom';
-import {IChatProps} from '../store/interface';
+import {IChatProps,IUser} from '../store/interface';
 
 function ChatItem({id,userid,message,time} : IChatProps) : JSX.Element {
-  const currentUser = useRecoilValue(userInfo);
-  const partnerUser = useRecoilValue(partnerInfo);
+  const currentUser = useRecoilValue<IUser>(userInfo);
+  const partnerUser = useRecoilValue<IUser>(partnerInfo);
   return (
     <>
       {userid === currentUser.userid ? (
