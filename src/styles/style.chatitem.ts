@@ -21,7 +21,7 @@ export const MyMessage = styled.div`
     border-radius: 18px;
     min-width: 18px;
     padding:10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     word-break : break-all;
     
 `
