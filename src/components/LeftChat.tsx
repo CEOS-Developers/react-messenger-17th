@@ -4,10 +4,22 @@ interface LeftChatProps {
   imgSrc: string;
   name: string;
   message: string;
-  time: Date;
+  date: string;
 }
 
-const LeftChat = ({ imgSrc, name, message, time }: LeftChatProps) => {
+const LeftChat = ({ imgSrc, name, message, date }: LeftChatProps) => {
+  const getDateString = () => {
+    const dateTypeofDate = new Date(date);
+    const hours: number = dateTypeofDate.getHours();
+    const hours12: number = hours <= 12 ? hours : hours - 12;
+    const minutes: string = String(dateTypeofDate.getMinutes()).padStart(
+      2,
+      "0"
+    );
+    const amPm: string = hours <= 12 ? "오전" : "오후";
+    return `${amPm} ${hours12}:${minutes}`;
+  };
+
   return (
     <Wrapper>
       <ImgContainer>
@@ -18,7 +30,7 @@ const LeftChat = ({ imgSrc, name, message, time }: LeftChatProps) => {
         <ChatContainer>
           <Chat>{message}</Chat>
           <Time>
-            <span>{`${time.getHours()}:${time.getMinutes()}`}</span>
+            <span>{getDateString()}</span>
           </Time>
         </ChatContainer>
       </MainContainer>
@@ -30,6 +42,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 3.3rem;
   display: flex;
+  margin-bottom: 0.6rem;
 `;
 
 const ImgContainer = styled.div`
@@ -70,6 +83,7 @@ const Chat = styled.span`
   font-size: 0.8rem;
   background-color: white;
   border-radius: 0.2rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 10%);
   position: relative;
 
   &::before {
