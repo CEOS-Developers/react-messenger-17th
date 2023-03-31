@@ -1,5 +1,5 @@
 import {useRecoilState,useRecoilValue} from 'recoil';
-import {useState} from 'react';
+import {useState,useRef,useEffect} from 'react';
 import {ChatInputWrapper, Input, SubmitButton} from '../styles/style.chatinput';
 import {FaTelegramPlane} from 'react-icons/fa';
 import {IChatRoom} from '../store/interface';
@@ -10,7 +10,7 @@ function ChatInput() : JSX.Element {
   const [roomLists, setRoomLists] = useRecoilState<IChatRoom[]>(roomList);
   const [inputValue, setInputValue] = useState("");
   const roomIndex = roomLists.findIndex((room) => room.roomid === 1);
-  
+  const inputRef = useRef<HTMLInputElement>(null);
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
@@ -35,10 +35,17 @@ function ChatInput() : JSX.Element {
     ]);
     setInputValue("");
   };
+  
+  useEffect(()=>{
+    if(inputRef.current){
+        inputRef.current.focus();
+    }
+  })
   return (
     <ChatInputWrapper onSubmit={handleSubmit}>
       <Input
         type="text"
+        ref = {inputRef}
         value={inputValue}
         onChange={handleInputChange}
         placeholder="메세지를 입력해주세요"

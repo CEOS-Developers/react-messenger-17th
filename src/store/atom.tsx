@@ -27,13 +27,3 @@ export const hideButtonState = atom<boolean>({
     key: 'hideButtonState',
     default: false,
 });
-
-export const prevTime = atom<string>({
-    key : 'prevTime',
-    default : '',
-});
-
-export const prevUser = atom<number>({
-    key : 'prevUser',
-    default : -1,
-})
