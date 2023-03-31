@@ -17,7 +17,15 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
       chatContent.current.scrollTop = chatContent.current.scrollHeight;
     }
   }
-  
+  const makeTime = (time : number) =>{
+    const newTime = new Date(time);
+    let hours = newTime.getHours();
+    let minutes = newTime.getMinutes();
+    let hourFormat = hours < 12 ? `오전 ${hours}` : `오후 ${hours-12}`;
+    let minFormat = minutes < 10 ? `0${minutes}` : minutes.toString();
+    const madeTime = hourFormat + ":" + minFormat;
+    return madeTime;
+  }
   useEffect(() => {
     scrollChat();
   },[roomLists]);
@@ -29,26 +37,15 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
   return (
     <ChatContentWrapper ref = {chatContent}>
       {chatList.map((item,index) => {
-        const time = new Date(item.id);
-        let hours = time.getHours();
-        let minutes = time.getMinutes();
-        let hourFormat = hours < 12 ? `오전 ${hours}` : `오후 ${hours-12}`;
-        let minFormat = minutes < 10 ? `0${minutes}` : minutes.toString();
-    
-        const madeTime = hourFormat + ":" + minFormat;
+        let time = makeTime(item.id);
         let showTime = true;
         if(chatList.length -1 !== index){
-          const nextTime = new Date(chatList[index+1].id);
-          let hours = nextTime.getHours();
-          let minutes = nextTime.getMinutes();
-          let hourFormat = hours < 12 ? `오전 ${hours}` : `오후 ${hours-12}`;
-          let minFormat = minutes < 10 ? `0${minutes}` : minutes.toString();
-          const nextMadeTime = hourFormat + ":" + minFormat;
-          if(chatList[index+1].userid === item.userid && nextMadeTime === madeTime){
+          let nextTime = makeTime(chatList[index+1].id);
+          if(chatList[index+1].userid === item.userid && time === nextTime){
             showTime = false;
           }    
         }
-        prevTimeValue.current = madeTime;
+        prevTimeValue.current = time;
         prevUserValue.current = item.userid;
       return (
         <ChatItem
@@ -56,7 +53,7 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
           id={item.id}
           userid={item.userid}
           message={item.message}
-          time = {showTime ? madeTime : ''}
+          time = {showTime ? time : ''}
           /> 
       );
     })}
