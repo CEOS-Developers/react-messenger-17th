@@ -3,11 +3,11 @@ import { ChatContentWrapper } from '../styles/style.chatcontent';
 import {roomList,userInfo} from '../store/atom';
 import ChatItem from './ChatItem';
 import {useRef,useEffect} from 'react';
-import {IChatRoom, IUser,IMessage} from '../store/interface';
-function ChatContent(): JSX.Element {
+import {IChatRoom, IUser,IMessage,IRoomId} from '../store/interface';
+function ChatContent({roomid} : IRoomId): JSX.Element {
   const roomLists = useRecoilValue<IChatRoom[]>(roomList);
   const currentUser = useRecoilValue<IUser>(userInfo);
-  const chatList : IMessage[] = roomLists[0].messages;
+  const chatList : IMessage[] = roomLists[roomid-1].messages;
   const chatContent = useRef<HTMLDivElement>(null);
   const prevTimeValue = useRef<String | null>(null);
   const prevUserValue = useRef<Number | null>(null);

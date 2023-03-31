@@ -6,8 +6,8 @@ function Main(): JSX.Element {
   return (
     <>
       <ChatHeader />
-      <ChatContent/>
-      <ChatInput/>
+      <ChatContent roomid = {1}/>
+      <ChatInput roomid = {1}/>
     </>
   )
 }

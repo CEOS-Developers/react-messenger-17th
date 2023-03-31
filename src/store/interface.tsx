@@ -25,3 +25,7 @@ export interface IMessage{
     userid : number;
     message : string;
 }
+
+export interface IRoomId{
+    roomid : number;
+}
