@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
   inputTextState,
   isTypingState,
