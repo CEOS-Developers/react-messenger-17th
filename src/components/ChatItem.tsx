@@ -1,11 +1,11 @@
-import {useRecoilState } from 'recoil';
+import {useRecoilState,useRecoilValue } from 'recoil';
 import {MyMessageWrapper,MyMessage,MySendTime, PartnerMessage,UserImage,MessageWrapper,UserName,UserInfoWrapper,UserMessage,SendTime } from '../styles/style.chatitem';
 import {userInfo,partnerInfo} from '../store/atom';
 import {IChat} from '../store/interface';
 
 function ChatItem({id,userid,message} : IChat) : JSX.Element {
-  const [currentUser] = useRecoilState(userInfo);
-  const [partnerUser] = useRecoilState(partnerInfo);
+  const currentUser = useRecoilValue(userInfo);
+  const partnerUser = useRecoilValue(partnerInfo);
   const time = new Date(id);
   const hours = time.getHours();
   const minutes = time.getMinutes();

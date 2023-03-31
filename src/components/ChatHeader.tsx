@@ -1,11 +1,11 @@
 import {IoChevronBackOutline, IoCloseOutline} from 'react-icons/io5';
 import {Header, BackButton, UserName, CloseButton} from '../styles/style.chatheader';
 import {showDivState, hideButtonState, userInfo, partnerInfo} from '../store/atom';
-import {useRecoilState } from 'recoil';
+import {useRecoilState ,useSetRecoilState} from 'recoil';
 
 function ChatHeader(): JSX.Element {
-  const [showDiv, setShowDiv] = useRecoilState(showDivState);
-  const [hideButton, setHideButton] = useRecoilState(hideButtonState);
+  const setShowDiv = useSetRecoilState(showDivState);
+  const setHideButton = useSetRecoilState(hideButtonState);
   const [currentUser, setCurrentUser] = useRecoilState(userInfo);
   const [partnerUser, setPartnerUser] = useRecoilState(partnerInfo);
   

@@ -1,4 +1,4 @@
-import {useRecoilState } from 'recoil';
+import {useRecoilState,useRecoilValue} from 'recoil';
 import {useState} from 'react';
 import {ChatInputWrapper, Input, SubmitButton} from '../styles/style.chatinput';
 import {FaTelegramPlane} from 'react-icons/fa';
@@ -6,7 +6,7 @@ import {IChatRoom} from '../store/interface';
 import {roomList,userInfo} from '../store/atom';
 
 function ChatInput() : JSX.Element {
-  const [currentUser] = useRecoilState(userInfo);
+  const currentUser = useRecoilValue(userInfo);
   const [roomLists, setRoomLists] = useRecoilState<IChatRoom[]>(roomList);
   const [inputValue, setInputValue] = useState("");
   const roomIndex = roomLists.findIndex((room) => room.roomid === 1);
