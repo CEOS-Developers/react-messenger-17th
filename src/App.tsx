@@ -1,7 +1,9 @@
+import ChatRoom from './ChatRoom';
+
 function App() {
   return (
     <div>
-      React Messanger
+      <ChatRoom />
     </div>
   );
 }
