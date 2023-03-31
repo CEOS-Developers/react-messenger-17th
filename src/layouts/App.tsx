@@ -1,7 +1,7 @@
 import React from 'react';
-import DirectMessage from '../pages/DirectMessage';
+import DirectMessage from 'src/pages/DirectMessage';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Channel from 'src/pages/Channel';
+
 //import loadable from '@loadable/component'; -> 왜인지 버전오류..
 import LogIn from 'src/pages/Login';
 import SignUp from 'src/pages/SignUp';
@@ -16,6 +16,8 @@ export default function App() {
       <Routes>
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
+
+        <Route path="/workspace/:workspace/dm/:id" element={<DirectMessage />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
         {/*매칭이 되지 않는 url 들어오면 루트경로로 Redirect*/}
