@@ -16,15 +16,22 @@ function ChatContent(): JSX.Element {
   
   useEffect(() => {
     scrollChat();
-  },[roomLists,currentUser]);
+  },[roomLists]);
+  
+  useEffect(() => {
+    scrollChat();
+  },[currentUser]);
   
   return (
     <ChatContentWrapper ref = {chatContent}>
       {chatList.map((item,index) => {
         const time = new Date(item.id);
-        const hours = time.getHours();
-        const minutes = time.getMinutes();
-        const madeTime = hours + ":" + minutes;
+        let hours = time.getHours();
+        let minutes = time.getMinutes();
+        let hourFormat = hours < 12 ? `오전 ${hours}` : `오후 ${hours-12}`;
+        let minFormat = minutes < 10 ? `0${minutes}` : minutes.toString();
+        
+        const madeTime = hourFormat + ":" + minFormat;
       return (
         <ChatItem
           key={item.id}
