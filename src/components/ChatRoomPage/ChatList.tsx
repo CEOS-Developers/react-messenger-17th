@@ -32,4 +32,12 @@ export default ChatList;
 const ChatListBox = styled.div`
   flex-basis: 80%;
   overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 0.32rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #b5b4b4;
+  }
 `;

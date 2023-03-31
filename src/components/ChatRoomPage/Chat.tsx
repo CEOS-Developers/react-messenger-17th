@@ -52,7 +52,8 @@ const UserImg = styled.img<{ isActive: boolean }>`
 const UserName = styled.div<{ isActive: boolean }>`
   display: flex;
   justify-content: flex-start;
-  font-weight: 500;
+  font-weight: bold;
+  font-family: 'IBMPlexSansKR-Regular';
 
   flex-direction: ${(props) => (props.isActive ? 'row-reverse' : 'row')};
   margin: ${(props) => (props.isActive ? ' 0 0.5rem 0 0' : '0 0 0 0.5rem')};
@@ -75,6 +76,7 @@ const ChatContent = styled.div<{ isActive: boolean }>`
   border: 1px solid #8b8989df;
   margin: 0.3rem 0.4rem;
   font-size: 0.88rem;
+  font-family: 'IBMPlexSansKR-Regular';
 
   border-radius: ${(props) =>
     props.isActive ? ' 1rem 0 1rem 1rem' : '0 1rem 1rem 1rem'};
@@ -86,4 +88,5 @@ const ChatTime = styled.div`
   padding-bottom: 0.4rem;
 
   font-size: 0.8rem;
+  font-family: 'IBMPlexSansKR-Regular';
 `;

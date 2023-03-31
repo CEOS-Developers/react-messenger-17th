@@ -39,7 +39,7 @@ const HeaderBox = styled.header`
   display: flex;
   align-items: center;
 
-  padding: 0.8rem;
+  padding: 1rem;
   padding-left: 0;
 `;
 
@@ -62,10 +62,12 @@ const UserImg = styled.img`
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  margin: 0 0.5rem;
+  margin: 0 0.7rem;
 `;
 
 const UserName = styled.div`
   font-size: 2.2rem;
   font-weight: bold;
+
+  font-family: 'IBMPlexSansKR-Regular';
 `;

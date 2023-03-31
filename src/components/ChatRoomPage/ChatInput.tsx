@@ -17,8 +17,8 @@ const ChatInput = () => {
   };
 
   const currentTime = () => {
-    let hours = new Date().getHours();
-    let minutes = new Date().getMinutes();
+    let hours = ('0' + new Date().getHours()).slice(-2);
+    let minutes = ('0' + new Date().getMinutes()).slice(-2);
 
     return hours + ':' + minutes;
   };
@@ -59,7 +59,7 @@ const SendForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 1rem;
+  padding: 1.2rem 1rem;
   background-color: white;
 
   border-radius: 0 0 2.3rem 2.3rem;
@@ -67,9 +67,11 @@ const SendForm = styled.form`
 
 const SendInput = styled.input`
   border: 1px solid rgb(179, 177, 177);
-  border-radius: 6px;
+  border-radius: 20px;
   width: 22rem;
   height: 2.5rem;
+  font-family: 'IBMPlexSansKR-Regular';
+
   &:focus {
     outline: none;
   }
