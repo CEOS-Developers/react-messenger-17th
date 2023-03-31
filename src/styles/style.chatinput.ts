@@ -11,6 +11,7 @@ export const Input = styled.input`
     border: none;
     font-size: 1.2rem;
     line-height: 1.5rem;
+    outline: none;
 `
 
 export const SubmitButton = styled.button`

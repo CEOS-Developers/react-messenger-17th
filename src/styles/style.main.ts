@@ -1,4 +1,19 @@
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
+
+function blinkingEffect() {
+    return keyframes`
+      50% {
+        opacity: 0;
+      }
+    `;
+}
+
+function fadeIn(){
+    return keyframes`
+    from { opacity: 0; }
+    to { opacity: 1; }
+    `;
+}
 
 export const Container = styled.div`
     display: flex;
@@ -11,9 +26,14 @@ export const ButtonWrapper = styled.div`
     flex-direction: column;
     align-items: center;
 `
+
+
 export const Title = styled.p`
-    font-size : 1rem;
-    margin-bottom : 8px;
+    font-size : 3rem;
+    margin-bottom : 15px;
+    animation: ${blinkingEffect} 1s step-end infinite;
+    user-select : none;
+    
 `
 
 export const ChatButton = styled.button`
@@ -34,7 +54,7 @@ export const ChatWrapper = styled.div`
     height: 600px;
     opacity: 0;
     display:flex;
-    visibility:hidden;
+    animation: fadeIn 0.5s ease-out;
     flex-direction : column;
     box-shadow: rgba(255, 255, 255, 0.12) 0px 0px 2px 0px inset, rgba(0, 0, 0, 0.05) 0px 0px 2px 1px, rgba(0, 0, 0, 0.3) 0px 12px 60px;
     background-color: rgba(247, 247, 248, 0.9);
@@ -42,7 +62,7 @@ export const ChatWrapper = styled.div`
     backdrop-filter: blur(60px);
     border-radius : 25px;
     &.show{
-        visibility:visible;
+        animation: ${fadeIn} 1s ease-out;
         opacity : 1;
     }
 `

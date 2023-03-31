@@ -20,7 +20,7 @@ function Main(): JSX.Element {
         <ButtonWrapper>
           {!hideButton &&
           <>
-            <Title>무엇을 도와드릴까요?</Title>
+            <Title>배성준의 고민상담소</Title>
             <ChatButton onClick={handleButtonClick}>
               <TbBrandHipchat size = "40"/>
             </ChatButton>

@@ -10,6 +10,8 @@ export const MySendTime = styled.span`
     margin-bottom : 20px;
     text-align : right;
     flex : 1;
+    white-space: nowrap;
+    user-select : none;
 `
 export const MyMessage = styled.div`
     display : flex;
@@ -62,4 +64,6 @@ export const SendTime = styled.span`
     font-size : 0.3rem;
     margin-top : auto;
     margin-left : 3px;
+    white-space: nowrap;
+    user-select : none;
 `
