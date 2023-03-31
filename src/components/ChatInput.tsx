@@ -12,6 +12,7 @@ function ChatInput() : JSX.Element {
     event.preventDefault();
     if(!inputValue.trim())
         return;
+        
     setInputValue("");
   };
   return (

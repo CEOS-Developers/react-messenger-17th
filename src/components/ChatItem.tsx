@@ -1,5 +1,5 @@
 import {useRecoilState } from 'recoil';
-import {MyMessage, PartnerMessage,UserImage,MessageWrapper,UserName,UserInfoWrapper,UserMessage,SendTime } from '../styles/style.chatitem';
+import {MyMessageWrapper,MyMessage,MySendTime, PartnerMessage,UserImage,MessageWrapper,UserName,UserInfoWrapper,UserMessage,SendTime } from '../styles/style.chatitem';
 import {userInfo,partnerInfo} from '../store/atom';
 import {IChat} from '../store/interface';
 
@@ -12,9 +12,14 @@ function ChatItem({id,userid,message} : IChat) : JSX.Element {
   return (
     <>
       {userid === currentUser.userid ? (
-        <MyMessage>
-          {message}
-        </MyMessage>
+        <MyMessageWrapper>
+          <MySendTime>
+            {hours}:{minutes}
+          </MySendTime>
+          <MyMessage>
+            {message}
+          </MyMessage>
+        </MyMessageWrapper>
       ) : (
         <PartnerMessage>
           <UserImage src = {`${process.env.PUBLIC_URL}/images/${userid}.jpg`} />
@@ -30,7 +35,6 @@ function ChatItem({id,userid,message} : IChat) : JSX.Element {
                 {hours}:{minutes}
               </SendTime>
             </UserInfoWrapper>
-            
           </MessageWrapper>
         </PartnerMessage>
       )}

@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const MyMessageWrapper = styled.div`
+    display : flex;
+`
+export const MySendTime = styled.span`
+    font-size : 0.3rem;
+    margin-top : auto;
+    margin-right : 3px;
+    margin-bottom : 20px;
+    text-align : right;
+    flex : 1;
+`
 export const MyMessage = styled.div`
     display : flex;
     margin-left : auto;
