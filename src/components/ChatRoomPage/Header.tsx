@@ -2,6 +2,7 @@ import React from 'react';
 import { useRecoilState } from 'recoil';
 import { currentUserState } from '../../state/atom';
 import userData from '../../db/userData.json';
+import styled from 'styled-components';
 
 const Header = () => {
   const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
@@ -15,18 +16,37 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <HeaderBox>
       <button>◀</button> {/* 채팅룸 나가기 버튼 */}
-      <button onClick={toggleUser}>
-        <img
+      <UserInfo onClick={toggleUser}>
+        <UserImg
           src={`${process.env.PUBLIC_URL}/Imgs/${currentUser.userImg}.jpg`}
           alt={currentUser.userName}
         />
-        {/* userImg */}
-        <span>{currentUser.userName}</span> {/* userName */}
-      </button>
-    </header>
+        <UserName>{currentUser.userName}</UserName>
+      </UserInfo>
+    </HeaderBox>
   );
 };
 
 export default Header;
+
+const HeaderBox = styled.header`
+  display: flex;
+  align-items: center;
+`;
+
+const UserInfo = styled.button`
+  display: flex;
+  align-items: center;
+`;
+
+const UserImg = styled.img`
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+`;
+
+const UserName = styled.div`
+  font-size: 2rem;
+`;

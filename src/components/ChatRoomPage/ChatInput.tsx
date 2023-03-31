@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { chatState, currentUserState } from '../../state/atom';
+import styled from 'styled-components';
 
 const ChatInput = () => {
   const [text, setText] = useState('');

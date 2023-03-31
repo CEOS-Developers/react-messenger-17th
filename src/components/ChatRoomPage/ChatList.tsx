@@ -2,6 +2,7 @@ import React from 'react';
 import Chat from './Chat';
 import { useRecoilValue } from 'recoil';
 import { chatState } from '../../state/atom';
+import styled from 'styled-components';
 
 const ChatList = () => {
   const chats = useRecoilValue(chatState);
