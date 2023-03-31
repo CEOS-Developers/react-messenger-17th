@@ -65,7 +65,7 @@ export const UserMessage = styled.div`
     line-height: 1.5rem;
     word-break : break-all;
     &.notShow{
-        line-height : 0rem;
+        line-height : 1rem;
     }
 `
 

@@ -22,13 +22,13 @@ function ChatItem({id,userid,message,time,user} : IChatProps) : JSX.Element {
           <UserImage 
             src = {`${process.env.PUBLIC_URL}/images/${userid}.jpg`} 
             className={`${user ? 'notShow' : ''}`}/>
-          <MessageWrapper>
+          <MessageWrapper className={`${user ? 'notShow' : ''}`}>
             <UserName className={`${user ? 'notShow' : ''}`}>   
               {partnerUser.username}
             </UserName>
             
-            <UserInfoWrapper>
-              <UserMessage>
+            <UserInfoWrapper >
+              <UserMessage className = {`${user ? 'notShow' : ''}`}>
                 {message}
               </UserMessage>
               <SendTime>
