@@ -46,7 +46,7 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
             showTime = false;
           }    
         }
-        if(prevUserValue.current === item.userid)
+        if(prevUserValue.current === item.userid && prevUserValue !== null)
             showUser = true;
         prevTimeValue.current = time;
         prevUserValue.current = item.userid;
