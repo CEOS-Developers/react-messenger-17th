@@ -1,4 +1,4 @@
-import {atom, useRecoilState } from 'recoil';
+import {useRecoilState } from 'recoil';
 import {ChatInputWrapper, Input, SubmitButton} from '../styles/style.chatinput';
 import {FaTelegramPlane} from 'react-icons/fa';
 function ChatInput() : JSX.Element {

@@ -1,4 +1,4 @@
-import {atom, useRecoilState } from 'recoil';
+import {useRecoilState } from 'recoil';
 import {MyMessage, PartnerMessage,UserImage,MessageWrapper,UserName,UserInfoWrapper,UserMessage,SendTime } from '../styles/style.chatitem';
 import {userInfo,partnerInfo} from '../store/atom';
 import {IChat} from '../store/interface';
@@ -6,7 +6,9 @@ import {IChat} from '../store/interface';
 function ChatItem({id,userid,message} : IChat) : JSX.Element {
   const [currentUser, setCurrentUser] = useRecoilState(userInfo);
   const [partnerUser, setPartnerUser] = useRecoilState(partnerInfo);
-  console.log(message);
+  const time = new Date(id);
+  const hours = time.getHours();
+  const minutes = time.getMinutes();
   return (
     <>
       {userid === currentUser.userid ? (
@@ -25,7 +27,7 @@ function ChatItem({id,userid,message} : IChat) : JSX.Element {
                 {message}
               </UserMessage>
               <SendTime>
-                {id}
+                {hours}:{minutes}
               </SendTime>
             </UserInfoWrapper>
             
