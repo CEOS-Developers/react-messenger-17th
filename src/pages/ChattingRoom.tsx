@@ -22,7 +22,7 @@ const ChattingRoom = () => {
 
   const currentUsers = useRecoilValue(currentUsersState);
   const [typingUser, setTypingUser] = useRecoilState(typingUserState);
-  const theOther = currentUsers.filter(
+  const nonTypingUser = currentUsers.filter(
     (user) => user.userId !== typingUser.userId
   )[0];
 
@@ -34,7 +34,6 @@ const ChattingRoom = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputText(e.target.value);
-    console.log(typingUser);
   };
 
   const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -66,11 +65,7 @@ const ChattingRoom = () => {
     <Wrapper>
       <Header>
         <SmallButton text={"<"} handleClick={() => console.log("hehe")} />
-        <Profile
-          currentUsers={currentUsers}
-          typingUser={typingUser}
-          setTypingUser={setTypingUser}
-        />
+        <Profile nonTypingUser={nonTypingUser} setTypingUser={setTypingUser} />
         <SmallButton text={"⋮"} handleClick={() => console.log("hehe")} />
       </Header>
 
@@ -88,8 +83,8 @@ const ChattingRoom = () => {
             return (
               <LeftChat
                 key={chat.chatId}
-                imgSrc={theOther.profileImage}
-                name={theOther.userName}
+                imgSrc={nonTypingUser.profileImage}
+                name={nonTypingUser.userName}
                 message={chat.message}
                 date={chat.date}
               />
