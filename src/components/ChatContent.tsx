@@ -1,4 +1,4 @@
-import {useRecoilState,useRecoilValue } from 'recoil';
+import {useRecoilValue } from 'recoil';
 import { ChatContentWrapper } from '../styles/style.chatcontent';
 import {roomList,userInfo} from '../store/atom';
 import ChatItem from './ChatItem';
@@ -37,7 +37,7 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
     
         const madeTime = hourFormat + ":" + minFormat;
         let showTime = true;
-        if(chatList.length -1 != index){
+        if(chatList.length -1 !== index){
           const nextTime = new Date(chatList[index+1].id);
           let hours = nextTime.getHours();
           let minutes = nextTime.getMinutes();
