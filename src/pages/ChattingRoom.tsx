@@ -1,18 +1,56 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import { inputTextState, isTypingState } from "../recoil/recoil";
+import { useState, useEffect, useRef } from "react";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { inputTextState, isTypingState, userState } from "../recoil/recoil";
 import styled from "styled-components";
 import SmallButton from "../components/SmallButton";
 import Profile from "../components/Profile";
 import LeftChat from "../components/LeftChat";
 import RightChat from "../components/RightChat";
+import { chatInterface } from "../json/interface";
+import chatsData from "../json/chatsData.json";
 
 const ChattingRoom = () => {
+  // const [chatList, setChatList] = useRecoilState(currentChatListState); // TODO - recoil 사용.
+  const [chatList, setChatList] = useState<chatInterface[]>(
+    chatsData.chattings[0].chatList
+  );
+
+  const me = useRecoilValue(userState); // 접속 user obj
+
   const [inputText, setInputText] = useRecoilState<string>(inputTextState);
   const isTyping = useRecoilValue<boolean>(isTypingState);
+
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const bottomDivRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputText(e.target.value);
   };
+
+  const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (!e.shiftKey && e.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
+  const handleSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
+    setChatList([
+      ...chatList,
+      {
+        userId: 0,
+        message: inputText,
+        date: String(new Date()),
+        chatId: `ex${chatList.length}`,
+      },
+    ]);
+    setInputText("");
+    textareaRef.current?.focus();
+  };
+
+  useEffect(() => {
+    bottomDivRef.current?.scrollIntoView(false);
+  }, [chatList]);
 
   return (
     <Wrapper>
@@ -28,23 +66,40 @@ const ChattingRoom = () => {
       </Header>
 
       <Main>
-        <LeftChat
-          imgSrc={
-            "https://imageirl.imageresizer.io/pRKCViJVl1-s895x715-q85.jpg"
+        {chatList.map((chat: chatInterface) => {
+          if (chat.userId === me.userId) {
+            return (
+              <RightChat
+                key={chat.chatId}
+                message={chat.message}
+                date={chat.date}
+              />
+            );
+          } else {
+            return (
+              <LeftChat
+                key={chat.chatId}
+                imgSrc={
+                  "https://imageirl.imageresizer.io/pRKCViJVl1-s895x715-q85.jpg"
+                }
+                name={"Phoebe 🐈"}
+                message={chat.message}
+                date={chat.date}
+              />
+            );
           }
-          name={"Phoebe 🐈"}
-          message={"smelly cat"}
-          time={new Date()}
-        />
-        <RightChat message={"smelly cat ~"} time={new Date()} />
+        })}
+        <div ref={bottomDivRef}></div>
       </Main>
 
-      <Form isTyping={isTyping}>
+      <Form isTyping={isTyping} onSubmit={handleSubmit}>
         <textarea
           value={inputText}
           onChange={handleInputChange}
+          onKeyUp={handleEnter}
           autoFocus
           spellCheck="false"
+          ref={textareaRef}
         ></textarea>
         <button>전송</button>
       </Form>
@@ -70,11 +125,6 @@ let Header = styled.header`
   display: flex;
   align-items: center;
 
-  // &:nth-child(2) {
-  //   width: calc(100% - 6rem);
-  //   padding: 0 0.5rem;
-  // }
-
   &:last-child {
     margin: 0 0 0 auto;
   }
@@ -83,10 +133,11 @@ let Header = styled.header`
 let Main = styled.main`
   width: calc(100% - 2rem);
   height: calc(100% - 2rem - 8rem);
-  padding: 0 1rem;
+  padding: 0.5rem 1rem 0 1rem;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     width: 0.3rem;
     height: 100%;

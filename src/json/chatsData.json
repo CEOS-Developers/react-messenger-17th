@@ -3,32 +3,36 @@
     {
       "chattingId": 0,
       "userIdList": [0, 10],
-      "chattingList": [
+      "chatList": [
         {
           "userId": 10,
           "message": "smelly cat",
-          "time": "Wed Mar 29 2023 16:37:45 GMT+0900 (한국 표준시)"
+          "date": "Wed Mar 29 2023 16:37:45 GMT+0900 (한국 표준시)",
+          "chatId": "ex0"
         },
         {
           "userId": 0,
           "message": "smelly cat ~",
-          "time": "Wed Mar 29 2023 16:38:45 GMT+0900 (한국 표준시)"
+          "date": "Wed Mar 29 2023 16:38:45 GMT+0900 (한국 표준시)",
+          "chatId": "ex1"
         }
       ]
     },
     {
       "chattingId": 1,
       "userIdList": [0, 11],
-      "chattingList": [
+      "chatList": [
         {
           "userId": 11,
           "message": "We were on a break!!!!",
-          "time": "Wed Mar 29 2023 16:37:45 GMT+0900 (한국 표준시)"
+          "date": "Wed Mar 29 2023 16:37:45 GMT+0900 (한국 표준시)",
+          "chatId": "ex2"
         },
         {
           "userId": 0,
           "message": "적당히 해라",
-          "time": "Wed Mar 29 2023 16:38:45 GMT+0900 (한국 표준시)"
+          "date": "Wed Mar 29 2023 16:38:45 GMT+0900 (한국 표준시)",
+          "chatId": "ex3"
         }
       ]
     }
