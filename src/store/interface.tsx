@@ -4,6 +4,9 @@ export interface IChat {
     message : string;
 }
 
+export interface IChatProps extends IChat{
+    time? : string | null;
+}
 export interface IChatRoom{
     roomid : number;
     userid : number;

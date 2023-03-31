@@ -1,20 +1,17 @@
-import {useRecoilState,useRecoilValue } from 'recoil';
+import {useRecoilValue } from 'recoil';
 import {MyMessageWrapper,MyMessage,MySendTime, PartnerMessage,UserImage,MessageWrapper,UserName,UserInfoWrapper,UserMessage,SendTime } from '../styles/style.chatitem';
 import {userInfo,partnerInfo} from '../store/atom';
-import {IChat} from '../store/interface';
+import {IChatProps} from '../store/interface';
 
-function ChatItem({id,userid,message} : IChat) : JSX.Element {
+function ChatItem({id,userid,message,time} : IChatProps) : JSX.Element {
   const currentUser = useRecoilValue(userInfo);
   const partnerUser = useRecoilValue(partnerInfo);
-  const time = new Date(id);
-  const hours = time.getHours();
-  const minutes = time.getMinutes();
   return (
     <>
       {userid === currentUser.userid ? (
         <MyMessageWrapper>
           <MySendTime>
-            {hours}:{minutes}
+          {time}
           </MySendTime>
           <MyMessage>
             {message}
@@ -32,7 +29,7 @@ function ChatItem({id,userid,message} : IChat) : JSX.Element {
                 {message}
               </UserMessage>
               <SendTime>
-                {hours}:{minutes}
+                {time}
               </SendTime>
             </UserInfoWrapper>
           </MessageWrapper>

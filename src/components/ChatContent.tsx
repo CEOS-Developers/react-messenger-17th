@@ -1,11 +1,11 @@
-import {useRecoilState } from 'recoil';
+import {useRecoilState,useRecoilValue } from 'recoil';
 import { ChatContentWrapper } from '../styles/style.chatcontent';
-import {roomList,userInfo} from '../store/atom';
+import {roomList,userInfo,prevTime,prevUser} from '../store/atom';
 import ChatItem from './ChatItem';
 import {useRef,useEffect} from 'react';
 function ChatContent(): JSX.Element {
-  const [roomLists] = useRecoilState(roomList);
-  const [currentUser] = useRecoilState(userInfo);
+  const roomLists = useRecoilValue(roomList);
+  const currentUser = useRecoilValue(userInfo);
   const chatList = roomLists[0].messages;
   const chatContent = useRef<HTMLDivElement>(null);
   
@@ -16,18 +16,27 @@ function ChatContent(): JSX.Element {
   
   useEffect(() => {
     scrollChat();
-  },[roomLists,currentUser])
+  },[roomLists,currentUser]);
+  
   return (
     <ChatContentWrapper ref = {chatContent}>
-      {chatList.map((item) => (
+      {chatList.map((item,index) => {
+        const time = new Date(item.id);
+        const hours = time.getHours();
+        const minutes = time.getMinutes();
+        const madeTime = hours + ":" + minutes;
+      return (
         <ChatItem
           key={item.id}
           id={item.id}
           userid={item.userid}
-          message={item.message}/>   
-      ))}
+          message={item.message}
+          time = {madeTime}
+          /> 
+      );
+    })}
     </ChatContentWrapper>
-  )
+  );
 }
 
 export default ChatContent;

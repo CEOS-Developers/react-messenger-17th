@@ -11,12 +11,12 @@ export const roomList = atom<IChatRoom[]>({
 export const userInfo = atom<IUser>({
     key: 'userInfo',
     default: user[0]
-})
+});
 
 export const partnerInfo = atom<IUser>({
     key: 'partnerInfo',
     default: user[1]
-})
+});
 
 export const showDivState = atom<boolean>({
     key: 'showDivState',
@@ -27,3 +27,13 @@ export const hideButtonState = atom<boolean>({
     key: 'hideButtonState',
     default: false,
 });
+
+export const prevTime = atom<string>({
+    key : 'prevTime',
+    default : '',
+});
+
+export const prevUser = atom<number>({
+    key : 'prevUser',
+    default : -1,
+})
