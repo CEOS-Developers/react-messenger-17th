@@ -1,23 +1,31 @@
 import useInput from '../../hooks/useInput';
 import { useNavigate } from 'react-router-dom';
 import { Button, Error, Form, Header, Input, Label, LinkContainer } from '../SignUp/style';
-import fetcher from '../../utils/fetcher';
 import React, { useCallback, useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import useSWR from 'swr';
-
+import { userState } from 'src/recoil/atom';
+import { useRecoilState } from 'recoil';
+import { IUser } from 'src/typings/db';
 const LogIn = () => {
   var navigate = useNavigate();
   //const { data: userData, error, mutate } = useSWR('/api/users', fetcher);
   const [logInError, setLogInError] = useState(false);
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
+  const [myData, setMyData] = useRecoilState<IUser>(userState); // 내정보 저장
+
   const onSubmit = useCallback(
     (e: any) => {
       e.preventDefault();
       setLogInError(false);
-      navigate('/workspace/sleact/channel/일반');
+      navigate('/workspace/CEOS/dm/4'); // TODO 채팅창 목록으로 보내기
       alert('로그인 성공!');
+      let newUser = {
+        id: 811,
+        nickname: email,
+        email: email,
+        /*Workspaces: IWorkspace[]; // TODO 자신이 속한 워크스페이스 목록 -> 4주차때 확장*/
+      };
+      setMyData(newUser);
     },
     [email, password],
   );

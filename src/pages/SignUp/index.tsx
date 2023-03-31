@@ -7,8 +7,8 @@ import { Navigate } from 'react-router-dom';
 import useSWR from 'swr';
 
 const SignUp = () => {
-  const { data: isLogin } = useSWR('/api/users', fetcher); // 주기적으로 로그인여부 확인
-
+  //const { data: isLogin } = useSWR('/api/users', fetcher); // 주기적으로 로그인여부 확인
+  // TODO 로그인 연동 구현하기
   const [signUpError, setSignUpError] = useState(false);
   const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [mismatchError, setMismatchError] = useState(false);
