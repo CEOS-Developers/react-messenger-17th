@@ -19,4 +19,5 @@ export const SubmitButton = styled.button`
     font-size: 1.2rem;
     cursor: pointer;
     border : none;
+    background-color:transparent;
 `

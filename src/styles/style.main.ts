@@ -29,7 +29,7 @@ export const ButtonWrapper = styled.div`
 
 
 export const Title = styled.p`
-    font-size : 3rem;
+    font-size : 4vh;
     margin-bottom : 15px;
     animation: ${blinkingEffect} 1s step-end infinite;
     user-select : none;
