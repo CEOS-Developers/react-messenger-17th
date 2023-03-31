@@ -12,6 +12,7 @@ export const Input = styled.input`
     font-size: 1.2rem;
     line-height: 1.5rem;
     outline: none;
+    background-color:transparent;
 `
 
 export const SubmitButton = styled.button`
