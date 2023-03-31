@@ -5,6 +5,7 @@ export const Header = styled.div`
     align-items : center;
     padding : 10px;
     background-color: rgba(239, 239, 240, 0.85);
+    margin-bottom: 5px;
 `
 
 export const BackButton = styled.div`
