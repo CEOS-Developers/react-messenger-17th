@@ -1,15 +1,25 @@
 import styled from "styled-components";
+import { userInterface } from "../json/interface";
 
 interface ProfileProps {
-  imageSrc: string;
-  name: string;
+  currentUsers: userInterface[];
+  typingUser: userInterface;
+  setTypingUser: (value: userInterface) => void;
 }
 
-const Profile = ({ imageSrc, name }: ProfileProps) => {
+const Profile = ({ currentUsers, typingUser, setTypingUser }: ProfileProps) => {
+  const theOther = currentUsers.filter(
+    (user) => user.userId !== typingUser.userId
+  )[0];
+
+  const toggleUser = () => {
+    setTypingUser(theOther);
+  };
+
   return (
     <Wrapper>
-      <img src={imageSrc} alt="profile"></img>
-      <span>{name}</span>
+      <img src={theOther.profileImage} alt="profile"></img>
+      <span onClick={toggleUser}>{theOther.userName}</span>
     </Wrapper>
   );
 };

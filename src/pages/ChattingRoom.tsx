@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { inputTextState, isTypingState, userState } from "../recoil/recoil";
+import {
+  inputTextState,
+  isTypingState,
+  typingUserState,
+  currentUsersState,
+} from "../recoil/recoil";
 import styled from "styled-components";
 import SmallButton from "../components/SmallButton";
 import Profile from "../components/Profile";
@@ -15,7 +20,11 @@ const ChattingRoom = () => {
     chatsData.chattings[0].chatList
   );
 
-  const me = useRecoilValue(userState); // 접속 user obj
+  const currentUsers = useRecoilValue(currentUsersState);
+  const [typingUser, setTypingUser] = useRecoilState(typingUserState);
+  const theOther = currentUsers.filter(
+    (user) => user.userId !== typingUser.userId
+  )[0];
 
   const [inputText, setInputText] = useRecoilState<string>(inputTextState);
   const isTyping = useRecoilValue<boolean>(isTypingState);
@@ -25,6 +34,7 @@ const ChattingRoom = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputText(e.target.value);
+    console.log(typingUser);
   };
 
   const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -38,7 +48,7 @@ const ChattingRoom = () => {
     setChatList([
       ...chatList,
       {
-        userId: 0,
+        userId: typingUser.userId,
         message: inputText,
         date: String(new Date()),
         chatId: `ex${chatList.length}`,
@@ -57,17 +67,16 @@ const ChattingRoom = () => {
       <Header>
         <SmallButton text={"<"} handleClick={() => console.log("hehe")} />
         <Profile
-          imageSrc={
-            "https://imageirl.imageresizer.io/pRKCViJVl1-s895x715-q85.jpg"
-          }
-          name="Phoebe 🐈"
+          currentUsers={currentUsers}
+          typingUser={typingUser}
+          setTypingUser={setTypingUser}
         />
         <SmallButton text={"⋮"} handleClick={() => console.log("hehe")} />
       </Header>
 
       <Main>
         {chatList.map((chat: chatInterface) => {
-          if (chat.userId === me.userId) {
+          if (chat.userId === typingUser.userId) {
             return (
               <RightChat
                 key={chat.chatId}
@@ -79,10 +88,8 @@ const ChattingRoom = () => {
             return (
               <LeftChat
                 key={chat.chatId}
-                imgSrc={
-                  "https://imageirl.imageresizer.io/pRKCViJVl1-s895x715-q85.jpg"
-                }
-                name={"Phoebe 🐈"}
+                imgSrc={theOther.profileImage}
+                name={theOther.userName}
                 message={chat.message}
                 date={chat.date}
               />
