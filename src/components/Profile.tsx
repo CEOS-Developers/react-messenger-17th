@@ -31,7 +31,7 @@ const Wrapper = styled.div`
     border: 0.5px solid rgba(0, 0, 0, 0.2);
     border-radius: 0.8rem;
     object-fit: cover;
-    cursor: pointer;
+    // cursor: pointer;
   }
 
   span {

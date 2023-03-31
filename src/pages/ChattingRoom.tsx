@@ -202,6 +202,7 @@ let Form = styled.form<{ isTyping?: boolean }>`
     color: ${(props) => (props.isTyping ? "black" : "var(--gray-font)")};
     background-color: ${(props) =>
       props.isTyping ? "var(--yellow-tag)" : "var(--light-gray-tag)"};
+    cursor: pointer;
   }
 `;
 
