@@ -1,21 +1,15 @@
-import {ChatHeader, BackButton, UserName, CloseButton} from '../styles/style.chat';
-import {atom, useRecoilState } from 'recoil';
-import {IoChevronBackOutline, IoCloseOutline} from 'react-icons/io5';
-
+import {useRecoilState } from 'recoil';
+import ChatHeader from './ChatHeader';
+import ChatContent from './ChatContent';
+import ChatInput from './ChatInput';
 function Main(): JSX.Element {
-//   const [showDiv, setShowDiv] = useRecoilState(showDivState);
-
-  const handleCloseClick = () => {
-    // setShowDiv({ showDiv: false });
-  };
+    
+    
   return (
     <>
-      <ChatHeader>
-        <BackButton><IoChevronBackOutline size = "30"/></BackButton>
-        <UserName>상담원1</UserName>
-        <CloseButton onClick={handleCloseClick}><IoCloseOutline size="30"/></CloseButton>
-      </ChatHeader>
-
+      <ChatHeader />
+      <ChatContent/>
+      <ChatInput/>
     </>
   )
 }
