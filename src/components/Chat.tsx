@@ -4,7 +4,6 @@ import ChatContent from './ChatContent';
 import ChatInput from './ChatInput';
 function Main(): JSX.Element {
     
-    
   return (
     <>
       <ChatHeader />
