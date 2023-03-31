@@ -48,11 +48,13 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  font-family: 'GmarketSansMedium';
 `;
 const ChatWrapper = styled.div`
   display: flex;
   align-items: flex-end;
   gap: 5px;
+  font-family: 'GmarketSansMedium';
 `;
 const ChatBalloon = styled.div`
   background-color: ${({ isCurUser }: { isCurUser: boolean }) =>

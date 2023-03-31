@@ -1,28 +1,38 @@
 
 import { createGlobalStyle } from "styled-components";
-import { Route, Routes } from "react-router-dom";
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ChatroomPage from "./pages/ChatroomPage";
-import Chatroom from "./pages/Chatroom";
+import Chatroom from "./pages/ChatRoom";
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Routes>
-        {/* <Route element={<Layout />}> */}
-          {/* <Route path="/" element={<FriendPage />} /> */}
-          <Route path="/chatrooms" element={<ChatroomPage />} />
-          {/* <Route path="/setting" element={<SettingPage />} /> */}
-        {/* </Route> */}
-        <Route path="/chatrooms/:id" element={<Chatroom />} />
-      </Routes>
+      <BrowserRouter>
+        <Routes>
+          {/* <Route element={<Layout />}> */}
+            {/* <Route path="/" element={<FriendPage />} /> */}
+            <Route path="/chatrooms" element={<ChatroomPage />} />
+            {/* <Route path="/setting" element={<SettingPage />} /> */}
+          {/* </Route> */}
+          <Route path="/chatrooms/:id" element={<Chatroom />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
 
 const GlobalStyle = createGlobalStyle`
-html{
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  font-family: 'GmartketSansMedium';
   display: flex;
   justify-content: center;
   align-items: center;

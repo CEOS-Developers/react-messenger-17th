@@ -27,9 +27,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding: 5px;
-  background-color: white;
+  background-color: lightblue;
   height: 15%;
   box-sizing: border-box;
+  border-radius: 1rem 1rem 0rem 0rem;
 `;
 
 export default UsersList;

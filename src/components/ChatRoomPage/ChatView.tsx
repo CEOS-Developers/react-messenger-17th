@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   gap: 20px;
   height: 65%;
   overflow: auto;
-  background-color: skyblue;
+  background-color: lightyellow;
 `;
 
 export default ChatView;

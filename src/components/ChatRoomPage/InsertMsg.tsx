@@ -46,23 +46,27 @@ const InsertMsg = ({ onConcat }: InsertMsgProps) => {
 
 const Wrapper = styled.form`
   display: flex;
-  height: 15%;
+  height: 18%;
   padding: 10px;
   box-sizing: border-box;
   width: 100%;
-  background-color: white;
+  background-color: lightblue;
+  border-radius: 0rem 0rem 1rem 1rem;
+
 `;
 const InputField = styled.textarea`
   flex: 1;
   border: none;
   padding: 10px;
   word-break: break-all;
+  font-family: 'GmarketSansMedium';
 `;
 const SendButton = styled.button`
   width: 80px;
-  background-color: yellow;
+  background-color: lightyellow;
   border: none;
-  border-radius: 5px;
+  border-radius: 0rem 1rem 1rem 0rem;
+  font-family: 'GmarketSansMedium';
 `;
 
 export default InsertMsg;

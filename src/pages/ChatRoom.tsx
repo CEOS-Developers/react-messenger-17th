@@ -46,7 +46,7 @@ function Chatroom() {
 
   return (
     <Wrapper>
-      <button onClick={() => navigate(-1)} />
+      {/* <button onClick={() => navigate(-1)} /> */}
       <UsersList curUser={curUser} users={roomMembers} changeUser={changeUser} />
       <ChatView curUser={curUser} users={users} chats={chats} />
       <InsertMsg onConcat={onConcat} />
@@ -59,7 +59,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 350px;
   height: 95vh;
-  border: 1px solid lightgray;
+  box-shadow: 1px 1px 2px 2px lightgrey;
   border-radius: 20px;
 `;
 

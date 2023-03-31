@@ -5,8 +5,8 @@
             "users": [0,1],
             "chats":
                 [
-                    { "id": 0, "senderId": 0, "text": "오늘 너무 행복하지 않니", "date": "Sat Mar 26 2023 02:49:31 GMT+0900" },
-                    { "id": 1, "senderId": 0, "text": "", "date": "Sat Mar 26 2023 02:49:31 GMT+0900" }
+                    { "id": 0, "senderId": 1, "text": "오늘 너무 행복하지 않니", "date": "Sat Mar 26 2023 02:49:31 GMT+0900" },
+                    { "id": 1, "senderId": 0, "text": "엥", "date": "Sat Mar 26 2023 02:49:31 GMT+0900" }
                 ]
         }
     ]
