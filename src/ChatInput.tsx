@@ -48,7 +48,7 @@ function ChatInput({ addChat }: ChatInputProps) {
   );
 
   const onSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
-    if (value.trim() === '') {
+    if (value.trim().length === 0) {
       return;
     }
     e?.preventDefault();
