@@ -6,6 +6,8 @@ import React, { FC, useMemo, memo } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import regexifyString from 'regexify-string';
+import { useRecoilState } from 'recoil';
+import { userState } from '../../recoil/atom';
 
 interface Props {
   data: IDM | IChat;
@@ -14,13 +16,14 @@ interface Props {
 const Chat: FC<Props> = memo(({ data }) => {
   const { workspace } = useParams<{ workspace: string; channel: string }>();
   const user: IUser = 'Sender' in data ? data.Sender : data.User;
-
+  const [myData, setMyData] = useRecoilState<IUser>(userState);
   const result = useMemo<(string | JSX.Element)[] | JSX.Element>(
     () =>
       data.content.startsWith('uploads\\') || data.content.startsWith('uploads/') ? (
         <img src={gravatar.url('test', { s: '24px', d: 'retro' })} style={{ maxHeight: 200 }} />
       ) : (
         regexifyString({
+          //TODO 언급 기능 구현완료하기
           pattern: /@\[(.+?)]\((\d+?)\)|\n/g,
           decorator(match, index) {
             const arr: string[] | null = match.match(/@\[(.+?)]\((\d+?)\)/)!;
@@ -41,6 +44,8 @@ const Chat: FC<Props> = memo(({ data }) => {
 
   return (
     <ChatWrapper>
+      {user.id === myData.id && <div style={{ width: '80%' }} />}
+
       <div className="chat-img">
         <img src={gravatar.url(user.email, { s: '36px', d: 'retro' })} alt={user.nickname} />
       </div>

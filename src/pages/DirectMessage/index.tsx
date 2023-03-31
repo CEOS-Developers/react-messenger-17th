@@ -13,7 +13,7 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
 import chatDataJson from '../../db/chatData.json';
-import userData from '../../db/userData.json';
+import userDataJson from '../../db/userData.json';
 import { useRecoilState } from 'recoil';
 import { userState } from '../../recoil/atom';
 
@@ -25,7 +25,7 @@ const DirectMessage = () => {
   const scrollbarRef = useRef<Scrollbars>(null);
   const [dragOver, setDragOver] = useState(false);
   const [myData, setMyData] = useRecoilState<IUser>(userState);
-
+  const [userData, setUserData] = useState<IUser>(userDataJson); //대화 상대
   const isEmpty = chatData.length === 0;
 
   const onSubmitForm = useCallback(
@@ -70,10 +70,21 @@ const DirectMessage = () => {
 
   const chatSections = makeSection(chatData ? ([] as IDM[]).concat(...chatData).reverse() : []);
 
+  const onChangeUser = () => {
+    alert('change user');
+    var savedMyData = myData;
+    setMyData(userData);
+    setUserData(savedMyData);
+  };
   return (
     <Container onDragOver={onDragOver}>
       <Header>
-        <img src={gravatar.url(userData.email, { s: '24px', d: 'retro' })} alt={userData.nickname} />
+        <img
+          onClick={onChangeUser}
+          style={{ cursor: 'pointer' }}
+          src={gravatar.url(userData.email, { s: '24px', d: 'retro' })}
+          alt={userData.nickname}
+        />
         <span>{userData.nickname}</span>
       </Header>
       <ChatList scrollbarRef={scrollbarRef} isEmpty={isEmpty} chatSections={chatSections} />

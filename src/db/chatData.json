@@ -1,23 +1,6 @@
 [
   {
     "id": 1234,
-    "SenderId": 811,
-    "Sender": {
-      "id": 811,
-      "nickname": "flowersayo",
-      "email": "flowersayo@gmail.com"
-    },
-    "ReceiverId": 924,
-    "Receiver": {
-      "id": 924,
-      "nickname": "세오스",
-      "email": "ceos@gmail.com"
-    },
-    "content": "안녕~! ",
-    "createdAt": "2021-03-21"
-  },
-  {
-    "id": 1234,
     "SenderId": 924,
     "Sender": {
       "id": 924,

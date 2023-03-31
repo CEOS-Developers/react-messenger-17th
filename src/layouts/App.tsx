@@ -19,7 +19,7 @@ export default function App() {
 
         <Route path="/workspace/:workspace/dm/:id" element={<DirectMessage />} />
 
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
         {/*매칭이 되지 않는 url 들어오면 루트경로로 Redirect*/}
       </Routes>
     </RecoilRoot>

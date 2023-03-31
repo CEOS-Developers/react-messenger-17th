@@ -11,7 +11,6 @@ interface Props {
   chatSections: { [key: string]: (IDM | IChat)[] };
 }
 const ChatList: FC<Props> = ({ scrollbarRef, isReachingEnd, isEmpty, chatSections }) => {
-  console.log(chatSections);
   const onScroll = useCallback(
     (values: any) => {
       if (values.scrollTop === 0 && !isReachingEnd && !isEmpty) {

@@ -8,7 +8,7 @@ export interface IUser {
 export interface IUserWithOnline extends IUser {
   online: boolean;
 }
-
+// TODO 4주차때 이어서 구현하기 -> 채널, 채팅
 export interface IChannel {
   id: number;
   name: string;
