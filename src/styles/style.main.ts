@@ -33,6 +33,7 @@ export const Title = styled.p`
     margin-bottom : 15px;
     animation: ${blinkingEffect} 1s step-end infinite;
     user-select : none;
+    text-align : center;
     
 `
 
