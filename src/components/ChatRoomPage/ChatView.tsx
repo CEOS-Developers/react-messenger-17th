@@ -37,6 +37,14 @@ const Wrapper = styled.div`
   height: 65%;
   overflow: auto;
   background-color: lightyellow;
+  &::-webkit-scrollbar{
+    width : 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 30%;
+    background-color: rgb(200, 240, 250);
+    border-radius: 8px;
+  }
 `;
 
 export default ChatView;

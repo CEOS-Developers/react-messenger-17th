@@ -61,6 +61,14 @@ const Wrapper = styled.div`
   height: 95vh;
   box-shadow: 1px 1px 2px 2px lightgrey;
   border-radius: 20px;
+  &::-webkit-scrollbar{
+        width : 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        height: 30%;
+        background-color: rgb(137 130 211);
+        border-radius: 10px;
+    }
 `;
 
 export default Chatroom;

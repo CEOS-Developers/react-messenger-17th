@@ -55,6 +55,7 @@ const ChatWrapper = styled.div`
   align-items: flex-end;
   gap: 5px;
   font-family: 'GmarketSansMedium';
+
 `;
 const ChatBalloon = styled.div`
   background-color: ${({ isCurUser }: { isCurUser: boolean }) =>
@@ -62,6 +63,7 @@ const ChatBalloon = styled.div`
   padding: 10px;
   border-radius: 5px;
   word-break: break-all;
+  
 `;
 
 export default ChatItem;
