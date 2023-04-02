@@ -83,27 +83,23 @@ const ChattingRoom = () => {
       </Header>
 
       <Main>
-        {chatList.map((chat: chatInterface) => {
-          if (chat.userId === typingUser.userId) {
-            return (
-              <RightChat
-                key={chat.chatId}
-                message={chat.message}
-                date={chat.date}
-              />
-            );
-          } else {
-            return (
-              <LeftChat
-                key={chat.chatId}
-                imgSrc={nonTypingUser.profileImage}
-                name={nonTypingUser.userName}
-                message={chat.message}
-                date={chat.date}
-              />
-            );
-          }
-        })}
+        {chatList.map((chat: chatInterface) =>
+          chat.userId === typingUser.userId ? (
+            <RightChat
+              key={chat.chatId}
+              message={chat.message}
+              date={chat.date}
+            />
+          ) : (
+            <LeftChat
+              key={chat.chatId}
+              imgSrc={nonTypingUser.profileImage}
+              name={nonTypingUser.userName}
+              message={chat.message}
+              date={chat.date}
+            />
+          )
+        )}
         <div ref={bottomDivRef}></div>
       </Main>
 
