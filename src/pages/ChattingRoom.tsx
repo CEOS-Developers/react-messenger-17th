@@ -45,17 +45,22 @@ const ChattingRoom = () => {
 
   const handleSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
     e?.preventDefault();
-    setChatList([
-      ...chatList,
-      {
-        userId: typingUser.userId,
-        message: inputText,
-        date: String(new Date()),
-        chatId: `ex${chatList.length}`,
-      },
-    ]);
-    setInputText("");
-    textareaRef.current?.focus();
+    if (inputText.trim()) {
+      setChatList([
+        ...chatList,
+        {
+          userId: typingUser.userId,
+          message: inputText,
+          date: String(new Date()),
+          chatId: `ex${chatList.length}`,
+        },
+      ]);
+      setInputText("");
+      textareaRef.current?.focus();
+    } else {
+      setInputText("");
+      alert("메세지를 입력해주세요 :)");
+    }
   };
 
   const hadleNotyetClick = () => {
