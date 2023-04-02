@@ -68,7 +68,7 @@ const ChattingRoom = () => {
 
   useEffect(() => {
     bottomDivRef.current?.scrollIntoView(false);
-  }, [chatList]);
+  }, [chatList, typingUser]);
 
   useEffect(() => {
     setTimeout(() => setIsVisibleAlert(false), 3000);
