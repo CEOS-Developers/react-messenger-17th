@@ -46,7 +46,7 @@ const Chat = styled.span`
   align-items: center;
   position: relative;
   word-break: break-all;
-  white-space: pre;
+  white-space: pre-wrap;
 
   &::after {
     content: "";

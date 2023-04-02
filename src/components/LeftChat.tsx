@@ -71,7 +71,7 @@ const Chat = styled.span`
   box-shadow: 0 1px 5px rgba(0, 0, 0, 10%);
   position: relative;
   word-break: break-all;
-  white-space: pre;
+  white-space: pre-wrap;
 
   &::before {
     content: "";
