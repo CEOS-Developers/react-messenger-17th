@@ -1,22 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import {
-  currentUsersState,
-  typingUserState,
-  // currentChatListState,
-} from "../recoil/recoil";
+import { currentUsersState } from "../recoil/recoil";
 import styled from "styled-components";
+import { chatInterface, userInterface } from "../interfaces/interface";
+import usersData from "../json/usersData.json";
+import chatsData from "../json/chatsData.json";
+import Alert from "../components/Alert";
 import SmallButton from "../components/SmallButton";
 import Profile from "../components/Profile";
 import LeftChat from "../components/LeftChat";
 import RightChat from "../components/RightChat";
-import { chatInterface } from "../interfaces/interface";
-import chatsData from "../json/chatsData.json";
-import Alert from "../components/Alert";
 
 const ChattingRoom = () => {
-  const currentUsers = useRecoilValue(currentUsersState);
-  const [typingUser, setTypingUser] = useRecoilState(typingUserState);
+  const currentUsers = useRecoilValue<userInterface[]>(currentUsersState);
+  const [typingUser, setTypingUser] = useState<userInterface>(
+    usersData.users[0]
+  );
   const nonTypingUser = currentUsers.filter(
     (user) => user.userId !== typingUser.userId
   )[0];
@@ -37,7 +36,7 @@ const ChattingRoom = () => {
     setInputText(e.target.value);
   };
 
-  const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleEnterKeyUp = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (!e.shiftKey && e.key === "Enter") {
       handleSubmit();
     }
@@ -112,7 +111,7 @@ const ChattingRoom = () => {
         <textarea
           value={inputText}
           onChange={handleInputChange}
-          onKeyUp={handleEnter}
+          onKeyUp={handleEnterKeyUp}
           autoFocus
           spellCheck="false"
           ref={textareaRef}
