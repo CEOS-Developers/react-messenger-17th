@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   justify-content: flex-end;
 `;
 
-let Time = styled.span`
+const Time = styled.span`
   width: 5rem;
   display: flex;
   justify-content: flex-end;

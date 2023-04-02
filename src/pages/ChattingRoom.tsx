@@ -123,7 +123,7 @@ const ChattingRoom = () => {
   );
 };
 
-let Wrapper = styled.div`
+const Wrapper = styled.div`
   width: 20rem;
   height: 35rem;
   display: flex;
@@ -136,7 +136,7 @@ let Wrapper = styled.div`
   position: relative;
 `;
 
-let Header = styled.header`
+const Header = styled.header`
   width: calc(100% - 2rem);
   height: 2rem;
   padding: 1rem;
@@ -148,7 +148,7 @@ let Header = styled.header`
   }
 `;
 
-let Main = styled.main`
+const Main = styled.main`
   width: calc(100% - 2rem);
   height: calc(100% - 2rem - 8rem);
   padding: 0.5rem 1rem 0 1rem;
@@ -166,7 +166,7 @@ let Main = styled.main`
   }
 `;
 
-let Form = styled.form<{ isTyping?: boolean }>`
+const Form = styled.form<{ isTyping?: boolean }>`
   width: calc(100% - 2rem);
   height: 4rem;
   padding: 1rem;

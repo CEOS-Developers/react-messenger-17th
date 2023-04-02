@@ -86,7 +86,7 @@ const Chat = styled.span`
   }
 `;
 
-let Time = styled.span`
+const Time = styled.span`
   width: 5rem;
   display: flex;
   align-items: flex-end;

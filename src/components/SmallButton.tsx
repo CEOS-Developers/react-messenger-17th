@@ -9,7 +9,7 @@ const SmallButton = ({ text, handleClick }: SmallButtonProps) => {
   return <Button onClick={handleClick}>{text}</Button>;
 };
 
-let Button = styled.button`
+const Button = styled.button`
   width: 2rem;
   height: 2rem;
   background-color: transparent;
