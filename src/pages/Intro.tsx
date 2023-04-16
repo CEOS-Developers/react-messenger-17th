@@ -7,7 +7,7 @@ const Intro = () => {
   const latestPage = localStorage.getItem(PAGEKEY) || "friends";
 
   useEffect(() => {
-    localStorage.removeItem(SPLASHKEY);
+    localStorage.setItem(SPLASHKEY, "true");
     navigate(`${latestPage}/`);
   });
 
