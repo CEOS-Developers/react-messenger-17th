@@ -4,20 +4,21 @@ import { useRecoilValue } from "recoil";
 import { currentChattingId } from "../recoil/recoil";
 import styled from "styled-components";
 
-const Splash = () => {
-  const navigate = useNavigate();
-  const navChattingId = useRecoilValue(currentChattingId);
+const Intro = () => {
+  // const navigate = useNavigate();
+  // const navChattingId = useRecoilValue(currentChattingId);
 
-  useEffect(() => {
-    setTimeout(() => {
-      navigate(`chattings/${navChattingId}`);
-    }, 3000);
-  });
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigate(`chattings/chatting/${navChattingId}`);
+  //   }, 3000);
+  // });
 
   return (
-    <Wrapper>
-      <div>Friends Talk</div>
-    </Wrapper>
+    <div>Intro</div>
+    // <Wrapper>
+    //   <div>Friends Talk</div>
+    // </Wrapper>
   );
 };
 
@@ -55,4 +56,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default Splash;
+export default Intro;

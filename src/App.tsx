@@ -1,7 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RecoilRoot } from "recoil";
+import Intro from "./pages/Intro";
+import FriendsPage from "./pages/FriendsPage";
+import ChattingsPage from "./pages/ChattingsPage";
 import ChattingRoom from "./pages/ChattingRoom";
-import Splash from "./pages/Splash";
+import SettingPage from "./pages/SettingPage";
 // import createGlobalStyle from "styled-components";
 
 function App() {
@@ -9,11 +12,14 @@ function App() {
     <RecoilRoot>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Splash />}></Route>
+          <Route path="/" element={<Intro />}></Route>
+          <Route path="/friends" element={<FriendsPage />}></Route>
+          <Route path="/chattings/" element={<ChattingsPage />}></Route>
           <Route
-            path="/chattings/:chattingId"
+            path="/chattings/chatting/:chattingId"
             element={<ChattingRoom />}
           ></Route>
+          <Route path="/setting" element={<SettingPage />}></Route>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>
