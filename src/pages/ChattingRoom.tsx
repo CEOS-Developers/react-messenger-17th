@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentUsersState } from "../recoil/recoil";
-import styled from "styled-components";
 import { chatInterface, userInterface } from "../interfaces/interface";
 import usersData from "../json/usersData.json";
 import chatsData from "../json/chatsData.json";
@@ -10,6 +9,8 @@ import SmallButton from "../components/SmallButton";
 import Profile from "../components/Profile";
 import LeftChat from "../components/LeftChat";
 import RightChat from "../components/RightChat";
+import styled from "styled-components";
+import { PageWrapStyled } from "../components/styled/PageWrapStyled";
 
 const ChattingRoom = () => {
   const currentUsers = useRecoilValue<userInterface[]>(currentUsersState);
@@ -119,17 +120,11 @@ const ChattingRoom = () => {
   );
 };
 
-const Wrapper = styled.div`
-  width: 20rem;
-  height: 35rem;
+const Wrapper = styled(PageWrapStyled)`
   display: flex;
   flex-direction: column;
-  border-radius: 0.5rem;
   color: var(--dark-gray-tag);
   background-color: var(--light-blue-tag);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 20%);
-
-  position: relative;
 `;
 
 const Header = styled.header`
