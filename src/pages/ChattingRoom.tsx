@@ -174,6 +174,7 @@ const Form = styled.form<{ isTyping?: boolean }>`
     font-family: "Pretendard-Regular";
     border: none;
     resize: none;
+    overflow-y: scroll;
 
     &:focus {
       outline: none;
