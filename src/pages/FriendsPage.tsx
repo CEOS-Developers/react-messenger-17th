@@ -5,6 +5,7 @@ import Navigation from "../components/Navigation";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
+import { PageMainStyled } from "../components/styled/PageMainStyled";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
 
@@ -17,7 +18,9 @@ const FriendsPage = () => {
 
       <Navigation menu={"friends"} />
 
-      <div>FriendsPage</div>
+      <PageMainStyled>
+        <div>FriendsPage</div>
+      </PageMainStyled>
     </PageWrapStyled>
   );
 };

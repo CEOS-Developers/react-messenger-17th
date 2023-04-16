@@ -5,6 +5,7 @@ export const PageWrapStyled = styled.div`
 
   width: 20rem;
   height: 35rem;
+  display: flex;
   border-radius: 0.5rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 20%);
 `;

@@ -121,7 +121,6 @@ const ChattingRoom = () => {
 };
 
 const Wrapper = styled(PageWrapStyled)`
-  display: flex;
   flex-direction: column;
   color: var(--dark-gray-tag);
   background-color: var(--light-blue-tag);

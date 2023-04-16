@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 // components
 import Splash from "../components/Splash";
 import Navigation from "../components/Navigation";
@@ -8,6 +7,7 @@ import { Email } from "../components/icons/Email";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
+import { PageMainStyled } from "../components/styled/PageMainStyled";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
 
@@ -20,7 +20,7 @@ const SettingPage = () => {
 
       <Navigation menu={"setting"} />
 
-      <PageMainStyled>
+      <Main>
         <Menu href="https://github.com/Gaeun-Kwon">
           <Github width={40} height={40} />
           <span>깃허브</span>
@@ -33,18 +33,13 @@ const SettingPage = () => {
           <Playlist width={40} height={40} />
           <span>플레이리스트</span>
         </Menu>
-      </PageMainStyled>
+      </Main>
     </PageWrapStyled>
   );
 };
 
-const PageMainStyled = styled.div`
-  width: calc(100% - 4rem);
-  height: 100%;
-  display: flex;
+const Main = styled(PageMainStyled)`
   flex-direction: column;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
 `;
 
 const Menu = styled.a.attrs({ target: "_blank" })`
