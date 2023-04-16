@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { SPLASHKEY } from "../constants/LOCAL_KEY";
+import imgUrl from "../assets/splash.jpg";
 
 const Splash = () => {
   const [isSplash, setIsSplash] = useState<boolean>(
@@ -16,38 +17,15 @@ const Splash = () => {
     }
   });
 
-  return (
-    <>
-      {isSplash && (
-        <Wrapper>
-          <div>Friends Talk</div>
-        </Wrapper>
-      )}
-    </>
-  );
+  return <>{isSplash && <Wrapper src={imgUrl}></Wrapper>}</>;
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.img`
   position: absolute;
-
   width: 100%;
   height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   border-radius: 0.5rem;
-  background-color: var(--yellow-tag);
   animation: splashAnimation 3s forwards;
-
-  div {
-    padding-bottom: 5rem;
-    color: var(--brown-tag);
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.05rem;
-  }
 
   @keyframes splashAnimation {
     0% {
