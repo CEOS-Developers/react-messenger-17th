@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 // components
 import Splash from "../components/Splash";
 import Navigation from "../components/Navigation";
+import ProfileCard from "../components/ProfileCard";
 import { Search } from "../components/icons/Search";
 import { Close } from "../components/icons/Close";
 import { DownArrow } from "../components/icons/DownArrow";
@@ -18,6 +19,14 @@ const FriendsPage = () => {
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [isFriendsOpen, setIsFriendsOpen] = useState<boolean>(true);
   const [inputText, setInputText] = useState<string>("");
+
+  const tempData = {
+    userId: 10,
+    userName: "Phoebe 🎤",
+    profileImage:
+      "https://imageirl.imageresizer.io/pRKCViJVl1-s895x715-q85.jpg",
+    statusMessage: "smelly cat",
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
@@ -55,7 +64,7 @@ const FriendsPage = () => {
         </Header>
 
         <Body>
-          <div>내 프로필 컴포넌트</div>
+          <ProfileCard userInfo={tempData} />
 
           <Hr></Hr>
 
@@ -81,7 +90,6 @@ const FriendsPage = () => {
 const Main = styled(PageMainStyled)`
   width: 100%;
   height: calc(100% - 2rem);
-  // margin: 1rem;
   flex-direction: column;
 `;
 
