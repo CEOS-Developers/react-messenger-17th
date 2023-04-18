@@ -8,7 +8,7 @@
     },
     {
       "userId": 10,
-      "userName": "Phoebe 🐈",
+      "userName": "Phoebe 🎤",
       "profileImage": "https://imageirl.imageresizer.io/pRKCViJVl1-s895x715-q85.jpg",
       "statusMessage": "smelly cat"
     },
@@ -28,11 +28,11 @@
       "userId": 13,
       "userName": "Joey 🥪",
       "profileImage": "https://pbs.twimg.com/media/FiafAChUAAABfuT.jpg",
-      "statusMessage": "How you doin"
+      "statusMessage": "How you doin'"
     },
     {
       "userId": 14,
-      "userName": "Rachel 🍣",
+      "userName": "Rachel 👗",
       "profileImage": "https://images.entertainment.ie/uploads/2021/05/26145602/Rachel-Green-Friends-Jennifer-Aniston-2.jpg?w=1280&h=768&q=high",
       "statusMessage": "salmon skin roll"
     },
@@ -40,7 +40,7 @@
       "userId": 15,
       "userName": "Chandler 💻",
       "profileImage": "https://i.pinimg.com/736x/6c/c2/50/6cc250432833c9a1a26f4a40da6038fd.jpg",
-      "statusMessage": "could i BE"
+      "statusMessage": "could i BE wearing any more clothes?"
     }
   ]
 }

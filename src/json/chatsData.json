@@ -7,14 +7,16 @@
         {
           "userId": 10,
           "message": "smelly cat",
-          "date": "Fri Mar 31 2023 16:37:45 GMT+0900 (한국 표준시)",
-          "chatId": "ex0"
+          "date": "Thu Mar 30 2023 16:37:45 GMT+0900 (한국 표준시)",
+          "chatId": "ex0",
+          "liked": false
         },
         {
           "userId": 0,
           "message": "smelly cat ~",
-          "date": "Fri Mar 31 2023 16:38:45 GMT+0900 (한국 표준시)",
-          "chatId": "ex1"
+          "date": "Thu Mar 30 2023 16:38:45 GMT+0900 (한국 표준시)",
+          "chatId": "ex1",
+          "liked": false
         }
       ]
     },
@@ -26,13 +28,95 @@
           "userId": 11,
           "message": "We were on a break!!!!",
           "date": "Fri Mar 31 2023 16:37:45 GMT+0900 (한국 표준시)",
-          "chatId": "ex2"
+          "chatId": "ex2",
+          "liked": false
         },
         {
           "userId": 0,
           "message": "적당히 해라",
           "date": "Fri Mar 31 2023 16:38:45 GMT+0900 (한국 표준시)",
-          "chatId": "ex3"
+          "chatId": "ex3",
+          "liked": false
+        }
+      ]
+    },
+    {
+      "chattingId": 2,
+      "userIdList": [0, 12],
+      "chatList": [
+        {
+          "userId": 0,
+          "message": "모니카 안녕",
+          "date": "Tue Apr 18 2023 20:42:28 GMT+0900 (한국 표준시)",
+          "chatId": "ex4",
+          "liked": false
+        },
+        {
+          "userId": 12,
+          "message": "I KNOW!!!!",
+          "date": "Tue Apr 18 2023 20:43:28 GMT+0900 (한국 표준시)",
+          "chatId": "ex5",
+          "liked": false
+        }
+      ]
+    },
+    {
+      "chattingId": 3,
+      "userIdList": [0, 13],
+      "chatList": [
+        {
+          "userId": 0,
+          "message": "조이 안녕",
+          "date": "Tue Apr 18 2023 20:47:13 GMT+0900 (한국 표준시)",
+          "chatId": "ex6",
+          "liked": false
+        },
+        {
+          "userId": 13,
+          "message": "Joey doesn't share food!",
+          "date": "Tue Apr 18 2023 20:48:13 GMT+0900 (한국 표준시)",
+          "chatId": "ex7",
+          "liked": false
+        }
+      ]
+    },
+    {
+      "chattingId": 4,
+      "userIdList": [0, 14],
+      "chatList": [
+        {
+          "userId": 0,
+          "message": "레이첼 안녕",
+          "date": "Mon Apr 17 2023 20:50:03 GMT+0900 (한국 표준시)",
+          "chatId": "ex8",
+          "liked": false
+        },
+        {
+          "userId": 14,
+          "message": "Aaaa salmon skin roll ~",
+          "date": "Mon Apr 17 2023 20:51:03 GMT+0900 (한국 표준시)",
+          "chatId": "ex9",
+          "liked": false
+        }
+      ]
+    },
+    {
+      "chattingId": 5,
+      "userIdList": [0, 15],
+      "chatList": [
+        {
+          "userId": 0,
+          "message": "챈들러 안녕",
+          "date": "Wed Apr 19 2023 20:52:27 GMT+0900 (한국 표준시)",
+          "chatId": "ex10",
+          "liked": false
+        },
+        {
+          "userId": 15,
+          "message": "Hi, I'm Chandler. I make jokes when I'm uncomfortable",
+          "date": "Wed Apr 19 2023 20:53:27 GMT+0900 (한국 표준시)",
+          "chatId": "ex11",
+          "liked": false
         }
       ]
     }
