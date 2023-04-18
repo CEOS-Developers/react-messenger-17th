@@ -145,15 +145,6 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    width: 0.3rem;
-    height: 100%;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--gray-font);
-    border-radius: 1rem;
-  }
 `;
 
 const Form = styled.form<{ isTyping?: boolean }>`
@@ -177,14 +168,6 @@ const Form = styled.form<{ isTyping?: boolean }>`
 
     &:focus {
       outline: none;
-    }
-    &::-webkit-scrollbar {
-      width: 0.3rem;
-      height: 100%;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--gray-font);
-      border-radius: 1rem;
     }
   }
 
