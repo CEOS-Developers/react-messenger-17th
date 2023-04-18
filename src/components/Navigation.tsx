@@ -42,8 +42,8 @@ const Navigation = ({ menu }: NavProps) => {
   );
 };
 
-const Wrapper = styled.div`
-  width: 4rem;
+const Wrapper = styled.nav`
+  min-width: 4rem;
   height: 100%;
   display: flex;
   flex-direction: column;
