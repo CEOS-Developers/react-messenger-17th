@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 // components
 import Splash from "../components/Splash";
 import Navigation from "../components/Navigation";
-import ProfileCard from "../components/ProfileCard";
+import SingleCard from "../components/SingleCard";
 import { Search } from "../components/icons/Search";
 import { Close } from "../components/icons/Close";
 import { DownArrow } from "../components/icons/DownArrow";
@@ -58,7 +58,7 @@ const FriendsPage = () => {
         </Header>
 
         <Body>
-          <ProfileCard userInfo={usersData.users[0]} />
+          <SingleCard type="profile" userInfo={usersData.users[0]} />
 
           <Hr></Hr>
 
@@ -84,7 +84,13 @@ const FriendsPage = () => {
           {isFriendsOpen &&
             frinedsList.map((user) => {
               if (user.userName.includes(inputText)) {
-                return <ProfileCard key={user.userId} userInfo={user} />;
+                return (
+                  <SingleCard
+                    type="profile"
+                    key={user.userId}
+                    userInfo={user}
+                  />
+                );
               }
             })}
         </Body>
@@ -130,7 +136,7 @@ const HeaderInput = styled.div`
   align-items: center;
 
   input {
-    width: 10.5rem;
+    width: 10rem;
     height: 2rem;
     padding: 0 1rem;
     border: 1px solid var(--gray-font);
@@ -150,7 +156,7 @@ const Body = styled.main`
   width: 100%;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: scroll;
 `;
 
 const Dropdown = styled.div`
