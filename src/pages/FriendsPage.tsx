@@ -13,20 +13,14 @@ import { PageWrapStyled } from "../components/styled/PageWrapStyled";
 import { PageMainStyled } from "../components/styled/PageMainStyled";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
+import usersData from "../json/usersData.json";
 
 const FriendsPage = () => {
   localStorage.setItem(PAGEKEY, "friends");
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [isFriendsOpen, setIsFriendsOpen] = useState<boolean>(true);
   const [inputText, setInputText] = useState<string>("");
-
-  const tempData = {
-    userId: 10,
-    userName: "Phoebe 🎤",
-    profileImage:
-      "https://imageirl.imageresizer.io/pRKCViJVl1-s895x715-q85.jpg",
-    statusMessage: "smelly cat",
-  };
+  const frinedsList = usersData.users.slice(1);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
@@ -64,12 +58,18 @@ const FriendsPage = () => {
         </Header>
 
         <Body>
-          <ProfileCard userInfo={tempData} />
+          <ProfileCard userInfo={usersData.users[0]} />
 
           <Hr></Hr>
 
           <Dropdown>
-            <span>친구 {1}</span>
+            <span>
+              친구{" "}
+              {
+                frinedsList.filter((user) => user.userName.includes(inputText))
+                  .length
+              }
+            </span>
             <IconWrapper onClick={() => setIsFriendsOpen(!isFriendsOpen)}>
               {isFriendsOpen ? (
                 <DownArrow width={10} height={10} color={"var(--gray-font)"} />
@@ -80,7 +80,13 @@ const FriendsPage = () => {
           </Dropdown>
 
           <Hr></Hr>
-          {isFriendsOpen && <div>친구들 프로필 컴포넌트</div>}
+
+          {isFriendsOpen &&
+            frinedsList.map((user) => {
+              if (user.userName.includes(inputText)) {
+                return <ProfileCard key={user.userId} userInfo={user} />;
+              }
+            })}
         </Body>
       </Main>
     </PageWrapStyled>
@@ -89,11 +95,11 @@ const FriendsPage = () => {
 
 const Main = styled(PageMainStyled)`
   width: 100%;
-  height: calc(100% - 2rem);
+  height: 100%;
   flex-direction: column;
 `;
 
-const Header = styled.div`
+const Header = styled.header`
   width: calc(100% - 2rem);
   margin: 1rem;
   display: flex;
@@ -140,9 +146,8 @@ const HeaderInput = styled.div`
   }
 `;
 
-const Body = styled.div`
+const Body = styled.main`
   width: 100%;
-  height: calc(100% - 2rem);
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -158,6 +163,7 @@ const Dropdown = styled.div`
   span {
     font-size: small;
     color: var(--gray-font);
+    user-select: none;
   }
 
   div {
@@ -167,7 +173,7 @@ const Dropdown = styled.div`
 
 const Hr = styled.hr`
   width: calc(100% - 2rem);
-  height: 0.5px;
+  min-height: 0.5px;
   margin: 0.5rem 1rem;
   background-color: var(--gray-tag);
   border: none;

@@ -23,7 +23,7 @@ const ProfileCard = ({ userInfo }: ProfileCardProps) => {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 4rem;
+  min-height: 4rem;
   display: flex;
   align-items: center;
 
@@ -54,7 +54,7 @@ const ProfileText = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     user-select: none;
   }
 `;
