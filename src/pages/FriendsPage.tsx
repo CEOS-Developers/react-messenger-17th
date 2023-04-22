@@ -26,8 +26,12 @@ const FriendsPage = () => {
     setInputText(e.target.value);
   };
 
+  const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <PageWrapStyled>
+    <PageWrapStyled onContextMenu={handleRightClick}>
       <Splash />
 
       <Navigation menu={"friends"} />

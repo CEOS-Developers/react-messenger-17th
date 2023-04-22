@@ -38,13 +38,16 @@ const ChattingsPage = () => {
         return sortby === "최신 메시지 순" ? y - x : x - y;
       }
     );
-
     setRoomList(sortedRooms);
     setIsSorting(false);
   };
 
+  const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <PageWrapStyled>
+    <PageWrapStyled onContextMenu={handleRightClick}>
       <Splash />
 
       <Navigation menu="chattings" />

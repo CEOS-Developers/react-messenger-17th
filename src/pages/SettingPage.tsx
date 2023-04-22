@@ -14,8 +14,12 @@ import { PAGEKEY } from "../constants/LOCAL_KEY";
 const SettingPage = () => {
   localStorage.setItem(PAGEKEY, "setting");
 
+  const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <PageWrapStyled>
+    <PageWrapStyled onContextMenu={handleRightClick}>
       <Splash />
 
       <Navigation menu={"setting"} />
