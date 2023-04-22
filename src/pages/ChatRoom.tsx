@@ -1,11 +1,11 @@
 import { useCallback, useRef, useState } from 'react';
-import { Chat } from './Interfaces';
-import chatData from './chatData.json';
-import userData from './userData.json';
+import { Chat } from '../interfaces/Interface';
+import chatData from '../jsons/chatData.json';
+import userData from '../jsons/userData.json';
 import UserList from './UserList';
 import ChatList from './ChatList';
 import styled from 'styled-components';
-import ChatInput from './ChatInput';
+import ChatInput from '../components/ChatInput';
 
 const Wrapper = styled.div`
   font-size: 12px;

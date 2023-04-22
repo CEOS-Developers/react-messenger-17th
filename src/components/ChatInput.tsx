@@ -48,18 +48,19 @@ function ChatInput({ addChat }: ChatInputProps) {
   );
 
   const onSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
-    if (value.trim() === '') {
+    if (!value.trim()) {
       e?.preventDefault();
-      return;
     }
-    e?.preventDefault();
-    addChat(value);
-    setValue('');
+    else{
+      e?.preventDefault();
+      addChat(value);
+      setValue('');
+    }
   };
 
   const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
-      if (value.trim() === '') {
+      if (!value.trim()) {
         e.preventDefault();
       } else {
         onSubmit();

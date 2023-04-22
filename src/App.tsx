@@ -1,10 +1,11 @@
-import ChatRoom from './ChatRoom';
+import ChatRoom from './pages/ChatRoom';
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
-    <div>
+    <RecoilRoot>
       <ChatRoom />
-    </div>
+    </RecoilRoot>
   );
 }
 

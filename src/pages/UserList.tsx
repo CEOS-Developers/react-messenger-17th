@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { User } from './Interfaces';
-import UserItem from './UserItem';
+import { User } from '../interfaces/Interface';
+import UserItem from '../components/UserItem';
 
 const Wrapper = styled.div`
   display: flex;

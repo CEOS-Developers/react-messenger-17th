@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { User } from './Interfaces';
+import { User } from '../interfaces/Interface';
 
 const Wrapper = styled.div`
   display: flex;
