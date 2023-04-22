@@ -4,7 +4,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentUsersState } from "../recoil/recoil";
 // interface
-import { chatInterface, userInterface } from "../interfaces/interface";
+import {
+  userInterface,
+  chattingInterface,
+  chatInterface,
+} from "../interfaces/interface";
 // json
 import usersData from "../json/usersData.json";
 import chatsData from "../json/chatsData.json";
@@ -23,17 +27,17 @@ const ChattingRoom = () => {
   const locationState = location.state;
 
   const roomId: number = locationState.roomId;
-  const currentUsers = useRecoilValue<userInterface[]>(currentUsersState);
-  const [typingUser, setTypingUser] = useState<userInterface>(
-    usersData.users[0]
+  const roomInfo: chattingInterface = chatsData.chattings.filter(
+    (chatting) => chatting.chattingId === roomId
+  )[0];
+  const currentUsers: userInterface[] = usersData.users.filter((user) =>
+    roomInfo.userIdList.includes(user.userId)
   );
+  const [typingUser, setTypingUser] = useState<userInterface>(currentUsers[0]);
   const nonTypingUser = currentUsers.filter(
     (user) => user.userId !== typingUser.userId
   )[0];
-  const [chatList, setChatList] = useState<chatInterface[]>(
-    chatsData.chattings.filter((chatting) => chatting.chattingId === roomId)[0]
-      .chatList
-  );
+  const [chatList, setChatList] = useState<chatInterface[]>(roomInfo.chatList);
 
   const [inputText, setInputText] = useState<string>("");
   const isTyping: boolean = inputText.trim() ? true : false;
@@ -64,7 +68,7 @@ const ChattingRoom = () => {
           userId: typingUser.userId,
           message: inputText,
           date: String(new Date()),
-          chatId: `ex${chatList.length}`,
+          chatId: `${roomId}${typingUser.userId}${new Date().getTime()}`,
         },
       ]);
       setInputText("");
