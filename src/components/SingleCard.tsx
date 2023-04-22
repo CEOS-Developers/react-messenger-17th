@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // styles
 import styled from "styled-components";
 // interface
 import { userInterface, chattingInterface } from "../interfaces/interface";
-
+// json
 import usersData from "../json/usersData.json";
 import { getDateString } from "../utils/getDateString";
 
@@ -14,14 +15,24 @@ interface SingleCardProps {
 }
 
 const SingleCard = ({ type, userInfo, chatInfo }: SingleCardProps) => {
+  const navigate = useNavigate();
+
   const friendId = chatInfo?.userIdList.filter((id) => id !== 0)[0];
   const friendInfoById = usersData.users.filter(
     (user) => user.userId === friendId
   )[0];
   const lastChat = chatInfo?.chatList[chatInfo?.chatList.length - 1];
 
+  const handleCardClick = () => {
+    if (type === "chatting") {
+      navigate(`/chattings/room/${chatInfo?.chattingId}`, {
+        state: { roomId: chatInfo?.chattingId },
+      });
+    }
+  };
+
   return (
-    <Wrapper type={type}>
+    <Wrapper type={type} onClick={handleCardClick}>
       <img
         src={userInfo?.profileImage ?? friendInfoById.profileImage}
         alt="사진"
@@ -47,6 +58,7 @@ const Wrapper = styled.div<{ type: string }>`
 
   &:hover {
     background-color: var(--light-gray-tag);
+    ${(props) => props.type === "chatting" && "cursor: pointer"}
   }
 
   img {
@@ -55,7 +67,7 @@ const Wrapper = styled.div<{ type: string }>`
     margin-left: 1rem;
     border: 1px solid transparent;
     border-radius: 1rem;
-
+    object-fit: cover;
     cursor: pointer;
   }
 `;

@@ -1,18 +1,28 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+// recoil
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentUsersState } from "../recoil/recoil";
+// interface
 import { chatInterface, userInterface } from "../interfaces/interface";
+// json
 import usersData from "../json/usersData.json";
 import chatsData from "../json/chatsData.json";
-import Alert from "../components/Alert";
-import SmallButton from "../components/SmallButton";
+// components
 import Profile from "../components/Profile";
 import LeftChat from "../components/LeftChat";
 import RightChat from "../components/RightChat";
+// styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
+import { BackArrow } from "../components/icons/BackArrow";
 
 const ChattingRoom = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const locationState = location.state;
+
+  const roomId: number = locationState.roomId;
   const currentUsers = useRecoilValue<userInterface[]>(currentUsersState);
   const [typingUser, setTypingUser] = useState<userInterface>(
     usersData.users[0]
@@ -21,17 +31,19 @@ const ChattingRoom = () => {
     (user) => user.userId !== typingUser.userId
   )[0];
   const [chatList, setChatList] = useState<chatInterface[]>(
-    chatsData.chattings[0].chatList
-  ); // TODO - recoil로 변경
-  // const [chatList, setChatList] = useRecoilState(currentChatListState);
+    chatsData.chattings.filter((chatting) => chatting.chattingId === roomId)[0]
+      .chatList
+  );
 
   const [inputText, setInputText] = useState<string>("");
   const isTyping: boolean = inputText.trim() ? true : false;
 
-  const [isVisibleAlert, setIsVisibleAlert] = useState<boolean>(false);
-
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const bottomDivRef = useRef<HTMLDivElement>(null);
+
+  const handleBackClick = () => {
+    navigate("/chattings");
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputText(e.target.value);
@@ -63,24 +75,18 @@ const ChattingRoom = () => {
     }
   };
 
-  const hadleNotyetClick = () => {
-    setIsVisibleAlert(true);
-  };
-
   useEffect(() => {
     bottomDivRef.current?.scrollIntoView(false);
   }, [chatList, typingUser]);
 
-  useEffect(() => {
-    setTimeout(() => setIsVisibleAlert(false), 3000);
-  }, [isVisibleAlert]);
-
   return (
     <Wrapper>
       <Header>
-        <SmallButton text={"<"} handleClick={hadleNotyetClick} />
+        <IconWrapper onClick={handleBackClick}>
+          <BackArrow width={15} height={15} />
+        </IconWrapper>
+
         <Profile nonTypingUser={nonTypingUser} setTypingUser={setTypingUser} />
-        <SmallButton text={"⋮"} handleClick={hadleNotyetClick} />
       </Header>
 
       <Main>
@@ -115,7 +121,6 @@ const ChattingRoom = () => {
         ></textarea>
         <button>전송</button>
       </Form>
-      {isVisibleAlert && <Alert />}
     </Wrapper>
   );
 };
@@ -181,6 +186,19 @@ const Form = styled.form<{ isTyping?: boolean }>`
     background-color: ${(props) =>
       props.isTyping ? "var(--yellow-tag)" : "var(--light-gray-tag)"};
     cursor: pointer;
+  }
+`;
+
+const IconWrapper = styled.div`
+  width: 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--light-blue-hover-tag);
   }
 `;
 
