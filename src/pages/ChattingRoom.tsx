@@ -15,6 +15,7 @@ import chatsData from "../json/chatsData.json";
 // components
 import Profile from "../components/Profile";
 import ChatBubble from "../components/ChatBubble";
+import DropdownMenu from "../components/DropdownMenu";
 import { BackArrow } from "../components/icons/BackArrow";
 // styles
 import styled from "styled-components";
@@ -43,8 +44,13 @@ const ChattingRoom = () => {
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const bottomDivRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleBackClick = () => {
+  const [isRightClicking, setIsRightClicking] = useState<boolean>(false);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [clickedBubbleId, setClickedBubbleId] = useState<string>("");
+
+  const handleBackClick = (e: React.MouseEvent<HTMLDivElement>) => {
     navigate("/chattings");
   };
 
@@ -70,12 +76,39 @@ const ChattingRoom = () => {
           chatId: `${roomId}${typingUser.userId}${new Date().getTime()}`,
         },
       ]);
-      setInputText("");
-      textareaRef.current?.focus();
     } else {
-      setInputText("");
       alert("메세지를 입력해주세요 :)");
     }
+    setInputText("");
+    textareaRef.current?.focus();
+  };
+
+  const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
+  const handleBgClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target !== dropdownRef.current?.lastChild?.firstChild) {
+      setIsRightClicking(false);
+    }
+  };
+
+  const showDropdown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsRightClicking(!isRightClicking);
+    setCoords({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleMenuClick = (menu: string) => {
+    if (menu === "공감") {
+      let tempChatList = chatList;
+      tempChatList.forEach((chat) => {
+        if (chat.chatId === clickedBubbleId) {
+          chat.liked = true;
+        }
+      });
+      setChatList(tempChatList);
+    }
+    setIsRightClicking(false);
   };
 
   useEffect(() => {
@@ -83,7 +116,7 @@ const ChattingRoom = () => {
   }, [chatList, typingUser]);
 
   return (
-    <Wrapper>
+    <Wrapper onContextMenu={handleRightClick} onClick={handleBgClick}>
       <Header>
         <IconWrapper onClick={handleBackClick}>
           <BackArrow width={15} height={15} />
@@ -100,27 +133,21 @@ const ChattingRoom = () => {
               isUser={chat.userId === typingUser.userId}
               chatInfo={chat}
               nonTypingUser={nonTypingUser}
+              handleChatRightClick={showDropdown}
+              setClickedBubbleId={setClickedBubbleId}
             />
           );
         })}
-        {/* {chatList.map((chat: chatInterface) =>
-          chat.userId === typingUser.userId ? (
-            <RightChat
-              key={chat.chatId}
-              message={chat.message}
-              date={chat.date}
-            />
-          ) : (
-            <LeftChat
-              key={chat.chatId}
-              imgSrc={nonTypingUser.profileImage}
-              name={nonTypingUser.userName}
-              message={chat.message}
-              date={chat.date}
-            />
-          )
-        )} */}
         <div ref={bottomDivRef}></div>
+        {isRightClicking && (
+          <div ref={dropdownRef}>
+            <DropdownMenu
+              coords={coords}
+              menuList={["공감"]}
+              handleMenuClick={handleMenuClick}
+            />
+          </div>
+        )}
       </Main>
 
       <Form isTyping={isTyping} onSubmit={handleSubmit}>

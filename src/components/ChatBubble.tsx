@@ -6,9 +6,24 @@ interface ChatBubbleProps {
   isUser: boolean;
   nonTypingUser: userInterface;
   chatInfo: chatInterface;
+  handleChatRightClick: (e: React.MouseEvent<HTMLDivElement>) => void;
+  setClickedBubbleId: (value: string) => void;
 }
 
-const ChatBubble = ({ isUser, chatInfo, nonTypingUser }: ChatBubbleProps) => {
+const ChatBubble = ({
+  isUser,
+  chatInfo,
+  nonTypingUser,
+  handleChatRightClick,
+  setClickedBubbleId,
+}: ChatBubbleProps) => {
+  const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isUser) {
+      handleChatRightClick(e);
+      setClickedBubbleId(chatInfo.chatId);
+    }
+  };
+
   return (
     <Wrapper isUser={isUser}>
       {!isUser && (
@@ -20,11 +35,16 @@ const ChatBubble = ({ isUser, chatInfo, nonTypingUser }: ChatBubbleProps) => {
       <MainContainer isUser={isUser}>
         {!isUser && <Name>{nonTypingUser.userName}</Name>}
         <ChatContainer isUser={isUser}>
-          <Chat isUser={isUser}>{chatInfo.message}</Chat>
+          <Chat isUser={isUser} onContextMenu={handleRightClick}>
+            {chatInfo.message}
+          </Chat>
+
           <Time isUser={isUser}>
             <span>{getDateString(chatInfo.date)}</span>
           </Time>
         </ChatContainer>
+
+        {chatInfo.liked ? <Liked isUser={isUser}>💕</Liked> : null}
       </MainContainer>
     </Wrapper>
   );
@@ -118,6 +138,11 @@ const Time = styled.span<{ isUser: boolean }>`
       props.isUser ? "margin-right: 0.5rem" : "margin-left: 0.5rem"};
     font-size: 0.5rem;
   }
+`;
+
+const Liked = styled.div<{ isUser: boolean }>`
+  display: flex;
+  ${(props) => (props.isUser ? "justify-content: flex-end" : "")};
 `;
 
 export default ChatBubble;

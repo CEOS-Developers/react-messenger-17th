@@ -10,6 +10,7 @@ export interface chatInterface {
   message: string;
   date: string;
   chatId: string;
+  liked?: boolean;
 }
 
 export interface chattingInterface {
