@@ -14,12 +14,11 @@ import usersData from "../json/usersData.json";
 import chatsData from "../json/chatsData.json";
 // components
 import Profile from "../components/Profile";
-import LeftChat from "../components/LeftChat";
-import RightChat from "../components/RightChat";
+import ChatBubble from "../components/ChatBubble";
+import { BackArrow } from "../components/icons/BackArrow";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
-import { BackArrow } from "../components/icons/BackArrow";
 
 const ChattingRoom = () => {
   const navigate = useNavigate();
@@ -34,7 +33,7 @@ const ChattingRoom = () => {
     roomInfo.userIdList.includes(user.userId)
   );
   const [typingUser, setTypingUser] = useState<userInterface>(currentUsers[0]);
-  const nonTypingUser = currentUsers.filter(
+  const nonTypingUser: userInterface = currentUsers.filter(
     (user) => user.userId !== typingUser.userId
   )[0];
   const [chatList, setChatList] = useState<chatInterface[]>(roomInfo.chatList);
@@ -94,7 +93,17 @@ const ChattingRoom = () => {
       </Header>
 
       <Main>
-        {chatList.map((chat: chatInterface) =>
+        {chatList.map((chat: chatInterface) => {
+          return (
+            <ChatBubble
+              key={chat.chatId}
+              isUser={chat.userId === typingUser.userId}
+              chatInfo={chat}
+              nonTypingUser={nonTypingUser}
+            />
+          );
+        })}
+        {/* {chatList.map((chat: chatInterface) =>
           chat.userId === typingUser.userId ? (
             <RightChat
               key={chat.chatId}
@@ -110,7 +119,7 @@ const ChattingRoom = () => {
               date={chat.date}
             />
           )
-        )}
+        )} */}
         <div ref={bottomDivRef}></div>
       </Main>
 
