@@ -15,6 +15,8 @@ import { PageMainStyled } from "../components/styled/PageMainStyled";
 import { chattingInterface, userInterface } from "../interfaces/interface";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
+import { CHATTINGMENU } from "../constants/MENU_NAME";
+// json
 import chatsData from "../json/chatsData.json";
 
 const ChattingsPage = () => {
@@ -43,7 +45,7 @@ const ChattingsPage = () => {
       (a: chattingInterface, b: chattingInterface) => {
         let x: any = new Date(a.chatList[a.chatList.length - 1].date);
         let y: any = new Date(b.chatList[b.chatList.length - 1].date);
-        return sortby === "최신 메시지 순" ? y - x : x - y;
+        return sortby === CHATTINGMENU[0] ? y - x : x - y;
       }
     );
     setRoomList(sortedRooms);
@@ -79,7 +81,7 @@ const ChattingsPage = () => {
         {isSorting && (
           <DropdownMenu
             coords={coords}
-            menuList={["최신 메시지 순", "오래된 메시지 순"]}
+            menuList={CHATTINGMENU}
             handleMenuClick={sortRooms}
           />
         )}

@@ -21,6 +21,8 @@ import { BackArrow } from "../components/icons/BackArrow";
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
 import { getDateString } from "../utils/getDateString";
+// constants
+import { BUBBLEMENU } from "../constants/MENU_NAME";
 
 const ChattingRoom = () => {
   const navigate = useNavigate();
@@ -77,13 +79,11 @@ const ChattingRoom = () => {
         ...chatList,
         {
           userId: typingUser.userId,
-          message: inputText,
+          message: inputText.trim(),
           date: String(new Date()),
           chatId: `${roomId}${typingUser.userId}${new Date().getTime()}`,
         },
       ]);
-    } else {
-      alert("메세지를 입력해주세요 :)");
     }
     setInputText("");
     textareaRef.current?.focus();
@@ -105,7 +105,7 @@ const ChattingRoom = () => {
   };
 
   const handleMenuClick = (menu: string) => {
-    if (menu === "공감") {
+    if (menu === BUBBLEMENU[0]) {
       let tempChatList = chatList;
       tempChatList.forEach((chat) => {
         if (chat.chatId === clickedBubbleInfo.chatId) {
@@ -113,7 +113,7 @@ const ChattingRoom = () => {
         }
       });
       setChatList(tempChatList);
-    } else if (menu === "복사") {
+    } else if (menu === BUBBLEMENU[1]) {
       window.navigator.clipboard.writeText(
         `[${
           currentUsers.filter(
@@ -159,7 +159,7 @@ const ChattingRoom = () => {
           <div ref={dropdownRef}>
             <DropdownMenu
               coords={coords}
-              menuList={["공감", "복사"]}
+              menuList={BUBBLEMENU}
               handleMenuClick={handleMenuClick}
             />
           </div>
