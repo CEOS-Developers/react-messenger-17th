@@ -4,6 +4,7 @@ import Splash from "../components/Splash";
 import Navigation from "../components/Navigation";
 import SingleCard from "../components/SingleCard";
 import DropdownMenu from "../components/DropdownMenu";
+import ProfileModal from "../components/ProfileModal";
 import { DownwardArrow } from "../components/icons/DownwardArrow";
 import { UpwardArrow } from "../components/icons/UpwardArrow";
 // styles
@@ -11,7 +12,7 @@ import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
 import { PageMainStyled } from "../components/styled/PageMainStyled";
 // interface
-import { chattingInterface } from "../interfaces/interface";
+import { chattingInterface, userInterface } from "../interfaces/interface";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
 import chatsData from "../json/chatsData.json";
@@ -24,6 +25,13 @@ const ChattingsPage = () => {
   );
   const [isSorting, setIsSorting] = useState<boolean>(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [isProfileModal, setIsProfileModal] = useState<boolean>(false);
+  const [clickedProfileInfo, setClickedProfileInfo] = useState<userInterface>({
+    userId: 0,
+    userName: "",
+    profileImage: "",
+    statusMessage: "",
+  });
 
   const handleSortingClick = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsSorting(!isSorting);
@@ -40,6 +48,10 @@ const ChattingsPage = () => {
     );
     setRoomList(sortedRooms);
     setIsSorting(false);
+  };
+
+  const handleProfileClick = () => {
+    setIsProfileModal(true);
   };
 
   const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -76,14 +88,22 @@ const ChattingsPage = () => {
           {roomList.map((chatting) => {
             return (
               <SingleCard
-                type="chatting"
                 key={chatting.chattingId}
+                type="chatting"
                 chatInfo={chatting}
+                setClickedProfileInfo={setClickedProfileInfo}
+                handleProfileClick={handleProfileClick}
               />
             );
           })}
         </Body>
       </Main>
+      {isProfileModal && (
+        <ProfileModal
+          userInfo={clickedProfileInfo}
+          setIsProfileModal={setIsProfileModal}
+        />
+      )}
     </PageWrapStyled>
   );
 };

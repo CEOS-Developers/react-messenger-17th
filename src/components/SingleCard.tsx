@@ -12,9 +12,17 @@ interface SingleCardProps {
   type: "profile" | "chatting";
   userInfo?: userInterface;
   chatInfo?: chattingInterface;
+  setClickedProfileInfo: (value: userInterface) => void;
+  handleProfileClick: () => void;
 }
 
-const SingleCard = ({ type, userInfo, chatInfo }: SingleCardProps) => {
+const SingleCard = ({
+  type,
+  userInfo,
+  chatInfo,
+  setClickedProfileInfo,
+  handleProfileClick,
+}: SingleCardProps) => {
   const navigate = useNavigate();
 
   const friendId = chatInfo?.userIdList.filter((id) => id !== 0)[0];
@@ -23,8 +31,13 @@ const SingleCard = ({ type, userInfo, chatInfo }: SingleCardProps) => {
   )[0];
   const lastChat = chatInfo?.chatList[chatInfo?.chatList.length - 1];
 
-  const handleCardClick = () => {
-    if (type === "chatting") {
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // e.target 이 <img>
+    if (e.target === e.currentTarget.firstChild) {
+      setClickedProfileInfo(userInfo ?? friendInfoById);
+      handleProfileClick();
+    } // e.target 이 <img> 아니며, 채팅card.
+    else if (type === "chatting") {
       navigate(`/chattings/room/${chatInfo?.chattingId}`, {
         state: { roomId: chatInfo?.chattingId },
       });

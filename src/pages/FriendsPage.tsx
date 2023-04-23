@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Splash from "../components/Splash";
 import Navigation from "../components/Navigation";
 import SingleCard from "../components/SingleCard";
+import ProfileModal from "../components/ProfileModal";
 import { Search } from "../components/icons/Search";
 import { Close } from "../components/icons/Close";
 import { DownArrow } from "../components/icons/DownArrow";
@@ -11,6 +12,8 @@ import { UpArrow } from "../components/icons/UpArrow";
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
 import { PageMainStyled } from "../components/styled/PageMainStyled";
+// interface
+import { userInterface } from "../interfaces/interface";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
 import usersData from "../json/usersData.json";
@@ -19,6 +22,13 @@ const FriendsPage = () => {
   localStorage.setItem(PAGEKEY, "friends");
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [isFriendsOpen, setIsFriendsOpen] = useState<boolean>(true);
+  const [isProfileModal, setIsProfileModal] = useState<boolean>(false);
+  const [clickedProfileInfo, setClickedProfileInfo] = useState<userInterface>({
+    userId: 0,
+    userName: "",
+    profileImage: "",
+    statusMessage: "",
+  });
   const [inputText, setInputText] = useState<string>("");
   const frinedsList = usersData.users.slice(1);
 
@@ -28,6 +38,10 @@ const FriendsPage = () => {
 
   const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
+  };
+
+  const handleProfileClick = () => {
+    setIsProfileModal(true);
   };
 
   return (
@@ -62,7 +76,12 @@ const FriendsPage = () => {
         </Header>
 
         <Body>
-          <SingleCard type="profile" userInfo={usersData.users[0]} />
+          <SingleCard
+            type="profile"
+            userInfo={usersData.users[0]}
+            setClickedProfileInfo={setClickedProfileInfo}
+            handleProfileClick={handleProfileClick}
+          />
 
           <Hr></Hr>
 
@@ -90,15 +109,23 @@ const FriendsPage = () => {
               if (user.userName.includes(inputText)) {
                 return (
                   <SingleCard
-                    type="profile"
                     key={user.userId}
+                    type="profile"
                     userInfo={user}
+                    setClickedProfileInfo={setClickedProfileInfo}
+                    handleProfileClick={handleProfileClick}
                   />
                 );
               }
             })}
         </Body>
       </Main>
+      {isProfileModal && (
+        <ProfileModal
+          userInfo={clickedProfileInfo}
+          setIsProfileModal={setIsProfileModal}
+        />
+      )}
     </PageWrapStyled>
   );
 };
