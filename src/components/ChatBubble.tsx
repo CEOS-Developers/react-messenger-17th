@@ -7,7 +7,7 @@ interface ChatBubbleProps {
   nonTypingUser: userInterface;
   chatInfo: chatInterface;
   handleChatRightClick: (e: React.MouseEvent<HTMLDivElement>) => void;
-  setClickedBubbleId: (value: string) => void;
+  setClickedBubbleInfo: (value: chatInterface) => void;
 }
 
 const ChatBubble = ({
@@ -15,13 +15,11 @@ const ChatBubble = ({
   chatInfo,
   nonTypingUser,
   handleChatRightClick,
-  setClickedBubbleId,
+  setClickedBubbleInfo,
 }: ChatBubbleProps) => {
   const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isUser) {
-      handleChatRightClick(e);
-      setClickedBubbleId(chatInfo.chatId);
-    }
+    handleChatRightClick(e);
+    setClickedBubbleInfo(chatInfo);
   };
 
   return (

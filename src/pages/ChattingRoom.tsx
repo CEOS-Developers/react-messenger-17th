@@ -20,6 +20,7 @@ import { BackArrow } from "../components/icons/BackArrow";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
+import { getDateString } from "../utils/getDateString";
 
 const ChattingRoom = () => {
   const navigate = useNavigate();
@@ -48,7 +49,12 @@ const ChattingRoom = () => {
 
   const [isRightClicking, setIsRightClicking] = useState<boolean>(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [clickedBubbleId, setClickedBubbleId] = useState<string>("");
+  const [clickedBubbleInfo, setClickedBubbleInfo] = useState<chatInterface>({
+    userId: 0,
+    message: "",
+    date: "",
+    chatId: "",
+  });
 
   const handleBackClick = (e: React.MouseEvent<HTMLDivElement>) => {
     navigate("/chattings");
@@ -88,7 +94,7 @@ const ChattingRoom = () => {
   };
 
   const handleBgClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target !== dropdownRef.current?.lastChild?.firstChild) {
+    if (e.target !== dropdownRef.current?.lastChild) {
       setIsRightClicking(false);
     }
   };
@@ -102,11 +108,21 @@ const ChattingRoom = () => {
     if (menu === "공감") {
       let tempChatList = chatList;
       tempChatList.forEach((chat) => {
-        if (chat.chatId === clickedBubbleId) {
+        if (chat.chatId === clickedBubbleInfo.chatId) {
           chat.liked = true;
         }
       });
       setChatList(tempChatList);
+    } else if (menu === "복사") {
+      window.navigator.clipboard.writeText(
+        `[${
+          currentUsers.filter(
+            (user) => user.userId === clickedBubbleInfo.userId
+          )[0].userName
+        }] [${getDateString(clickedBubbleInfo.date)}] ${
+          clickedBubbleInfo.message
+        }`
+      );
     }
     setIsRightClicking(false);
   };
@@ -134,7 +150,7 @@ const ChattingRoom = () => {
               chatInfo={chat}
               nonTypingUser={nonTypingUser}
               handleChatRightClick={showDropdown}
-              setClickedBubbleId={setClickedBubbleId}
+              setClickedBubbleInfo={setClickedBubbleInfo}
             />
           );
         })}
@@ -143,7 +159,7 @@ const ChattingRoom = () => {
           <div ref={dropdownRef}>
             <DropdownMenu
               coords={coords}
-              menuList={["공감"]}
+              menuList={["공감", "복사"]}
               handleMenuClick={handleMenuClick}
             />
           </div>
