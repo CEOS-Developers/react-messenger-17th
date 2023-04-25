@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "KBIZ";
+  font-weight: bolder;
+  src: url("./assets/fonts/KBIZ한마음고딕\ M.TTF");
+}

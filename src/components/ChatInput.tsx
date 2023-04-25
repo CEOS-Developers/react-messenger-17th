@@ -52,7 +52,6 @@ function ChatInput({ addChat }: ChatInputProps) {
       e?.preventDefault();
     }
     else{
-      e?.preventDefault();
       addChat(value);
       setValue('');
     }
