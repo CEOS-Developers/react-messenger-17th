@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {useNavigate} from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
@@ -27,10 +28,18 @@ cursor: pointer;
 `;
 
 function MainPage(){
+  
+  const navigate= useNavigate();
+
+  const navigateToChat = () =>{
+    navigate("/List");
+  }
+
+  
     return(
         <Wrapper>
           <img className="MainImage" src="images/MainPage.png"/>
-          <Button>시작하기</Button>
+          <Button onClick={navigateToChat}>시작하기</Button>
         </Wrapper>
     );
 }
