@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 // components
 import { User } from "../icons/User";
@@ -58,4 +59,4 @@ const Tab = styled.div`
   cursor: pointer;
 `;
 
-export default Navigation;
+export default memo(Navigation);

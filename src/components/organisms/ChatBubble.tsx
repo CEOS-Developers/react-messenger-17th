@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { userInterface, chatInterface } from "../../types/interfaces";
 import { getDateString } from "../../utils/getDateString";
 import styled from "styled-components";
@@ -9,6 +10,14 @@ interface ChatBubbleProps {
   handleChatRightClick: (e: React.MouseEvent<HTMLDivElement>) => void;
   setClickedBubbleInfo: (value: chatInterface) => void;
 }
+
+const areEqual = (prev: ChatBubbleProps, next: ChatBubbleProps) => {
+  return (
+    prev.isUser === next.isUser &&
+    prev.nonTypingUser === next.nonTypingUser &&
+    prev.chatInfo === next.chatInfo
+  );
+};
 
 const ChatBubble = ({
   isUser,
@@ -143,4 +152,5 @@ const Liked = styled.div<{ isUser: boolean }>`
   ${(props) => (props.isUser ? "justify-content: flex-end" : "")};
 `;
 
-export default ChatBubble;
+// export default ChatBubble;
+export default memo(ChatBubble, areEqual);

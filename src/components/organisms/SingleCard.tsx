@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 // styles
 import styled from "styled-components";
@@ -7,6 +7,7 @@ import { userInterface, chattingInterface } from "../../types/interfaces";
 // json
 import usersData from "../../json/usersData.json";
 import { getDateString } from "../../utils/getDateString";
+// import { areEqual } from "../../utils/areEqual";
 
 interface SingleCardProps {
   type: "profile" | "chatting";
@@ -15,6 +16,10 @@ interface SingleCardProps {
   setClickedProfileInfo: (value: userInterface) => void;
   handleProfileClick: () => void;
 }
+
+const areEqual = (prev: SingleCardProps, next: SingleCardProps) => {
+  return prev.userInfo === next.userInfo || prev.chatInfo === next.chatInfo;
+};
 
 const SingleCard = ({
   type,
@@ -123,4 +128,4 @@ const Date = styled.span`
   white-space: nowrap;
 `;
 
-export default SingleCard;
+export default memo(SingleCard, areEqual);
