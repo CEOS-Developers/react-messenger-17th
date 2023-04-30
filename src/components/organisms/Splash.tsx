@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { SPLASHKEY } from "../constants/LOCAL_KEY";
-import imgUrl from "../assets/splash.jpg";
+import { SPLASHKEY } from "../../constants/LOCAL_KEY";
+import imgUrl from "../../assets/splash.jpg";
 
 const Splash = () => {
   const [isSplash, setIsSplash] = useState<boolean>(

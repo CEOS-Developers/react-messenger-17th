@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { userInterface } from "../interfaces/interface";
+import { userInterface } from "../../interfaces/interface";
 
 interface ProfileProps {
   nonTypingUser: userInterface;

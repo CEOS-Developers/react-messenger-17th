@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 // styles
 import styled from "styled-components";
 // interface
-import { userInterface, chattingInterface } from "../interfaces/interface";
+import { userInterface, chattingInterface } from "../../interfaces/interface";
 // json
-import usersData from "../json/usersData.json";
-import { getDateString } from "../utils/getDateString";
+import usersData from "../../json/usersData.json";
+import { getDateString } from "../../utils/getDateString";
 
 interface SingleCardProps {
   type: "profile" | "chatting";

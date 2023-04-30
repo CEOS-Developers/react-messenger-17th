@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 // components
-import Splash from "../components/Splash";
-import Navigation from "../components/Navigation";
-import SingleCard from "../components/SingleCard";
-import ProfileModal from "../components/ProfileModal";
+import Splash from "../components/organisms/Splash";
+import Navigation from "../components/organisms/Navigation";
+import SingleCard from "../components/organisms/SingleCard";
+import ProfileModal from "../components/organisms/ProfileModal";
 import { Search } from "../components/icons/Search";
 import { Close } from "../components/icons/Close";
 import { DownArrow } from "../components/icons/DownArrow";

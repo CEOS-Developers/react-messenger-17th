@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 // components
-import Splash from "../components/Splash";
-import Navigation from "../components/Navigation";
-import SingleCard from "../components/SingleCard";
-import DropdownMenu from "../components/DropdownMenu";
-import ProfileModal from "../components/ProfileModal";
+import Splash from "../components/organisms/Splash";
+import Navigation from "../components/organisms/Navigation";
+import SingleCard from "../components/organisms/SingleCard";
+import DropdownMenu from "../components/organisms/DropdownMenu";
+import ProfileModal from "../components/organisms/ProfileModal";
 import { DownwardArrow } from "../components/icons/DownwardArrow";
 import { UpwardArrow } from "../components/icons/UpwardArrow";
 // styles
@@ -78,14 +78,6 @@ const ChattingsPage = () => {
           </div>
         </Header>
 
-        {isSorting && (
-          <DropdownMenu
-            coords={coords}
-            menuList={CHATTINGMENU}
-            handleMenuClick={sortRooms}
-          />
-        )}
-
         <Body>
           {roomList.map((chatting) => {
             return (
@@ -99,6 +91,14 @@ const ChattingsPage = () => {
             );
           })}
         </Body>
+
+        {isSorting && (
+          <DropdownMenu
+            coords={coords}
+            menuList={CHATTINGMENU}
+            handleMenuClick={sortRooms}
+          />
+        )}
       </Main>
       {isProfileModal && (
         <ProfileModal

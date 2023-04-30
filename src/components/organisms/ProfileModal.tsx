@@ -1,6 +1,6 @@
-import { userInterface } from "../interfaces/interface";
+import { userInterface } from "../../interfaces/interface";
 import styled from "styled-components";
-import { Close } from "./icons/Close";
+import { Close } from "../icons/Close";
 
 interface ProfileModalProps {
   userInfo: userInterface;

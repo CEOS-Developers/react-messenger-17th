@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 // components
-import { User } from "./icons/User";
-import { Speech } from "./icons/Speech";
-import { Setting } from "./icons/Setting";
+import { User } from "../icons/User";
+import { Speech } from "../icons/Speech";
+import { Setting } from "../icons/Setting";
 // styles
 import styled from "styled-components";
 

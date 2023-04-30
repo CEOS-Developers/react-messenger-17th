@@ -13,9 +13,9 @@ import {
 import usersData from "../json/usersData.json";
 import chatsData from "../json/chatsData.json";
 // components
-import Profile from "../components/Profile";
-import ChatBubble from "../components/ChatBubble";
-import DropdownMenu from "../components/DropdownMenu";
+import Profile from "../components/organisms/Profile";
+import ChatBubble from "../components/organisms/ChatBubble";
+import DropdownMenu from "../components/organisms/DropdownMenu";
 import { BackArrow } from "../components/icons/BackArrow";
 // styles
 import styled from "styled-components";

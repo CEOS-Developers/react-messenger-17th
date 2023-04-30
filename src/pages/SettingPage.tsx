@@ -1,6 +1,6 @@
 // components
-import Splash from "../components/Splash";
-import Navigation from "../components/Navigation";
+import Splash from "../components/organisms/Splash";
+import Navigation from "../components/organisms/Navigation";
 import { Github } from "../components/icons/Github";
 import { Playlist } from "../components/icons/Playlist";
 import { Email } from "../components/icons/Email";

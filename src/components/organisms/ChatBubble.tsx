@@ -1,5 +1,5 @@
-import { userInterface, chatInterface } from "../interfaces/interface";
-import { getDateString } from "../utils/getDateString";
+import { userInterface, chatInterface } from "../../interfaces/interface";
+import { getDateString } from "../../utils/getDateString";
 import styled from "styled-components";
 
 interface ChatBubbleProps {
