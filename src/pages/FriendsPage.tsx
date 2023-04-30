@@ -13,7 +13,7 @@ import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
 import { PageMainStyled } from "../components/styled/PageMainStyled";
 // interface
-import { userInterface } from "../interfaces/interface";
+import { userInterface } from "../types/interfaces";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
 import usersData from "../json/usersData.json";

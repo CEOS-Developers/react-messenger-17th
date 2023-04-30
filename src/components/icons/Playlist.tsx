@@ -1,4 +1,4 @@
-import { IconProps } from "../../interfaces/iconProps";
+import { IconProps } from "../../types/iconProps";
 
 export const Playlist = ({ width, height }: IconProps) => {
   return (

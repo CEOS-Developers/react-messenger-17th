@@ -12,7 +12,7 @@ import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
 import { PageMainStyled } from "../components/styled/PageMainStyled";
 // interface
-import { chattingInterface, userInterface } from "../interfaces/interface";
+import { chattingInterface, userInterface } from "../types/interfaces";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
 import { CHATTINGMENU } from "../constants/MENU_NAME";

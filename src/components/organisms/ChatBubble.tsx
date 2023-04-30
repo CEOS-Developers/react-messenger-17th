@@ -1,4 +1,4 @@
-import { userInterface, chatInterface } from "../../interfaces/interface";
+import { userInterface, chatInterface } from "../../types/interfaces";
 import { getDateString } from "../../utils/getDateString";
 import styled from "styled-components";
 

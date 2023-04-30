@@ -1,4 +1,4 @@
-import { userInterface } from "../../interfaces/interface";
+import { userInterface } from "../../types/interfaces";
 import styled from "styled-components";
 import { Close } from "../icons/Close";
 

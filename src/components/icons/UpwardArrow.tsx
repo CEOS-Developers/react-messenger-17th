@@ -1,4 +1,4 @@
-import { IconProps } from "../../interfaces/iconProps";
+import { IconProps } from "../../types/iconProps";
 
 export const UpwardArrow = ({ width, height, color }: IconProps) => {
   return (

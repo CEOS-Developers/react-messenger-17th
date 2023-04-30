@@ -8,7 +8,7 @@ import {
   userInterface,
   chattingInterface,
   chatInterface,
-} from "../interfaces/interface";
+} from "../types/interfaces";
 // json
 import usersData from "../json/usersData.json";
 import chatsData from "../json/chatsData.json";
