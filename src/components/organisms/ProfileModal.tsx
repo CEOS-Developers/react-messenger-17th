@@ -4,12 +4,17 @@ import { Close } from "../icons/Close";
 
 interface ProfileModalProps {
   userInfo: userInterface;
+  isProfileModal: boolean;
   setIsProfileModal: (value: boolean) => void;
 }
 
-const ProfileModal = ({ userInfo, setIsProfileModal }: ProfileModalProps) => {
+const ProfileModal = ({
+  userInfo,
+  isProfileModal,
+  setIsProfileModal,
+}: ProfileModalProps) => {
   return (
-    <Dialog>
+    <Dialog isProfileModal={isProfileModal}>
       <IconWrapper onClick={() => setIsProfileModal(false)}>
         <Close width={10} height={10} color="white" />
       </IconWrapper>
@@ -20,12 +25,14 @@ const ProfileModal = ({ userInfo, setIsProfileModal }: ProfileModalProps) => {
   );
 };
 
-const Dialog = styled.dialog`
+const Dialog = styled.dialog<{ isProfileModal: boolean }>`
+  visibility: ${(props) => (props.isProfileModal ? "visible" : "hidden")};
   width: 90%;
-  height: 95%;
-  top: 50%;
+  height: ${(props) => (props.isProfileModal ? "95%" : "0")};
+  top: ${(props) => (props.isProfileModal ? "50%" : "100%")};
   left: 50%;
   transform: translate(-50%, -50%);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,17 +40,21 @@ const Dialog = styled.dialog`
   color: white;
   background-color: #848b91;
   opacity: 0.95;
+  transition: all 400ms cubic-bezier(0.86, 0, 0.07, 1);
 
   img {
+    visibility: ${(props) => (props.isProfileModal ? "visible" : "hidden")};
     width: 10rem;
-    height: 10rem;
+    height: ${(props) => (props.isProfileModal ? "10rem" : "0")};
     border-radius: 50%;
     object-fit: cover;
     border: 1px solid gray;
     margin: 1rem 0;
+    transition: all 300ms cubic-bezier(0.86, 0, 0.07, 1);
   }
 
   span {
+    visibility: ${(props) => (props.isProfileModal ? "visible" : "hidden")};
     width: 100%;
     text-align: center;
     white-space: nowrap;

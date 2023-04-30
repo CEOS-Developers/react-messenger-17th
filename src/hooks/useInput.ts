@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 
 type inputProps = [
   string,
@@ -21,9 +21,7 @@ const useInput = (defaultValue: string): inputProps => {
     setInputText(e.target.value);
   };
 
-  const resetInput = useCallback(() => {
-    setInputText(defaultValue);
-  }, [defaultValue]);
+  const resetInput = () => setInputText(defaultValue);
 
   return [inputText, handleInputChange, resetInput];
 };

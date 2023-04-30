@@ -16,6 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: white;
+  overflow-y: hidden;
 
   font-family: "Pretendard-Regular";
   font-weight: 400;

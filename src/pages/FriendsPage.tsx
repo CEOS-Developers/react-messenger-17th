@@ -120,12 +120,12 @@ const FriendsPage = () => {
             })}
         </Body>
       </PageMainStyled>
-      {isProfileModal && (
-        <ProfileModal
-          userInfo={clickedProfileInfo}
-          setIsProfileModal={setIsProfileModal}
-        />
-      )}
+
+      <ProfileModal
+        userInfo={clickedProfileInfo}
+        isProfileModal={isProfileModal}
+        setIsProfileModal={setIsProfileModal}
+      />
     </PageWrapStyled>
   );
 };
