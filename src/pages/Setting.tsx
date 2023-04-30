@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import MenuBar from "../components/MenuBar";
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,13 +11,11 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
-function ListPage(){
+function Setting(){
     return(
         <Wrapper>
-          <h2>Profiles</h2>
-          <MenuBar/>
         </Wrapper>
     );
 }
 
-export default ListPage;
+export default Setting;
