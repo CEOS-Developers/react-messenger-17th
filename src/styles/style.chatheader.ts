@@ -28,7 +28,4 @@ export const UserName = styled.span`
 
 export const CloseButton = styled.div`
     cursor : pointer;
-    &:active { 
-        box-shadow : 1px 1px 1px black;
-    }
 `
