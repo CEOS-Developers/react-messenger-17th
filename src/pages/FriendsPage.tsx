@@ -12,6 +12,7 @@ import { UpArrow } from "../components/icons/UpArrow";
 import { useRecoilValue } from "recoil";
 import { meAtom, friendsListAtom } from "../recoil/recoil";
 import { userInterface } from "../types/interfaces";
+import useInput from "../hooks/useInput";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
@@ -22,9 +23,9 @@ import { PAGEKEY } from "../constants/LOCAL_KEY";
 const FriendsPage = () => {
   localStorage.setItem(PAGEKEY, "friends");
 
+  const [inputText, handleInputChange] = useInput("");
   const me = useRecoilValue<userInterface>(meAtom);
   const friendsList = useRecoilValue<userInterface[]>(friendsListAtom);
-
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [isFriendsOpen, setIsFriendsOpen] = useState<boolean>(true);
   const [isProfileModal, setIsProfileModal] = useState<boolean>(false);
@@ -34,12 +35,6 @@ const FriendsPage = () => {
     profileImage: "",
     statusMessage: "",
   });
-
-  const [inputText, setInputText] = useState<string>("");
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputText(e.target.value);
-  };
 
   const handleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();

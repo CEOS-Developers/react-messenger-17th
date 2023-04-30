@@ -19,6 +19,7 @@ import {
   chattingInterface,
   chatInterface,
 } from "../types/interfaces";
+import useInput from "../hooks/useInput";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
@@ -34,6 +35,9 @@ const ChattingRoom = () => {
   const locationState = location.state;
   const roomId: number = locationState.roomId;
 
+  const [inputText, handleInputChange, resetInput] = useInput("");
+  const isTyping: boolean = inputText.trim() ? true : false;
+
   const roomInfo = useRecoilValue<chattingInterface>(
     roomInfoAtomFamily(roomId)
   );
@@ -48,9 +52,6 @@ const ChattingRoom = () => {
   const nonTypingUser: userInterface = currentUsers.filter(
     (user) => user !== typingUser
   )[0];
-
-  const [inputText, setInputText] = useState<string>("");
-  const isTyping: boolean = inputText.trim() ? true : false;
 
   const [isRightClicking, setIsRightClicking] = useState<boolean>(false);
   const [coords, setCoords] = useState<{ x: number; y: number }>({
@@ -72,10 +73,6 @@ const ChattingRoom = () => {
     navigate("/chattings");
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInputText(e.target.value);
-  };
-
   const handleEnterKeyUp = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (!e.shiftKey && e.key === "Enter") {
       handleSubmit();
@@ -95,7 +92,7 @@ const ChattingRoom = () => {
         },
       ]);
     }
-    setInputText("");
+    resetInput();
     textareaRef.current?.focus();
   };
 
