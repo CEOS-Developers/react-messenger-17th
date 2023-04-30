@@ -1,31 +1,30 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-// import cloneDeep from "lodash/cloneDeep";
-// recoil
 import { useRecoilState, useRecoilValue } from "recoil";
+// import cloneDeep from "lodash/cloneDeep";
+// components
+import Profile from "../components/organisms/Profile";
+import ChatBubble from "../components/organisms/ChatBubble";
+import DropdownMenu from "../components/organisms/DropdownMenu";
+import { BackArrow } from "../components/icons/BackArrow";
+// utils
 import {
   meAtom,
   roomInfoAtomFamily,
   chatListSelectorFamily,
   currentUsersAtomFamily,
 } from "../recoil/recoil";
-// interface
 import {
   userInterface,
   chattingInterface,
   chatInterface,
 } from "../types/interfaces";
-// components
-import Profile from "../components/organisms/Profile";
-import ChatBubble from "../components/organisms/ChatBubble";
-import DropdownMenu from "../components/organisms/DropdownMenu";
-import { BackArrow } from "../components/icons/BackArrow";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
-import { getDateString } from "../utils/getDateString";
 // constants
 import { BUBBLEMENU } from "../constants/MENU_NAME";
+import { getDateString } from "../utils/getDateString";
 
 const ChattingRoom = () => {
   const cloneDeep = require("lodash/cloneDeep");

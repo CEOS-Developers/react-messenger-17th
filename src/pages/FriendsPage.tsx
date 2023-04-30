@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 // components
 import Splash from "../components/organisms/Splash";
 import Navigation from "../components/organisms/Navigation";
@@ -8,20 +8,20 @@ import { Search } from "../components/icons/Search";
 import { Close } from "../components/icons/Close";
 import { DownArrow } from "../components/icons/DownArrow";
 import { UpArrow } from "../components/icons/UpArrow";
-// recoil
+// utils
 import { useRecoilValue } from "recoil";
 import { meAtom, friendsListAtom } from "../recoil/recoil";
+import { userInterface } from "../types/interfaces";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
 import { PageMainStyled } from "../components/styled/PageMainStyled";
-// interface
-import { userInterface } from "../types/interfaces";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
 
 const FriendsPage = () => {
   localStorage.setItem(PAGEKEY, "friends");
+
   const me = useRecoilValue<userInterface>(meAtom);
   const friendsList = useRecoilValue<userInterface[]>(friendsListAtom);
 
@@ -34,6 +34,7 @@ const FriendsPage = () => {
     profileImage: "",
     statusMessage: "",
   });
+
   const [inputText, setInputText] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,7 +55,7 @@ const FriendsPage = () => {
 
       <Navigation menu={"friends"} />
 
-      <Main>
+      <PageMainStyled>
         <Header>
           <HeaderTitle>
             <span>친구</span>
@@ -123,7 +124,7 @@ const FriendsPage = () => {
               }
             })}
         </Body>
-      </Main>
+      </PageMainStyled>
       {isProfileModal && (
         <ProfileModal
           userInfo={clickedProfileInfo}
@@ -133,12 +134,6 @@ const FriendsPage = () => {
     </PageWrapStyled>
   );
 };
-
-const Main = styled(PageMainStyled)`
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-`;
 
 const Header = styled.header`
   width: calc(100% - 2rem);

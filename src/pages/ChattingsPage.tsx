@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 // components
 import Splash from "../components/organisms/Splash";
 import Navigation from "../components/organisms/Navigation";
@@ -7,15 +7,14 @@ import DropdownMenu from "../components/organisms/DropdownMenu";
 import ProfileModal from "../components/organisms/ProfileModal";
 import { DownwardArrow } from "../components/icons/DownwardArrow";
 import { UpwardArrow } from "../components/icons/UpwardArrow";
-// recoil
+// utils
 import { useRecoilState } from "recoil";
 import { chattingListAtom } from "../recoil/recoil";
+import { chattingInterface, userInterface } from "../types/interfaces";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
 import { PageMainStyled } from "../components/styled/PageMainStyled";
-// interface
-import { chattingInterface, userInterface } from "../types/interfaces";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
 import { CHATTINGMENU } from "../constants/MENU_NAME";
@@ -65,7 +64,7 @@ const ChattingsPage = () => {
 
       <Navigation menu="chattings" />
 
-      <Main>
+      <PageMainStyled>
         <Header>
           <span>채팅</span>
           <div onClick={handleSortingClick}>
@@ -98,7 +97,7 @@ const ChattingsPage = () => {
             handleMenuClick={sortRooms}
           />
         )}
-      </Main>
+      </PageMainStyled>
       {isProfileModal && (
         <ProfileModal
           userInfo={clickedProfileInfo}
@@ -108,12 +107,6 @@ const ChattingsPage = () => {
     </PageWrapStyled>
   );
 };
-
-const Main = styled(PageMainStyled)`
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-`;
 
 const Header = styled.header`
   width: calc(100% - 2rem);
