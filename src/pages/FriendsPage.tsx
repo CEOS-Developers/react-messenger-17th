@@ -8,6 +8,9 @@ import { Search } from "../components/icons/Search";
 import { Close } from "../components/icons/Close";
 import { DownArrow } from "../components/icons/DownArrow";
 import { UpArrow } from "../components/icons/UpArrow";
+// recoil
+import { useRecoilValue } from "recoil";
+import { meAtom, friendsListAtom } from "../recoil/recoil";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
@@ -16,10 +19,12 @@ import { PageMainStyled } from "../components/styled/PageMainStyled";
 import { userInterface } from "../types/interfaces";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
-import usersData from "../json/usersData.json";
 
 const FriendsPage = () => {
   localStorage.setItem(PAGEKEY, "friends");
+  const me = useRecoilValue<userInterface>(meAtom);
+  const friendsList = useRecoilValue<userInterface[]>(friendsListAtom);
+
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [isFriendsOpen, setIsFriendsOpen] = useState<boolean>(true);
   const [isProfileModal, setIsProfileModal] = useState<boolean>(false);
@@ -30,7 +35,6 @@ const FriendsPage = () => {
     statusMessage: "",
   });
   const [inputText, setInputText] = useState<string>("");
-  const frinedsList = usersData.users.slice(1);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
@@ -78,7 +82,7 @@ const FriendsPage = () => {
         <Body>
           <SingleCard
             type="profile"
-            userInfo={usersData.users[0]}
+            userInfo={me}
             setClickedProfileInfo={setClickedProfileInfo}
             handleProfileClick={handleProfileClick}
           />
@@ -89,7 +93,7 @@ const FriendsPage = () => {
             <span>
               친구{" "}
               {
-                frinedsList.filter((user) => user.userName.includes(inputText))
+                friendsList.filter((user) => user.userName.includes(inputText))
                   .length
               }
             </span>
@@ -105,7 +109,7 @@ const FriendsPage = () => {
           <Hr></Hr>
 
           {isFriendsOpen &&
-            frinedsList.map((user) => {
+            friendsList.map((user) => {
               if (user.userName.includes(inputText)) {
                 return (
                   <SingleCard

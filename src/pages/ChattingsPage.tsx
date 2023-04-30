@@ -7,6 +7,9 @@ import DropdownMenu from "../components/organisms/DropdownMenu";
 import ProfileModal from "../components/organisms/ProfileModal";
 import { DownwardArrow } from "../components/icons/DownwardArrow";
 import { UpwardArrow } from "../components/icons/UpwardArrow";
+// recoil
+import { useRecoilState } from "recoil";
+import { chattingListAtom } from "../recoil/recoil";
 // styles
 import styled from "styled-components";
 import { PageWrapStyled } from "../components/styled/PageWrapStyled";
@@ -16,15 +19,12 @@ import { chattingInterface, userInterface } from "../types/interfaces";
 // constants
 import { PAGEKEY } from "../constants/LOCAL_KEY";
 import { CHATTINGMENU } from "../constants/MENU_NAME";
-// json
-import chatsData from "../json/chatsData.json";
 
 const ChattingsPage = () => {
   localStorage.setItem(PAGEKEY, "chattings");
 
-  const [roomList, setRoomList] = useState<chattingInterface[]>(
-    chatsData.chattings
-  );
+  const [roomList, setRoomList] =
+    useRecoilState<chattingInterface[]>(chattingListAtom);
   const [isSorting, setIsSorting] = useState<boolean>(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
   const [isProfileModal, setIsProfileModal] = useState<boolean>(false);
@@ -41,13 +41,12 @@ const ChattingsPage = () => {
   };
 
   const sortRooms = (sortby: string) => {
-    const sortedRooms = roomList.sort(
-      (a: chattingInterface, b: chattingInterface) => {
-        let x: any = new Date(a.chatList[a.chatList.length - 1].date);
-        let y: any = new Date(b.chatList[b.chatList.length - 1].date);
-        return sortby === CHATTINGMENU[0] ? y - x : x - y;
-      }
-    );
+    const sortedRooms = [...roomList];
+    sortedRooms.sort((a: chattingInterface, b: chattingInterface) => {
+      let x: any = new Date(a.chatList[a.chatList.length - 1].date);
+      let y: any = new Date(b.chatList[b.chatList.length - 1].date);
+      return sortby === CHATTINGMENU[0] ? y - x : x - y;
+    });
     setRoomList(sortedRooms);
     setIsSorting(false);
   };

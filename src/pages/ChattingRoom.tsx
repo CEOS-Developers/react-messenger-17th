@@ -1,17 +1,20 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+// import cloneDeep from "lodash/cloneDeep";
 // recoil
 import { useRecoilState, useRecoilValue } from "recoil";
-import { currentUsersState } from "../recoil/recoil";
+import {
+  meAtom,
+  roomInfoAtomFamily,
+  chatListSelectorFamily,
+  currentUsersAtomFamily,
+} from "../recoil/recoil";
 // interface
 import {
   userInterface,
   chattingInterface,
   chatInterface,
 } from "../types/interfaces";
-// json
-import usersData from "../json/usersData.json";
-import chatsData from "../json/chatsData.json";
 // components
 import Profile from "../components/organisms/Profile";
 import ChatBubble from "../components/organisms/ChatBubble";
@@ -25,38 +28,46 @@ import { getDateString } from "../utils/getDateString";
 import { BUBBLEMENU } from "../constants/MENU_NAME";
 
 const ChattingRoom = () => {
+  const cloneDeep = require("lodash/cloneDeep");
+
   const navigate = useNavigate();
   const location = useLocation();
   const locationState = location.state;
-
   const roomId: number = locationState.roomId;
-  const roomInfo: chattingInterface = chatsData.chattings.filter(
-    (chatting) => chatting.chattingId === roomId
-  )[0];
-  const currentUsers: userInterface[] = usersData.users.filter((user) =>
-    roomInfo.userIdList.includes(user.userId)
+
+  const roomInfo = useRecoilValue<chattingInterface>(
+    roomInfoAtomFamily(roomId)
   );
-  const [typingUser, setTypingUser] = useState<userInterface>(currentUsers[0]);
+  const [chatList, setChatList] = useRecoilState<chatInterface[]>(
+    chatListSelectorFamily({ roomId })
+  );
+  const me = useRecoilValue<userInterface>(meAtom);
+  const currentUsers = useRecoilValue<userInterface[]>(
+    currentUsersAtomFamily(roomInfo.userIdList)
+  );
+  const [typingUser, setTypingUser] = useState<userInterface>(me);
   const nonTypingUser: userInterface = currentUsers.filter(
-    (user) => user.userId !== typingUser.userId
+    (user) => user !== typingUser
   )[0];
-  const [chatList, setChatList] = useState<chatInterface[]>(roomInfo.chatList);
 
   const [inputText, setInputText] = useState<string>("");
   const isTyping: boolean = inputText.trim() ? true : false;
 
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const bottomDivRef = useRef<HTMLDivElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
   const [isRightClicking, setIsRightClicking] = useState<boolean>(false);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [coords, setCoords] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
   const [clickedBubbleInfo, setClickedBubbleInfo] = useState<chatInterface>({
     userId: 0,
     message: "",
     date: "",
     chatId: "",
   });
+
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const bottomDivRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleBackClick = (e: React.MouseEvent<HTMLDivElement>) => {
     navigate("/chattings");
@@ -105,15 +116,19 @@ const ChattingRoom = () => {
   };
 
   const handleMenuClick = (menu: string) => {
+    // '공감' 클릭
     if (menu === BUBBLEMENU[0]) {
-      let tempChatList = chatList;
-      tempChatList.forEach((chat) => {
+      let tempChatList = cloneDeep(chatList);
+      tempChatList.forEach((chat: chatInterface) => {
         if (chat.chatId === clickedBubbleInfo.chatId) {
           chat.liked = true;
         }
       });
+
       setChatList(tempChatList);
-    } else if (menu === BUBBLEMENU[1]) {
+    }
+    // '복사' 클릭
+    else if (menu === BUBBLEMENU[1]) {
       window.navigator.clipboard.writeText(
         `[${
           currentUsers.filter(
