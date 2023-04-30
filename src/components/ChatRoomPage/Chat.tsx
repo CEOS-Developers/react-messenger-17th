@@ -7,7 +7,6 @@ import userData from '../../db/userData.json';
 
 const Chat = (chat: IChat) => {
   const currentUser = useRecoilValue(currentUserState);
-  //chat.userId === currentUser.userId;
 
   return (
     <ChatContainer isActive={chat.userId === currentUser.userId}>

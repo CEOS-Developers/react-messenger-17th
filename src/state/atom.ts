@@ -19,3 +19,5 @@ export const currentUserState = atom<IUser>({
   key: 'currentuser',
   default: userData[0],
 });
+
+//**otherUserState 만들기

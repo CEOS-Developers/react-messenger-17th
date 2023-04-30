@@ -24,7 +24,7 @@ const Header = () => {
       {/* 채팅룸 나가기 버튼 */}
       <UserInfo onClick={toggleUser}>
         <UserImg
-          src={`${process.env.PUBLIC_URL}/Imgs/${currentUser.userImg}.jpg`}
+          src={`${process.env.PUBLIC_URL}/Imgs/${currentUser.userImg}.jpg`} //**otherUser.uerImg / 아래는 otherUser.userName로 수정하기!
           alt={currentUser.userName}
         />
         <UserName>{currentUser.userName}</UserName>
