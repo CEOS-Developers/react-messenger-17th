@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { userInterface } from "../../types/interfaces";
 import styled from "styled-components";
 import { Close } from "../icons/Close";
@@ -73,4 +74,4 @@ const Status = styled.span`
   margin: 0.5rem 0 2rem 0;
 `;
 
-export default ProfileModal;
+export default memo(ProfileModal);

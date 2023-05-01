@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styled from "styled-components";
 import { userInterface } from "../../types/interfaces";
 
@@ -45,4 +46,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default Profile;
+export default memo(Profile);
