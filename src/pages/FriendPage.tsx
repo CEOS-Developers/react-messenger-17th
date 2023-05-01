@@ -1,8 +1,7 @@
 const FriendPage = () => {
 
-
     return (
-      <></>
+      <button>HIHIHIHIHIHI</button>
     );
   };
   

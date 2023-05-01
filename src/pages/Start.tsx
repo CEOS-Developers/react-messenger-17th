@@ -6,9 +6,10 @@ const Start = () => {
   const navigate = useNavigate();
 
   const goFriendPage = () => {
-    navigate('./FriendPage');
+    console.log("dsfljdf");
+    navigate('/FriendPage');
   }
-  
+
   return (
     <MainPageContainer>
       <MainPageImage

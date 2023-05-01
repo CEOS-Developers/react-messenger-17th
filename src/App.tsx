@@ -17,9 +17,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Start/>}></Route>
           <Route element={<Layout/>}>
-            <Route path="/" element={<FriendPage/>}/>
-            <Route path="/" element={<ChatroomPage/>}/>
-            <Route path="/" element={<SettingPage/>}/>
+            <Route path="/FriendPage" element={<FriendPage/>}/>
+            <Route path="/ChatroomPage" element={<ChatroomPage/>}/>
+            <Route path="/SettingPage" element={<SettingPage/>}/>
           </Route>
           <Route path="/chatrooms/:id" element={<Chatroom />} /> 
         </Routes>
