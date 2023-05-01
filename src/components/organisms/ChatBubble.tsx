@@ -150,6 +150,7 @@ const Time = styled.span<{ isUser: boolean }>`
 const Liked = styled.div<{ isUser: boolean }>`
   display: flex;
   ${(props) => (props.isUser ? "justify-content: flex-end" : "")};
+  z-index: 999;
 `;
 
 // export default ChatBubble;
