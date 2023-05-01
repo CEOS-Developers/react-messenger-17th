@@ -2,38 +2,48 @@
   "users": [
     {
       "id": 0,
-      "name": "알톨이🌰",
-      "image": "images/Na.jpeg"
+      "name": "잭슨🐱",
+      "image": "images/Jackson.png",
+      "contents" : "우쭐"
     },
     {
       "id": 1,
-      "name": "잭슨🐱",
-      "image": "images/Jackson.png"
+      "name": "쭈니🐿",
+      "image": "images/Juny.png",
+      "contents" : "어차피"
     },
     {
       "id": 2,
-      "name": "쭈니🐿",
-      "image": "images/Juny.png"
+      "name": "휴지🐘",
+      "image": "images/Huji.png",
+      "contents" : "🍩휴휴"
     },
     {
       "id": 3,
-      "name": "휴지🐘",
-      "image": "images/Huji.png"
+      "name": "호떡🐧",
+      "image": "images/Hodduk.png",
+      "contents" : "🍳뒤집어!"
     },
     {
       "id": 4,
-      "name": "호떡🐧",
-      "image": "images/Hodduk.png"
+      "name": "미첼🐰",
+      "image": "images/Michel.png",
+      "contents" : "동글"
     },
     {
       "id": 5,
-      "name": "미첼🐰",
-      "image": "images/Michel.png"
-    },
-    {
-      "id": 6,
       "name": "스피카🐿",
-      "image": "images/Spika.png"
+      "image": "images/Spika.jpeg",
+      "contents" : "🌟반짝!🌟"
+    }
+  ],
+  
+  "me":[
+    {
+      "id": 0,
+      "name": "알톨이🌰",
+      "image": "images/Na.jpeg",
+      "contents" : "청포도주인장"
     }
   ]
 }

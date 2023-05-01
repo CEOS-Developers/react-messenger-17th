@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { User } from '../interfaces/Interface';
-import UserItem from '../components/UserItem';
+import UserItem from './UserItem';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ interface UserListProps {
   changeUser(id: number): void;
 }
 
-const UserList = ({ userId, users, changeUser }: UserListProps) => {
+function UserList({ userId, users, changeUser }: UserListProps){
   return (
     <Wrapper>
       {users.map((user) => (

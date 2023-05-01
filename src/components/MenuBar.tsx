@@ -4,12 +4,12 @@ import {IoPerson, IoSettingsSharp} from 'react-icons/io5';
 import {BsChatSquareHeart} from 'react-icons/bs';
 
 const Wrapper = styled.div`
-position: fixed;
 bottom: 0;
 overflow: hidden;
-height: 12vh;
+height: 12%;
 width: 350px;
-background: none;
+background: linear-gradient(white, #D0F8B7);
+border-radius: 0 0 20px 20px;
 `;
 
 const Bar = styled.div`

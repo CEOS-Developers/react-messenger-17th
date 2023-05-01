@@ -2,8 +2,8 @@ import { useCallback, useRef, useState } from 'react';
 import { Chat } from '../interfaces/Interface';
 import chatData from '../jsons/chatData.json';
 import userData from '../jsons/userData.json';
-import UserList from './UserList';
-import ChatList from './ChatList';
+import UserList from '../components/UserList';
+import ChatList from '../components/ChatList';
 import styled from 'styled-components';
 import ChatInput from '../components/ChatInput';
 

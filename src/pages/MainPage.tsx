@@ -14,7 +14,8 @@ const Wrapper = styled.div`
 
 const Button = styled.button`
 font-size: 19px; 
-font-family: 'KBIZ';
+font-weight: 1000;
+font-family: 'NanumL';
 color: green;
 position: absolute;
 top: 630px;

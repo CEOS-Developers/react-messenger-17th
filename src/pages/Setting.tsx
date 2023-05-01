@@ -10,21 +10,25 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 350px;
   height: 100vh;
-  background: linear-gradient(#D0F8B7, white, white, #D0F8B7);
   box-shadow: rgba(0, 0, 0, 0.15) 0 1px 20px;
+  background: linear-gradient(#D0F8B7, white, white, white);
   border-radius: 20px;
   margin: 0 auto;
-  font-family: 'KBIZ';
+  font-family: 'NanumL';
+  }
 `;
-
 const Bar = styled.div`
 display: flex;
-margin: 23px;
+background-color: #D0F8B7;
+height: 10%;
+border-radius: 20px 20px 0 0;
+align-items: center;
 `;
 
 const Content =styled.div`
+background: linear-gradient(#D0F8B7, white, white, white);
 display: flex;
-height: 80vh;
+height: 78%;
 justify-content: center;
 align-items: center;
 `;
@@ -34,13 +38,13 @@ function Setting(){
         <Wrapper>
           <Bar>
           <Back/>
-          <h3 style={{margin:0, marginLeft:'15px'}}>Settings</h3>
+          <h2 style={{fontSize: '20px', fontWeight: 1000,  margin:0, marginLeft:'10px'}}>Settings</h2>
           </Bar>
           <Content>
-            <NavLink to='/' style={{color: "coral", fontSize:"35px"}}>
+            <NavLink to='/' style={{color: "grey", fontSize:"30px"}}>
               <GiHouse/>
             </NavLink> 
-            <NavLink to='https://github.com/sujinRo' target="_blank" style={{color:"black", fontSize:"45px"}}>
+            <NavLink to='https://github.com/sujinRo' target="_blank" style={{color:"grey", fontSize:"40px"}}>
               <DiGithubBadge/>
             </NavLink>
           </Content>

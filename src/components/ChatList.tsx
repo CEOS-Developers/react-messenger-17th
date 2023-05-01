@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import ChatItem from '../components/ChatItem';
+import ChatItem from './ChatItem';
 import { Chat, User } from '../interfaces/Interface';
 
 const Wrapper = styled.div`

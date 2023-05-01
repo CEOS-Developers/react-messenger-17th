@@ -3,7 +3,8 @@ import {IoIosArrowBack} from "react-icons/io";
 const backStyle = {
     color: 'white',
     filter: 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.3))',
-    fontSize: '28px'
+    fontSize: '28px',
+    cursor: 'pointer'
   }
 
 const goBack = () => {
