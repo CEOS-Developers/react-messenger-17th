@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ChatroomPage from "./pages/ChatroomPage";
 import Chatroom from "./pages/ChatRoom";
 import Start from "./pages/Start";
+import FriendPage from "./pages/FriendPage";
+import SettingPage from "./pages/SettingPage";
+import Layout from "./components/Layout";
 
 
 const App = () => {
@@ -12,13 +15,13 @@ const App = () => {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path="/*" element={<ChatroomPage/>}></Route>
-          {/* <Route element={<Start/>}>
-            <Route path="/" element={<FriendPage />} />
-            <Route path="/chatrooms" element={<ChatroomPage />} />
-            <Route path="/setting" element={<SettingPage />} />
-          </Route>*/
-          <Route path="/chatrooms/:id" element={<Chatroom />} /> }
+          <Route path="/" element={<Start/>}></Route>
+          <Route element={<Layout/>}>
+            <Route path="/" element={<FriendPage/>}/>
+            <Route path="/" element={<ChatroomPage/>}/>
+            <Route path="/" element={<SettingPage/>}/>
+          </Route>
+          <Route path="/chatrooms/:id" element={<Chatroom />} /> 
         </Routes>
       </BrowserRouter>
     </>
