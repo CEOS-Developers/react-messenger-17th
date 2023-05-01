@@ -8,34 +8,47 @@ const Layout = () => {
         <PageWrapper>
             <SideBar>
                 <Link to="/FriendPage">
-                    <img src={`${process.env.PUBLIC_URL}/image/user.png`}></img>
+                    <IconImg src={`${process.env.PUBLIC_URL}/image/user.png`}/>
                 </Link>
                 <Link to="/ChatRoomPage">
-                    <img src={`${process.env.PUBLIC_URL}/image/speech-bubble.png`}></img>
+                    <IconImg src={`${process.env.PUBLIC_URL}/image/speech-bubble.png`}/>
                 </Link>
                 <Link to="/SettingPage">
-                    <img src={`${process.env.PUBLIC_URL}/image/settings.png`}></img>
+                    <IconImg src={`${process.env.PUBLIC_URL}/image/settings.png`}/>
                 </Link>
             </SideBar>
+            <main>
+                <Outlet/>
+            </main>
         </PageWrapper>
       
     );
   };
   export default Layout;
 
-  const PageWrapper = styled.div`
+const PageWrapper = styled.div`
     width: 350px;
     height: 43rem;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: #FEF8F2;
     margin-top: 10px;
-  `;
+    `;
 
-  const SideBar = styled.div`
-  
-  `;
+const SideBar = styled.div`
+    position: relative;
+    width: 20%;
+    height: 100%;
+    background-color: #BBCEFF;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px 0px 0px 20px;
+    gap: 25px;
+`;
 
+const IconImg = styled.img`
+    width: 50%;
+    transform: translate(50%, 100%);
+`;
