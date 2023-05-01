@@ -2,7 +2,7 @@ import {User} from '../interfaces/Interface'
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-
+user-select:none;
 `;
 
 const Image = styled.img`
@@ -45,7 +45,7 @@ justify-content: center;
 const List = styled.div`
 display:flex;
 :hover{
-  background: lightgray;
+  background: #E2E2E2;
   cursor: pointer;
 }
 `;

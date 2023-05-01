@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   box-shadow: rgba(0, 0, 0, 0.15) 0 1px 20px;
   border-radius: 20px;
   margin: 0 auto;
+  user-select:none;
 `;
 
 const Button = styled.button`

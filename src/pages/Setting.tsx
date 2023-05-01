@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   border-radius: 20px;
   margin: 0 auto;
   font-family: 'NanumL';
+  user-select:none;
   }
 `;
 const Bar = styled.div`
