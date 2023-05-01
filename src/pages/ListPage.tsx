@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import MenuBar from "../components/MenuBar";
+import Back from "../components/Back";
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,12 +11,25 @@ const Wrapper = styled.div`
   box-shadow: rgba(0, 0, 0, 0.15) 0 1px 20px;
   border-radius: 20px;
   margin: 0 auto;
+  font-family: 'KBIZ';
+`;
+
+const Bar = styled.div`
+display: flex;
+margin: 23px;
+`;
+
+const subTitle = styled.text`
+
 `;
 
 function ListPage(){
     return(
         <Wrapper>
-          <h2>Profiles</h2>
+          <Bar>
+          <Back/>
+          <h3 style={{margin:0, marginLeft:'15px'}}>Profiles</h3>
+          </Bar>
           <MenuBar/>
         </Wrapper>
     );

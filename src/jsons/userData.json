@@ -2,37 +2,37 @@
   "users": [
     {
       "id": 0,
-      "name": "알톨이",
+      "name": "알톨이🌰",
       "image": "images/Na.jpeg"
     },
     {
       "id": 1,
-      "name": "잭슨",
+      "name": "잭슨🐱",
       "image": "images/Jackson.png"
     },
     {
       "id": 2,
-      "name": "쭈니",
+      "name": "쭈니🐿",
       "image": "images/Juny.png"
     },
     {
       "id": 3,
-      "name": "휴지",
+      "name": "휴지🐘",
       "image": "images/Huji.png"
     },
     {
       "id": 4,
-      "name": "호떡",
+      "name": "호떡🐧",
       "image": "images/Hodduk.png"
     },
     {
       "id": 5,
-      "name": "미첼",
+      "name": "미첼🐰",
       "image": "images/Michel.png"
     },
     {
       "id": 6,
-      "name": "스피카",
+      "name": "스피카🐿",
       "image": "images/Spika.png"
     }
   ]
