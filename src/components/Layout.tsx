@@ -17,9 +17,9 @@ const Layout = () => {
                     <IconImg src={`${process.env.PUBLIC_URL}/image/settings.png`}/>
                 </Link>
             </SideBar>
-            <main>
+            <Main>
                 <Outlet/>
-            </main>
+            </Main>
         </PageWrapper>
       
     );
@@ -31,10 +31,17 @@ const PageWrapper = styled.div`
     height: 43rem;
     border-radius: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #FEF8F2;
     margin-top: 10px;
     `;
+
+const Main = styled.div`
+  width: 80%;
+  position: relative;
+  background-color: #FEF8F2;    
+  border-radius: 0px 20px 20px 0px;
+`;
 
 const SideBar = styled.div`
     position: relative;

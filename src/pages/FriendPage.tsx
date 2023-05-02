@@ -7,9 +7,9 @@ const FriendPage = () => {
   const [search, searching] = useState(false);
 
   return (
-    <Main>
+    <main>
       <Search>
-        <img src={`${process.env.PUBLIC_URL}/image/search.png`} onClick={() => searching(!search)}/> 
+        <SearchImg src={`${process.env.PUBLIC_URL}/image/search.png`} onClick={() => searching(!search)}/> 
         {!search ? 
         <></> :
         <SearchInput 
@@ -22,34 +22,39 @@ const FriendPage = () => {
         }}/>}
       </Search>
 
-      {/* <ProfileList>
+      <ProfileWrapper>
         <Profile>
-          <div></div>
-          여기 안에 사진 넣고.. 이름 넣고.. 상메 넣고..
+          <div>
+          </div>
         </Profile>
-      </ProfileList> */}
-    </Main>
+      </ProfileWrapper>
+    </main>
      
     
   );
 };
 export default FriendPage;
 
-
-const Main = styled.div`
-
-
-`;
-
 const Search = styled.div`
-  width:40px;
-  background-color:red;
-
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: center;
 `;
 
+const SearchImg = styled.img`
+  transform: translate(380%, 50%);
+  width: 10%;
+`;
 const SearchInput = styled.input`
-width:100px;
-background-color:blue;
+  width: 220px;
+  padding: 5px;
+  border-radius: 20px;
+  border-color: #FFD7C0;
+`;
+
+const ProfileWrapper = styled.div`
+
 `;
 
 const Profile = styled.div`
