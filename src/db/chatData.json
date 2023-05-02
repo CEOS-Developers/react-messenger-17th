@@ -2,7 +2,7 @@
   "chatRooms": [
     {
       "roomId": 0,
-      "user": 1,
+      "userId": 1,
       "chatList": [
         { "userId": 1, "content": "잇츠 미 마리오~", "time": "3월 30일" },
         { "userId": 0, "content": "잇츠 미 유진~", "time": "3월 30일" },
@@ -11,7 +11,7 @@
     },
     {
       "roomId": 1,
-      "user": 2,
+      "userId": 2,
       "chatList": [
         { "userId": 2, "content": "도망간 마리오 잡아요", "time": "3월 30일" },
         { "userId": 0, "content": "지.명.수.배.", "time": "3월 30일" },
@@ -20,7 +20,7 @@
     },
     {
       "roomId": 2,
-      "user": 3,
+      "userId": 3,
       "chatList": [
         {
           "userId": 3,
@@ -33,7 +33,7 @@
     },
     {
       "roomId": 3,
-      "user": 4,
+      "userId": 4,
       "chatList": [
         { "userId": 4, "content": "쿠파두파디바~", "time": "3월 30일" },
         { "userId": 0, "content": "쿠파파두파파쿠파두파", "time": "3월 30일" },
@@ -42,7 +42,7 @@
     },
     {
       "roomId": 4,
-      "user": 5,
+      "userId": 5,
       "chatList": [
         {
           "userId": 5,

@@ -2,6 +2,7 @@ export interface IUser {
   userId: number;
   userName: string;
   userImg: string;
+  statusMessage: string;
 }
 
 export interface IChat {
