@@ -1,10 +1,61 @@
-[
-  {
-    "userId": 1,
-    "content": "그냥 가라는 말 그대의 한마디가",
-    "time": "3월 30일"
-  },
-  { "userId": 0, "content": "나를 뚫고 지나가요~", "time": "3월 30일" },
-  { "userId": 1, "content": "널 향한 맘 작은 조각들로", "time": "3월 30일" },
-  { "userId": 0, "content": "부서지고 흩어져요~", "time": "3월 30일" }
-]
+{
+  "chatRooms": [
+    {
+      "roomId": 0,
+      "user": 1,
+      "chatList": [
+        { "userId": 1, "content": "잇츠 미 마리오~", "time": "3월 30일" },
+        { "userId": 0, "content": "잇츠 미 유진~", "time": "3월 30일" },
+        { "userId": 1, "content": "맘마미아~", "time": "3월 30일" }
+      ]
+    },
+    {
+      "roomId": 1,
+      "user": 2,
+      "chatList": [
+        { "userId": 2, "content": "도망간 마리오 잡아요", "time": "3월 30일" },
+        { "userId": 0, "content": "지.명.수.배.", "time": "3월 30일" },
+        { "userId": 2, "content": "현상금 오처넌", "time": "3월 30일" }
+      ]
+    },
+    {
+      "roomId": 2,
+      "user": 3,
+      "chatList": [
+        {
+          "userId": 3,
+          "content": "난 정말 귀엽고 사랑스러워",
+          "time": "3월 30일"
+        },
+        { "userId": 0, "content": "인정", "time": "3월 30일" },
+        { "userId": 3, "content": "ㅎㅎㅎㅎ", "time": "3월 30일" }
+      ]
+    },
+    {
+      "roomId": 3,
+      "user": 4,
+      "chatList": [
+        { "userId": 4, "content": "쿠파두파디바~", "time": "3월 30일" },
+        { "userId": 0, "content": "쿠파파두파파쿠파두파", "time": "3월 30일" },
+        { "userId": 4, "content": "랄라디바바디바바쿠파붐", "time": "3월 30일" }
+      ]
+    },
+    {
+      "roomId": 4,
+      "user": 5,
+      "chatList": [
+        {
+          "userId": 5,
+          "content": "머리에서 버섯이 자라요~",
+          "time": "3월 30일"
+        },
+        {
+          "userId": 0,
+          "content": "말도 안되는 소리 하지마",
+          "time": "3월 30일"
+        },
+        { "userId": 5, "content": "쳇쳇", "time": "3월 30일" }
+      ]
+    }
+  ]
+}

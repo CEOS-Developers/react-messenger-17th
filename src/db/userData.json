@@ -1,4 +1,40 @@
-[
-  { "userId": 0, "userName": "Yoojin", "userImg": "yoojin" },
-  { "userId": 1, "userName": "DAY6", "userImg": "day6" }
-]
+{
+  "users": [
+    {
+      "userId": 0,
+      "userName": "유진",
+      "userImg": "yoojin",
+      "statusMessage": "하이루~"
+    },
+    {
+      "userId": 1,
+      "userName": "마리오",
+      "userImg": "mario",
+      "statusMessage": "수염 깎아야지"
+    },
+    {
+      "userId": 2,
+      "userName": "피치",
+      "userImg": "peach",
+      "statusMessage": "암어프린세스피치"
+    },
+    {
+      "userId": 3,
+      "userName": "요시",
+      "userImg": "yoshi",
+      "statusMessage": "난 너무 귀여워"
+    },
+    {
+      "userId": 4,
+      "userName": "쿠파",
+      "userImg": "koopa",
+      "statusMessage": "국밥 땡겨"
+    },
+    {
+      "userId": 5,
+      "userName": "키노피오",
+      "userImg": "kinopio",
+      "statusMessage": "피노키오 아니고 키노피오임"
+    }
+  ]
+}
