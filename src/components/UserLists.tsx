@@ -1,5 +1,7 @@
+import {useState, useRef, useEffect} from 'react';
 import {User} from '../interfaces/Interface'
 import styled from 'styled-components';
+import ModalPage from './ModalPage';
 
 const Wrapper = styled.div`
 user-select:none;
@@ -56,20 +58,33 @@ interface UserListsProps{
 }
 
 function UserLists({userId, users}: UserListsProps){
+  const [modalOpen,setModalOpen] = useState<boolean>(false);
+  const [userIds, setUserIds] = useState(userId);
+
+  const showModal = (id: number) => {
+    setModalOpen(true);
+    setUserIds(id);
+  }
+  
     return(
+      <>
         <Wrapper>
         {users.map((user) => (
-            <List>
+          <>
+            <List onClick={()=>showModal(user.id)} key={user.id}>
             <Circle>
             <Image src = {user.image}></Image>
             </Circle>
             <Content>
             <Text>{user.name}</Text>
             <SubText>{user.contents}</SubText>
-            </Content>
+            </Content>         
             </List>
-        ))}
+            </>
+        ))} 
         </Wrapper>
+      {modalOpen && <ModalPage userId={userIds} users={users[userIds]} setModalOpen={setModalOpen}/>} 
+      </>
     );
 }
 

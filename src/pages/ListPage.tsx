@@ -1,10 +1,15 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styled from "styled-components";
 import MenuBar from "../components/MenuBar";
 import Back from "../components/Back";
 import userData from '../jsons/userData.json';
 import UserLists from "../components/UserLists";
 import {GoSearch} from "react-icons/go"
+
+const Modal = styled.div`
+width: 100%;
+height: 100%;
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -67,9 +72,10 @@ const searchStyle = {
 function ListPage(){
   const users = userData.users;
   const me = userData.me;
-  const [userId,setUserId] = useState(0);
+  const [userId, setUserId] = useState<number>(0);
 
     return(
+      <Modal>
         <Wrapper>
           <Bar>
           <Back/>
@@ -86,6 +92,7 @@ function ListPage(){
           </Content>
           <MenuBar/>
         </Wrapper>
+      </Modal>
     );
 }
 
