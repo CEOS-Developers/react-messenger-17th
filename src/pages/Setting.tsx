@@ -3,7 +3,8 @@ import styled from "styled-components";
 import Back from "../components/Bar/Back";
 import MenuBar from "../components/Bar/MenuBar";
 import {DiGithubBadge} from "react-icons/di";
-import {GiHouse} from "react-icons/gi";
+import {AiFillHome} from "react-icons/ai";
+import {BsInstagram} from "react-icons/bs";
 
 const Wrapper = styled.div`
   display: flex;
@@ -29,6 +30,7 @@ align-items: center;
 const Content =styled.div`
 background: linear-gradient(#D0F8B7, white, white, white);
 display: flex;
+flex-direction: column;
 height: 78%;
 justify-content: center;
 align-items: center;
@@ -42,11 +44,14 @@ function Setting(){
           <h2 style={{fontSize: '20px', fontWeight: 1000,  margin:0, marginLeft:'10px'}}>Settings</h2>
           </Bar>
           <Content>
-            <NavLink to='/' style={{color: "grey", fontSize:"30px"}}>
-              <GiHouse/>
+            <NavLink to='/' style={{color: "grey", fontSize:"45px"}}>
+              <AiFillHome/>
             </NavLink> 
-            <NavLink to='https://github.com/sujinRo' target="_blank" style={{color:"grey", fontSize:"40px"}}>
+            <NavLink to='https://github.com/sujinRo' target="_blank" style={{color:"grey", fontSize:"55px", marginTop: "5px"}}>
               <DiGithubBadge/>
+            </NavLink>
+            <NavLink to='https://www.instagram.com/suxjinn/' target="_blank" style={{color:"grey", fontSize:"38px", marginTop: "5px"}}>
+              <BsInstagram/>
             </NavLink>
           </Content>
           <MenuBar/>
