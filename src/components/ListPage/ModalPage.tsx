@@ -17,7 +17,7 @@ align-items: center;
 `;
 
 const Content = styled.div`
-height:430px;
+height:420px;
 width: 300px;
 border-radius: 10%;
 background: white;
@@ -31,7 +31,7 @@ border-radius: 10% 10% 0 0;
 
 const Text = styled.div`
 display: flex;
-height: 130px;
+height: 120px;
 justify-content: center;
 align-items: center;
 `;
