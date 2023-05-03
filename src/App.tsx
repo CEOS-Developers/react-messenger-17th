@@ -24,6 +24,7 @@ const App = () => {
           <Route path="/chatrooms/:id" element={<Chatroom />} /> 
         </Routes>
       </BrowserRouter>
+      
     </>
   );
 };
