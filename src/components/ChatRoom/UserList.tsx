@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { User } from '../interfaces/Interface';
+import { User } from '../../interfaces/Interface';
 import UserItem from './UserItem';
 
 const Wrapper = styled.div`

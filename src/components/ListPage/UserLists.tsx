@@ -1,5 +1,5 @@
 import {useState, useRef, useEffect} from 'react';
-import {User} from '../interfaces/Interface'
+import {User} from '../../interfaces/Interface'
 import styled from 'styled-components';
 import ModalPage from './ModalPage';
 

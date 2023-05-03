@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import Back from "../components/Back";
-import MenuBar from "../components/MenuBar";
+import Back from "../components/Bar/Back";
+import MenuBar from "../components/Bar/MenuBar";
 import {DiGithubBadge} from "react-icons/di";
 import {GiHouse} from "react-icons/gi";
 

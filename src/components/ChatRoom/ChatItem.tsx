@@ -1,4 +1,4 @@
-import { Chat, User } from '../interfaces/Interface';
+import { Chat, User } from '../../interfaces/Interface';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`

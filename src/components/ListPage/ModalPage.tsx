@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { User } from "../interfaces/Interface";
+import { User } from "../../interfaces/Interface";
 import styled from "styled-components";
 
 const Background = styled.div`
@@ -46,22 +46,16 @@ function ModalPage({userId, users, setModalOpen}: ModalProps){
     const modalRef = useRef<HTMLDivElement>(null);
     
     useEffect(() => {
-        // 이벤트 핸들러 함수
         const handler = (event: React.BaseSyntheticEvent | MouseEvent) => {
-            // mousedown 이벤트가 발생한 영역이 모달창이 아닐 때, 모달창 제거 처리
             if (modalRef.current && !modalRef.current.contains(event.target)) {
                 setModalOpen(false);
             }
         };
         
-        // 이벤트 핸들러 등록
         document.addEventListener('mousedown', handler);
-        // document.addEventListener('touchstart', handler); // 모바일 대응
         
         return () => {
-            // 이벤트 핸들러 해제
             document.removeEventListener('mousedown', handler);
-            // document.removeEventListener('touchstart', handler); // 모바일 대응
         };
     });
 

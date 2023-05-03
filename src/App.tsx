@@ -2,7 +2,7 @@ import MainPage from './pages/MainPage';
 import ChatRoom from './pages/ChatRoom';
 import ListPage from './pages/ListPage';
 import Setting from './pages/Setting';
-import MenuBar from './components/MenuBar';
+import MenuBar from './components/Bar/MenuBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 

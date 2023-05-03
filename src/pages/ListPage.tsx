@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
 import styled from "styled-components";
-import MenuBar from "../components/MenuBar";
-import Back from "../components/Back";
+import MenuBar from "../components/Bar/MenuBar";
+import Back from "../components/Bar/Back";
 import userData from '../jsons/userData.json';
-import UserLists from "../components/UserLists";
+import UserLists from "../components/ListPage/UserLists";
 import {GoSearch} from "react-icons/go"
 
 const Modal = styled.div`
