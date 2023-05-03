@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import { useState } from "react";
 import userData from "../../json/userData.json";
-import { User } from "../../common/interface"
 
 
 const Profile = () => {
-    const [value, setValue] = useState('');
-    const [search, searching] = useState(false);
     const users = userData.users;
 
     return (
@@ -18,8 +15,8 @@ const Profile = () => {
                 <img src={user.profileImage}></img>
             </ProfileImg>
             <ProfileInfo>
-            <h3>{user.name}</h3>
-            <p>{user.message}</p>
+            <h3 style={{marginBottom: '0px'}}>{user.name}</h3>
+            <p style={{marginTop: '5px'}}>{user.message}</p>
             </ProfileInfo>
         </ProfileWrapper>           
         ))}

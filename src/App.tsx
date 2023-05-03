@@ -6,14 +6,15 @@ import Start from "./pages/Start";
 import FriendPage from "./pages/FriendPage";
 import SettingPage from "./pages/SettingPage";
 import Layout from "./components/Layout";
-import GlobalStyle from "./common/GlobalStyle";
+import GlobalStyle from './common/GlobalStyle';
 
 
 const App = () => {
   return (
     <>
-      <GlobalStyle />
       <BrowserRouter>
+      {/* 왜 GlobalStyle을 BrowserRouter 위에 놓으니깐 폰트 적용 안됐지? */}
+      <GlobalStyle />
         <Routes>
           <Route path="/" element={<Start/>}></Route>
           <Route element={<Layout/>}>

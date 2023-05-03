@@ -15,7 +15,7 @@ const FriendPage = () => {
       <Search>
         <Title>
           <span>친구</span>
-          <SearchImg src={`${process.env.PUBLIC_URL}/image/search.png`} onClick={() => searching(!search)}/> 
+          <SearchImg src={`${process.env.PUBLIC_URL}/image/search.png`} style={{cursor:'pointer'}} onClick={() => searching(!search)}/> 
         </Title>
       
         {!search ? 
@@ -50,23 +50,25 @@ const Title = styled.h1`
   font-size: 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   padding-top: 1rem;
   padding-left: 1rem;
 `;
 
 const Search = styled.div`
-  gap: 35px;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const SearchImg = styled.img`
-  transform: translate(380%, 50%);
+  transform: translate(700%);
   width: 1.5rem;
 `;
 const SearchInput = styled.input`
-  display: flex;
   width: 220px;
   padding: 5px;
+  margin-left: 1.2rem;
   border-radius: 20px;
   border-color: #FFD7C0;
 `;
