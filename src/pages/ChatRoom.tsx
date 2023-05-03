@@ -7,6 +7,8 @@ import UsersList from "../components/ChatRoomPage/UsersList";
 import { getRoomMembers } from "../common/Custom";
 import { Chat } from "../common/interface";
 
+import { MdOutlineCancel } from "react-icons/md";
+
 import userData from "../json/userData.json";
 import chatData from "../json/chatRoom.json";
 import { useNavigate, useParams } from "react-router-dom";
@@ -46,8 +48,12 @@ function Chatroom() {
 
   return (
     <Wrapper>
-      {/* <button onClick={() => navigate(-1)} /> */}
-      <UsersList curUser={curUser} users={roomMembers} changeUser={changeUser} />
+      <Header>
+        <Button onClick={() => navigate(-1)}> 
+          <MdOutlineCancel size="20"/>
+        </Button>
+        <UsersList curUser={curUser} users={roomMembers} changeUser={changeUser} />
+      </Header>
       <ChatView curUser={curUser} users={users} chats={chats} />
       <InsertMsg onConcat={onConcat} />
     </Wrapper>
@@ -58,17 +64,35 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 350px;
-  height: 95vh;
-  box-shadow: 1px 1px 2px 2px lightgrey;
+  height: 43rem;
+  margin-top: 10px;
+  box-shadow: 5px 5px 5px 5px rgb(200, 200, 200);
+  background-color: #FEF8F2;
   border-radius: 20px;
   &::-webkit-scrollbar{
         width : 10px;
     }
     &::-webkit-scrollbar-thumb {
         height: 30%;
-        background-color: rgb(137 130 211);
+        background-color: #95B3FF;
         border-radius: 10px;
     }
+`;
+
+const Header = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #95B3FF;
+    border-radius: 20px 20px 0px 0px;
+`;
+
+
+const Button = styled.button`
+    all: unset;
+    cursor: pointer;
+    margin-left: 0.8rem;
 `;
 
 export default Chatroom;

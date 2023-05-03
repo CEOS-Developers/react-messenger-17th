@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   gap: 20px;
   height: 65%;
   overflow: auto;
-  background-color: lightyellow;
+  background-color: #FEF8F2;
   &::-webkit-scrollbar{
     width : 5px;
   }

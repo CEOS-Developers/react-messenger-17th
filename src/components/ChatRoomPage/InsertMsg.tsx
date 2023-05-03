@@ -50,7 +50,7 @@ const Wrapper = styled.form`
   padding: 10px;
   box-sizing: border-box;
   width: 100%;
-  background-color: lightblue;
+  background-color: #95B2FF;
   border-radius: 0rem 0rem 1rem 1rem;
 
 `;
@@ -59,11 +59,11 @@ const InputField = styled.textarea`
   border: none;
   padding: 10px;
   word-break: break-all;
-  font-family: 'GmarketSansMedium';
+  background-color: #FFFCF6;
 `;
 const SendButton = styled.button`
   width: 80px;
-  background-color: lightyellow;
+  background-color: #F5F2FE;
   border: none;
   border-radius: 0rem 1rem 1rem 0rem;
   font-family: 'GmarketSansMedium';
