@@ -3,37 +3,37 @@
       {
           "id": 0,
           "name": "예린🥦👩‍🦱",
-          "profileImage": "me",
+          "profileImage": "https://file.notion.so/f/s/ee3f459a-c7e7-4bc3-8f4a-7cb6169ce6e7/intropic.jpg?id=87b4cfdb-0ca6-43da-ac7e-c8944570ceba&table=block&spaceId=413c734d-ab16-44ab-8ca0-52a9ea3ec079&expirationTimestamp=1683160106856&signature=E15S2XT5cJETGm6mCvr1PJTlAvZTFiMzl_2DXK4ga6M&downloadName=intropic.jpg",
           "message": "내가 여기 주인이다"
       },
       {
           "id": 1,
           "name": "Joy😄",
-          "profileImage": "joy",
+          "profileImage": "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2Fc1%2Fea%2Feb%2Fc1eaeb1474b38af966a8534bed01737e--disney-inside-out-inside-out-joy.jpg&type=sc960_832",
           "message": "꺅 너무 행복해"
       },
       {
         "id": 2,
         "name": "Sadness😥",
-        "profileImage": "",
+        "profileImage": "https://conexuscounselling.ca/files/posts%20for%20blog/2015/July%202015/Sadness%20Disney%20Pixar%20from%20dowload%20page%20onofficial%20site%20.jpg",
         "message": "쏘새드"
       },
       {
         "id": 3,
         "name": "Anger🤬",
-        "profileImage": "",
+        "profileImage": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150519_91%2Fapple2pcs_1432040067355Lfz2P_JPEG%2Fio_Anger_profile.jpg&type=sc960_832",
         "message": "🔥🔥🔥🔥🔥"
       },
       {
         "id": 4,
         "name": "Disgust🤮",
-        "profileImage": "",
+        "profileImage": "https://c4.wallpaperflare.com/wallpaper/2/240/860/movie-inside-out-disgust-inside-out-wallpaper-preview.jpg",
         "message": "브로콜리는 최악이야!"
       },
       {
         "id": 5,
         "name": "Fear😨😨",
-        "profileImage": "",
+        "profileImage": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA5MTFfMjk4%2FMDAxNTk5Nzg5Nzc1NDg0.7XmZisOloorkn94s4kEClfDUvuivLkeraMPOLrM1raUg.U8eFVUr3cqOybVuP7pjt5fm6PZ9sYkOdDvS_jkKWcX0g.JPEG.hanil1742%2F5104_bibiri_main.jpg&type=sc960_832",
         "message": "엥 헉 헐 대박 어떡해?"
       }
   ]
