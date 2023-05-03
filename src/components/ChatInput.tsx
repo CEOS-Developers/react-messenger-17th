@@ -10,45 +10,52 @@ function ChatInput({roomid} : IRoomId) : JSX.Element {
   const [roomLists, setRoomLists] = useRecoilState<IChatRoom[]>(roomList);
   const [inputValue, setInputValue] = useState<string>("");
   const roomIndex = roomLists.findIndex((room) => room.roomid === roomid);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(event.target.value);
   };
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if(!inputValue.trim())
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (!e.shiftKey && e.key === "Enter") {
+      handleSubmit();
+    }
+  };
+  const handleSubmit = (event?: React.FormEvent<HTMLFormElement>) => {
+    event?.preventDefault();
+    if(!inputValue.trim()){
+      setInputValue('');
       return;
+    }
     const newMessage = {
-        id : Date.now(),
-        userid : currentUser.userid,
-        message : inputValue
+      id : Date.now(),
+      userid : currentUser.userid,
+      message : inputValue
     };
     const newRoom = {
-        ...roomLists[roomIndex],
-        messages : [...roomLists[roomIndex].messages, newMessage],
+      ...roomLists[roomIndex],
+      messages : [...roomLists[roomIndex].messages, newMessage],
     };
     
     setRoomLists([
-        ...roomLists.slice(0,roomIndex),
-        newRoom,
-        ...roomLists.slice(roomIndex+1),
+      ...roomLists.slice(0,roomIndex),
+      newRoom,
+      ...roomLists.slice(roomIndex+1),
     ]);
     setInputValue("");
   };
   
   useEffect(()=>{
     if(inputRef.current){
-        inputRef.current.focus();
+      inputRef.current.focus();
     }
   })
   return (
     <ChatInputWrapper onSubmit={handleSubmit}>
       <Input
-        type="text"
         ref = {inputRef}
         value={inputValue}
         onChange={handleInputChange}
+        onKeyUp = {handleKeyUp}
         placeholder="메세지를 입력해주세요"
       />
       {inputValue &&

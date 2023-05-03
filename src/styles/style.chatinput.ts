@@ -5,13 +5,14 @@ export const ChatInputWrapper = styled.form`
     display : flex;
 `
 
-export const Input = styled.input`
+export const Input = styled.textarea`
     padding: 10px;
     width:80%;
     border: none;
     font-size: 1.2rem;
     line-height: 1.5rem;
     outline: none;
+    resize: none;
     background-color:transparent;
 `
 
