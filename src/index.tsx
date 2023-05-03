@@ -16,7 +16,7 @@ const router = createBrowserRouter([
       { index: true, element: <FriendsPage /> },
       { path: 'friends', element: <FriendsPage /> },
       { path: 'chatrooms', element: <ChatRoomListPage /> },
-      { path: 'chatrooms/:roomId', element: <ChatRoomPage /> },
+      { path: 'chatrooms/:userId', element: <ChatRoomPage /> },
       { path: 'settings', element: <SettingPage /> },
     ],
   },

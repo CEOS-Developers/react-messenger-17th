@@ -1,7 +1,6 @@
 {
   "chatRooms": [
     {
-      "roomId": 0,
       "userId": 1,
       "chatList": [
         { "userId": 1, "content": "잇츠 미 마리오~", "time": "3월 30일" },
@@ -10,7 +9,6 @@
       ]
     },
     {
-      "roomId": 1,
       "userId": 2,
       "chatList": [
         { "userId": 2, "content": "도망간 마리오 잡아요", "time": "3월 30일" },
@@ -19,7 +17,6 @@
       ]
     },
     {
-      "roomId": 2,
       "userId": 3,
       "chatList": [
         {
@@ -32,7 +29,6 @@
       ]
     },
     {
-      "roomId": 3,
       "userId": 4,
       "chatList": [
         { "userId": 4, "content": "쿠파두파디바~", "time": "3월 30일" },
@@ -41,7 +37,6 @@
       ]
     },
     {
-      "roomId": 4,
       "userId": 5,
       "chatList": [
         {

@@ -1,14 +1,7 @@
 import { atom, selector } from 'recoil';
-import { IUser, IChat } from '../interface/interface';
+import { IUser, IChat, IChatRoom } from '../interface/interface';
 import userData from '../db/userData.json';
 import chatData from '../db/chatData.json';
-
-/*
-export const userState = atom<IUser[]>({
-  key: 'user',
-  default: userData,
-});
-*/
 
 //채팅 정보
 export const chatState = atom<IChat[]>({
@@ -45,5 +38,13 @@ export const friendsInfoSelector = selector<IUser[]>({
     return allUsers.filter((user) => user.userId !== 0);
   },
 });
+
+//전체 채팅방 정보
+export const allChatRoomsInfoState = atom<IChatRoom[]>({
+  key: 'allChatRoomsInfo',
+  default: chatData.chatRooms,
+});
+
+//각 채팅방 정보?
 
 //**otherUserState 만들기

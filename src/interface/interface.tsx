@@ -10,3 +10,9 @@ export interface IChat {
   content: string;
   time: string;
 }
+
+export interface IChatRoom {
+  userId: number;
+  chatList: IChat[];
+  //length?: number;
+}
