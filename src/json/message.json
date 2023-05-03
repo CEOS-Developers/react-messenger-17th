@@ -1,0 +1,132 @@
+[
+  {
+    "chattingRoomId": 0,
+    "message": [
+      {
+        "userNum": 0,
+        "addText": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "chattingRoomId": 1,
+    "message": [
+      {
+        "userNum": 1,
+        "addText": "You're my love",
+        "date": "Mon Apr 17 2023 20:15:19 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 0,
+        "addText": "처음 본 순간부터 내겐",
+        "date": "Mon Apr 17 2023 20:15:19 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 1,
+        "addText": "Cuz you're my cuz you're my LOVE for me baby..",
+        "date": "Mon Apr 17 2023 20:17:19 GMT+0900 (한국 표준시)"
+      }
+    ]
+  },
+  {
+    "chattingRoomId": 2,
+    "message": [
+      {
+        "userNum": 2,
+        "addText": "잔인하고 아름다워~",
+        "date": "Mon Apr 18 2023 13:46:23 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 0,
+        "addText": "love killa~",
+        "date": "Mon Apr 18 2023 13:47:00 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 2,
+        "addText": "love killa~",
+        "date": "Mon Apr 18 2023 13:47:37 GMT+0900 (한국 표준시)"
+      }
+    ]
+  },
+  {
+    "chattingRoomId": 3,
+    "message": [
+      {
+        "userNum": 3,
+        "addText": "다그닥 다그닥~",
+        "date": "Mon Apr 18 2023 13:20:19 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 0,
+        "addText": "히잉 히잉~",
+        "date": "Mon Apr 18 2023 13:23:23 GMT+0900 (한국 표준시)"
+      }
+    ]
+  },
+  {
+    "chattingRoomId": 4,
+    "message": [
+      {
+        "userNum": 4,
+        "addText": "Gotta run to the top!",
+        "date": "Mon Apr 18 2023 17:15:19 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 0,
+        "addText": "Rush hour, hour!",
+        "date": "Mon Apr 18 2023 17:17:20 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 4,
+        "addText": "Run to the top!",
+        "date": "Mon Apr 18 2023 17:17:30 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 0,
+        "addText": "Rush hour!",
+        "date": "Mon Apr 18 2023 17:18:21 GMT+0900 (한국 표준시)"
+      }
+    ]
+  },
+  {
+    "chattingRoomId": 5,
+    "message": [
+      {
+        "userNum": 5,
+        "addText": "탐색하듯 맴돌아~",
+        "date": "Mon Apr 18 2023 19:15:19 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 0,
+        "addText": "위태롭고 위험해~",
+        "date": "Mon Apr 18 2023 19:17:23 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 5,
+        "addText": "미칠 듯이 이끌려~",
+        "date": "Mon Apr 18 2023 19:17:48 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 0,
+        "addText": "너와 나이야이야이야이양~~",
+        "date": "Mon Apr 18 2023 19:19:19 GMT+0900 (한국 표준시)"
+      }
+    ]
+  },
+  {
+    "chattingRoomId": 6,
+    "message": [
+      {
+        "userNum": 0,
+        "addText": "딱히 이유가 없는데",
+        "date": "Mon Apr 18 2023 22:10:19 GMT+0900 (한국 표준시)"
+      },
+      {
+        "userNum": 6,
+        "addText": "끌릴 때 그게 젤 위험해",
+        "date": "Mon Apr 18 2023 22:13:40 GMT+0900 (한국 표준시)"
+      }
+    ]
+  }
+]
