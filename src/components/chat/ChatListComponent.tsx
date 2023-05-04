@@ -8,9 +8,11 @@ import {userInfo, partnerInfo} from '../../store/atom';
 function ChatList(): JSX.Element {
   const roomLists = useRecoilValue<IChatRoom[]>(roomList);
   const [selectedRoomId, setSelectedRoomId] = useRecoilState<number>(selectedRoom);
+  const sortedRoomLists = roomLists.slice().sort((a, b) => b.messages[b.messages.length - 1].id - a.messages[a.messages.length - 1].id);
+
   return (
     <ChatListWrapper>
-      {roomLists.map(({roomid,userid,username,messages}: IChatRoom) => (
+      {sortedRoomLists.map(({roomid,userid,username,messages}: IChatRoom) => (
           <ChatRoom 
           key = {roomid} 
           roomid = {roomid} 
