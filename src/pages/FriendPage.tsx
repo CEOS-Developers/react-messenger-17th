@@ -7,12 +7,19 @@ import Profile from "../components/FriendPage/Profile";
 
 
 const FriendPage = () => {
-  const [value, setValue] = useState('');
   const [search, searching] = useState(false);
 
+  //search 
+  const [searchInput, setSearchInput] = useState('');
+
+  const filteredUsers = userData.users.filter((user: User) => {
+    return user.name.toLowerCase().includes(searchInput.toLowerCase());
+  });
+
+ 
   return (
     <Wrapper>
-      <Search>
+      <Header>
         <Title>
           <span>친구</span>
           <SearchImg src={`${process.env.PUBLIC_URL}/image/search.png`} style={{cursor:'pointer'}} onClick={() => searching(!search)}/> 
@@ -24,13 +31,23 @@ const FriendPage = () => {
         type="text"
         name="person" 
         placeholder="친구 검색"
+        value={searchInput}
         onChange={(e) => {
-          console.log(e.target,value)
-          setValue(e.target.value)
+          setSearchInput(e.target.value)
         }}/>}
-      </Search>
 
-      <Profile></Profile>
+        {/* 검색 기능 추가하기.. */}
+        <div>
+        {filteredUsers.length === 0 ? (
+                <p style={{fontSize:"1rem", textAlign: "center"}}>그런 친구는 없어요!</p>
+              ) : (
+                <Profile users={filteredUsers} />
+              )}
+        
+        </div>
+      </Header>
+
+      <Profile users={[]}></Profile>
 
     </Wrapper>
      
@@ -55,7 +72,7 @@ const Title = styled.h1`
   padding-left: 1rem;
 `;
 
-const Search = styled.div`
+const Header = styled.div`
   gap: 0.5rem;
   display: flex;
   flex-direction: column;

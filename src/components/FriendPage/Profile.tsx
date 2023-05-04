@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import { useState } from "react";
 import userData from "../../json/userData.json";
+import { User } from "../../common/interface";
 
+interface ProfileProps {
+  users: User[];
+}
 
-const Profile = () => {
-    const users = userData.users;
+const Profile = ({users} : ProfileProps) => {
 
     return (
         <div>
         {users.map(user => (
-        <ProfileWrapper>
+        <ProfileWrapper key={user.id}>
             {/* 왜 이미지를 꼭 https 주소로 넣어야 했을까.. 으헝헝.. */}
             <ProfileImg>
                 <img src={user.profileImage}></img>
