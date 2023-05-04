@@ -1,11 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import {
-  currentUserState,
-  myInfoSelector,
-  selectedFriendInfoState,
-} from '../../state/atom';
+import { currentUserState, myInfoSelector } from '../../state/atom';
 import styled from 'styled-components';
 import { RiArrowLeftSLine } from 'react-icons/ri';
 import { IUser } from '../../interface/interface';
@@ -18,7 +14,6 @@ const Header = ({ friendInfo }: HeaderProps) => {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
   const myInfo = useRecoilValue(myInfoSelector);
-  //const friendInfo = useRecoilValue(selectedFriendInfoState);
   const isMyAccount = currentUser.userId === myInfo.userId; //currentUser=나
 
   const toggleUser = () => {
@@ -40,7 +35,7 @@ const Header = ({ friendInfo }: HeaderProps) => {
         <UserImg
           src={`${process.env.PUBLIC_URL}/Imgs/${
             isMyAccount ? friendInfo.userImg : myInfo.userImg
-          }.jpg`} //**otherUser.uerImg / 아래는 otherUser.userName로 수정하기!
+          }.jpg`}
           alt={currentUser.userName}
         />
         <UserName>

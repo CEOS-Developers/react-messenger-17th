@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import {
-  currentUserState,
-  allChatRoomsInfoState,
-  selectedChatListState,
-} from '../../state/atom';
+import { currentUserState, allChatRoomsInfoState } from '../../state/atom';
 import styled from 'styled-components';
 import { IoIosSend } from 'react-icons/io';
 import { IChat, IUser } from '../../interface/interface';
@@ -15,7 +11,6 @@ type ChatInputProps = {
 };
 
 const ChatInput = ({ friendInfo, chatList }: ChatInputProps) => {
-  //const [chatList, setChatList] = useRecoilState(selectedChatListState);
   const currentUser = useRecoilValue(currentUserState);
   const [text, setText] = useState('');
   const [newChatList, setNewChatList] = useState(chatList);
@@ -28,17 +23,6 @@ const ChatInput = ({ friendInfo, chatList }: ChatInputProps) => {
       ...newChatList,
       { userId: currentUser.userId, content: text, time: currentTime() },
     ]);
-
-    /*
-    setAllChatRoomsInfo([
-      ...allChatRoomsInfo,
-      {
-        userId: friendInfo.userId,
-        chatList: [...newChatList],
-      },
-    ]);
-    */
-    //console.log(allChatRoomsInfo);
   };
 
   const currentTime = () => {
