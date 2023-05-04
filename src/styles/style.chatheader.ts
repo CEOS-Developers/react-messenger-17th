@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 export const Header = styled.div`
     display : flex;
@@ -8,7 +9,7 @@ export const Header = styled.div`
     margin-bottom: 5px;
 `
 
-export const BackButton = styled.div`
+export const BackButton = styled(Link)`
     display: flex;
     align-items: center;
     min-width: 25px;

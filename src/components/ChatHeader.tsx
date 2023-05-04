@@ -22,7 +22,7 @@ function ChatHeader(): JSX.Element {
   return (
   <>
     <Header>
-      <BackButton><IoChevronBackOutline size = "30"/></BackButton>
+      <BackButton to = '/chat'><IoChevronBackOutline size = "30"/></BackButton>
       <UserName onClick = {handleToggleClick}>{partnerUser.username}</UserName>
       <CloseButton onClick = {handleCloseClick}><IoCloseOutline size="30"/></CloseButton>
     </Header>
