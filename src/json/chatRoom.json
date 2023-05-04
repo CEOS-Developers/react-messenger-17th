@@ -8,6 +8,42 @@
                     { "id": 0, "senderId": 1, "text": "오늘 너무 행복하지 않니", "date": "Sat Mar 26 2023 02:49:31 GMT+0900" },
                     { "id": 1, "senderId": 0, "text": "엥", "date": "Sat Mar 26 2023 02:49:31 GMT+0900" }
                 ]
+        },
+        {
+            "roomId": 1,
+            "users": [0,2],
+            "chats":
+                [
+                    { "id": 0, "senderId": 2, "text": "슬픔을 둘로 나누면", "date": "Sat Mar 26 2023 05:34:31 GMT+0900" },
+                    { "id": 2, "senderId": 0, "text": "스프", "date": "Sat Mar 26 2023 05:36:31 GMT+0900" }
+                ]
+        },
+        {
+            "roomId": 2,
+            "users": [0,3],
+            "chats":
+                [
+                    { "id": 3, "senderId": 0, "text": "하와이안 피자에 대해 어떻게 생각해?", "date": "Sat Mar 26 2023 12:49:31 GMT+0900" },
+                    { "id": 0, "senderId": 3, "text": "날 화나게 하지마", "date": "Sat Mar 26 2023 12:49:31 GMT+0900" }
+                ]
+        },
+        {
+            "roomId": 3,
+            "users": [0,4],
+            "chats":
+                [
+                    { "id": 0, "senderId": 4, "text": "으웩", "date": "Tue May 2 2023 08:20:31 GMT+0900" },
+                    { "id": 4, "senderId": 0, "text": "너 나한테 왜 그래", "date": "Tue May 2 2023 08:20:31 GMT+0900" }
+                ]
+        },
+        {
+            "roomId": 4,
+            "users": [0,5],
+            "chats":
+                [
+                    { "id": 0, "senderId": 5, "text": "꺄악!", "date": "Wed May 3 2023 12:49:31 GMT+0900" },
+                    { "id": 5, "senderId": 0, "text": "진정해 친구야", "date": "Wed May 3 2023 12:49:31 GMT+0900" }
+                ]
         }
     ]
 }
