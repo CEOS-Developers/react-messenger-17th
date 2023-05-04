@@ -2,6 +2,7 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { allChatRoomsInfoState, friendsInfoSelector } from '../../state/atom';
 import ChatRoom from './ChatRoom';
+import { IChatRoom } from '../../interface/interface';
 
 const ChatRoomList = () => {
   const allChatRoomsInfo = useRecoilValue(allChatRoomsInfoState);
@@ -10,20 +11,21 @@ const ChatRoomList = () => {
   return (
     <div>
       <ul>
-        {allChatRoomsInfo.map((chatRoomInfo) => {
+        {allChatRoomsInfo.map((chatRoomInfo: IChatRoom) => {
           const userId = chatRoomInfo.userId; //채팅방 정보 안의 userId
           const user = friendsInfo.find((friend) => friend.userId === userId);
-          const userName = user?.userName;
-          const userImg = user?.userImg;
-          const lastChat = chatRoomInfo.chatList[chatRoomInfo.length - 1];
+          const userName = user?.userName!;
+          const userImg = user?.userImg!;
+          const lastChat =
+            chatRoomInfo.chatList[chatRoomInfo.chatList.length! - 1];
 
           return (
             <ChatRoom
               key={userId}
               userName={userName}
               userImg={userImg}
-              lastMessage={lastChat.content}
-              lastTime={lastChat.time}
+              lastMessage={lastChat?.content}
+              lastTime={lastChat?.time}
             />
           );
         })}

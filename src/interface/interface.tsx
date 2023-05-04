@@ -14,5 +14,5 @@ export interface IChat {
 export interface IChatRoom {
   userId: number;
   chatList: IChat[];
-  //length?: number;
+  length?: number;
 }
