@@ -1,6 +1,6 @@
 import Footer from '../components/common/Footer';
 import Header from '../components/common/Header';
-import FriendsComponent from '../components/friends/Friends';
+import FriendsComponent from '../components/friends/FriendList';
 function Members(): JSX.Element {
 
   return (

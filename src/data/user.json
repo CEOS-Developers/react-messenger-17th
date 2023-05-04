@@ -1,10 +1,37 @@
 [
     {
       "userid": 0,
-      "username": "성준"
+      "username": "성준",
+      "status" : "나는야 배성준"
     },
     {
       "userid" : 1,
-      "username" : "상담원1"
+      "username" : "오은영",
+      "status" : "오은영의 금쪽 상담소 만관부~"
+    },
+    {
+      "userid" : 2,
+      "username" : "이도현",
+      "status" : "동은아 .."
+    },
+    {
+      "userid" : 3,
+      "username" : "임지연",
+      "status" : "재준아 .."
+    },
+    {
+      "userid" : 4,
+      "username" : "손명오",
+      "status" : "블라디보스톡 같이 갈 사람?"
+    },
+    {
+      "userid" : 5,
+      "username" : "최혜정",
+      "status" : "러시아 알레르기 있음"
+    },
+    {
+      "userid" : 6,
+      "username" : "유선호",
+      "status" : "홍컴 집합하셈"
     }
   ]

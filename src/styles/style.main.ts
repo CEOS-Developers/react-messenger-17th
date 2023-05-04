@@ -51,7 +51,7 @@ export const ChatButton = styled.button`
 `
 
 export const ChatWrapper = styled.div`
-    width: 380px;
+    width: 340px;
     height: 600px;
     opacity: 0;
     display:flex;

@@ -21,6 +21,9 @@ export interface IUser{
     username : string;
 }
 
+export interface IFriendItem extends IUser{
+    status : string;
+}
 export interface IMessage{
     id : number;
     userid : number;
