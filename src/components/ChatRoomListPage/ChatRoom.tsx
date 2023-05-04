@@ -1,27 +1,26 @@
 import React from 'react';
-import { IChat } from '../../interface/interface';
+import { IChat, IUser } from '../../interface/interface';
 import { useNavigate } from 'react-router-dom';
 
 type ChatRoomProps = {
-  userId: number;
-  userName: string;
-  userImg: string;
+  friendInfo: IUser;
   chatList: IChat[];
 };
 
-const ChatRoom = ({ userId, userName, userImg, chatList }: ChatRoomProps) => {
+const ChatRoom = ({ friendInfo, chatList }: ChatRoomProps) => {
   const navigate = useNavigate();
   const lastChat = chatList[chatList.length! - 1];
 
   return (
     <div
       onClick={() => {
-        navigate(`/chatrooms/${userId}`, {
-          state: { userName, userImg, chatList },
+        navigate(`/chatrooms/${friendInfo.userId}`, {
+          state: { friendInfo, chatList },
         });
       }}
     >
-      <p>{userName}</p>
+      <p>{friendInfo.userName}</p>
+      {/* {friendInfo.userImg} */}
       <p>{lastChat.content}</p>
       <p>{lastChat.time}</p>
     </div>

@@ -7,13 +7,13 @@ import { useLocation } from 'react-router-dom';
 
 const ChatRoomPage = () => {
   const {
-    state: { userName, userImg, chatList },
+    state: { friendInfo, chatList },
   } = useLocation();
 
   return (
     <ChatRoomBox>
-      <Header />
-      <ChatList chatList={chatList} />
+      <Header friendInfo={friendInfo} />
+      <ChatList friendInfo={friendInfo} chatList={chatList} />
       <ChatInput />
     </ChatRoomBox>
   );

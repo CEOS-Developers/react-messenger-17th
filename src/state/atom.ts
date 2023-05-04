@@ -9,12 +9,6 @@ export const chatState = atom<IChat[]>({
   default: chatData,
 });
 
-//채팅방 안에서 현재 사용 유저
-export const currentUserState = atom<IUser>({
-  key: 'currentuser',
-  default: userData[0],
-});
-
 //전체 유저 정보
 export const allUsersInfoState = atom<IUser[]>({
   key: 'allUserInfo',
@@ -43,6 +37,12 @@ export const friendsInfoSelector = selector<IUser[]>({
 export const allChatRoomsInfoState = atom<IChatRoom[]>({
   key: 'allChatRoomsInfo',
   default: chatData.chatRooms,
+});
+
+//채팅방 안에서 현재 사용 유저
+export const currentUserState = atom<IUser>({
+  key: 'currentuser',
+  default: userData.users[0],
 });
 
 //각 채팅방 정보?

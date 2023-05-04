@@ -1,18 +1,23 @@
 import React from 'react';
-import { useRecoilState } from 'recoil';
-import { currentUserState } from '../../state/atom';
-import userData from '../../db/userData.json';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { currentUserState, myInfoSelector } from '../../state/atom';
 import styled from 'styled-components';
 import { RiArrowLeftSLine } from 'react-icons/ri';
+import { IUser } from '../../interface/interface';
 
-const Header = () => {
+type HeaderProps = {
+  friendInfo: IUser;
+};
+
+const Header = ({ friendInfo }: HeaderProps) => {
   const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
+  const myInfo = useRecoilValue(myInfoSelector);
 
   const toggleUser = () => {
-    if (currentUser.userId === 0) {
-      setCurrentUser(userData[1]); //나중에 수정 (현재 채팅 상대)
+    if (currentUser.userId === myInfo.userId) {
+      setCurrentUser(friendInfo); //현재 채팅 상대
     } else {
-      setCurrentUser(userData[0]);
+      setCurrentUser(myInfo);
     }
   };
 

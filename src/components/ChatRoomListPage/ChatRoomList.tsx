@@ -11,18 +11,15 @@ const ChatRoomList = () => {
     <div>
       <ul>
         {allChatRoomsInfo.map((chatRoomInfo) => {
-          const userId = chatRoomInfo.userId; //채팅방 정보 안의 userId
-          const user = friendsInfo.find((friend) => friend.userId === userId);
-          const userName = user?.userName!;
-          const userImg = user?.userImg!;
+          const selectedFriendInfo = friendsInfo.find(
+            (friend) => friend.userId === chatRoomInfo.userId
+          )!; //채팅방 정보 안의 userId
           const chatList = chatRoomInfo.chatList;
 
           return (
             <ChatRoom
-              key={userId}
-              userId={userId}
-              userName={userName}
-              userImg={userImg}
+              key={selectedFriendInfo.userId}
+              friendInfo={selectedFriendInfo}
               chatList={chatList}
             />
           );

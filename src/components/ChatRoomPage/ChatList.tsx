@@ -3,9 +3,10 @@ import Chat from './Chat';
 //import { useRecoilValue } from 'recoil';
 //import { chatState } from '../../state/atom';
 import styled from 'styled-components';
-import { IChat } from '../../interface/interface';
+import { IChat, IUser } from '../../interface/interface';
 
 type ChatListProps = {
+  friendInfo: IUser;
   chatList: IChat[];
 };
 
