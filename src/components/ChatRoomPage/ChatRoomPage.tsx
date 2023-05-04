@@ -3,12 +3,17 @@ import styled from 'styled-components';
 import Header from './Header';
 import ChatList from './ChatList';
 import ChatInput from './ChatInput';
+import { useLocation } from 'react-router-dom';
 
 const ChatRoomPage = () => {
+  const {
+    state: { userName, userImg, chatList },
+  } = useLocation();
+
   return (
     <ChatRoomBox>
       <Header />
-      <ChatList />
+      <ChatList chatList={chatList} />
       <ChatInput />
     </ChatRoomBox>
   );

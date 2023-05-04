@@ -16,7 +16,9 @@ const ChatRoom = ({ userId, userName, userImg, chatList }: ChatRoomProps) => {
   return (
     <div
       onClick={() => {
-        navigate(`/chatrooms/${userId}`, { state: { chatList } });
+        navigate(`/chatrooms/${userId}`, {
+          state: { userName, userImg, chatList },
+        });
       }}
     >
       <p>{userName}</p>

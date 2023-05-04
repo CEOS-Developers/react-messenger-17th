@@ -3,14 +3,13 @@ import Chat from './Chat';
 //import { useRecoilValue } from 'recoil';
 //import { chatState } from '../../state/atom';
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
 import { IChat } from '../../interface/interface';
 
-const ChatList = () => {
-  const {
-    state: { chatList },
-  } = useLocation();
+type ChatListProps = {
+  chatList: IChat[];
+};
 
+const ChatList = ({ chatList }: ChatListProps) => {
   //const chats = useRecoilValue(chatState);
   const chatListRef = useRef<HTMLDivElement>(null);
 
