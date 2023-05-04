@@ -2,29 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import { IChat } from '../../interface/interface';
 import { useRecoilValue } from 'recoil';
-import { currentUserState } from '../../state/atom';
-import userData from '../../db/userData.json';
+import { currentUserState, allUsersInfoState } from '../../state/atom';
 
 const Chat = (chat: IChat) => {
   const currentUser = useRecoilValue(currentUserState);
+  const allUsersInfo = useRecoilValue(allUsersInfoState);
+  const isActive = chat.userId === currentUser.userId;
+  const userInfo = allUsersInfo.find((user) => user.userId === chat.userId)!;
 
   return (
-    <ChatContainer isActive={chat.userId === currentUser.userId}>
+    <ChatContainer isActive={isActive}>
       <UserImg
-        src={`${process.env.PUBLIC_URL}/Imgs/${
-          userData[chat.userId].userImg
-        }.jpg`}
-        alt={userData[chat.userId].userName}
-        isActive={chat.userId === currentUser.userId}
+        src={`${process.env.PUBLIC_URL}/Imgs/${userInfo.userImg}.jpg`}
+        alt={userInfo.userName}
+        isActive={isActive}
       />
       <div>
-        <UserName isActive={chat.userId === currentUser.userId}>
-          {userData[chat.userId].userName}
-        </UserName>
-        <ChatBox isActive={chat.userId === currentUser.userId}>
-          <ChatContent isActive={chat.userId === currentUser.userId}>
-            {chat.content}
-          </ChatContent>
+        <UserName isActive={isActive}>{userInfo.userName}</UserName>
+        <ChatBox isActive={isActive}>
+          <ChatContent isActive={isActive}>{chat.content}</ChatContent>
           <ChatTime>{chat.time}</ChatTime>
         </ChatBox>
       </div>

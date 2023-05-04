@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import Chat from './Chat';
-//import { useRecoilValue } from 'recoil';
-//import { chatState } from '../../state/atom';
 import styled from 'styled-components';
 import { IChat, IUser } from '../../interface/interface';
 
@@ -11,7 +9,6 @@ type ChatListProps = {
 };
 
 const ChatList = ({ chatList }: ChatListProps) => {
-  //const chats = useRecoilValue(chatState);
   const chatListRef = useRef<HTMLDivElement>(null);
 
   const moveToBottom = () => {

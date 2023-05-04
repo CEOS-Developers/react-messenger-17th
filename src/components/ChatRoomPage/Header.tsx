@@ -12,13 +12,10 @@ type HeaderProps = {
 const Header = ({ friendInfo }: HeaderProps) => {
   const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
   const myInfo = useRecoilValue(myInfoSelector);
+  const isMyAccount = currentUser.userId === myInfo.userId; //currentUser=나
 
   const toggleUser = () => {
-    if (currentUser.userId === myInfo.userId) {
-      setCurrentUser(friendInfo); //현재 채팅 상대
-    } else {
-      setCurrentUser(myInfo);
-    }
+    isMyAccount ? setCurrentUser(friendInfo) : setCurrentUser(myInfo); //내기 currentUser였으면, 친구로 currentUser를 toggle
   };
 
   return (
@@ -29,10 +26,14 @@ const Header = ({ friendInfo }: HeaderProps) => {
       {/* 채팅룸 나가기 버튼 */}
       <UserInfo onClick={toggleUser}>
         <UserImg
-          src={`${process.env.PUBLIC_URL}/Imgs/${currentUser.userImg}.jpg`} //**otherUser.uerImg / 아래는 otherUser.userName로 수정하기!
+          src={`${process.env.PUBLIC_URL}/Imgs/${
+            isMyAccount ? friendInfo.userImg : myInfo.userImg
+          }.jpg`} //**otherUser.uerImg / 아래는 otherUser.userName로 수정하기!
           alt={currentUser.userName}
         />
-        <UserName>{currentUser.userName}</UserName>
+        <UserName>
+          {isMyAccount ? friendInfo.userName : myInfo.userName}
+        </UserName>
       </UserInfo>
     </HeaderBox>
   );

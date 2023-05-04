@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { chatState, currentUserState } from '../../state/atom';
+import { currentUserState } from '../../state/atom';
 import styled from 'styled-components';
 import { IoIosSend } from 'react-icons/io';
+import { IChat } from '../../interface/interface';
 
-const ChatInput = () => {
+type ChatInputProps = {
+  chatList: IChat[];
+};
+
+const ChatInput = ({ chatList }: ChatInputProps) => {
   const [text, setText] = useState('');
-  const [chats, setChats] = useRecoilState(chatState);
+  const [chats, setChats] = useState(chatList);
   const currentUser = useRecoilValue(currentUserState);
 
   const addChat = () => {

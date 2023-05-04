@@ -14,7 +14,7 @@ const ChatRoomPage = () => {
     <ChatRoomBox>
       <Header friendInfo={friendInfo} />
       <ChatList friendInfo={friendInfo} chatList={chatList} />
-      <ChatInput />
+      <ChatInput chatList={chatList} />
     </ChatRoomBox>
   );
 };
