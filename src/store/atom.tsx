@@ -30,3 +30,8 @@ export const hideButtonState = atom<boolean>({
 	key: 'hideButtonState',
 	default: false,
 });
+
+export const selectedRoom = atom<number>({
+	key : 'selectedRoom',
+	default : -1,
+});

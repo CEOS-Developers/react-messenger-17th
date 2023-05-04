@@ -1,26 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import {IChat} from '../../store/interface';
+import {useNavigate} from "react-router-dom";
+import {userInfo,partnerInfo} from '../../store/atom';
+import {IUser} from '../../store/interface';
+import {useRecoilState} from 'recoil';
 interface IRoomInfo{
   roomid : number;
   userid : number;
   username : string;
   messages : string;
   time : number;
+  active : boolean;
+  onClick : () => void;
 }
-const makeTime = (time : number) =>{
-  const newTime = new Date(time);
-  let hours = newTime.getHours();
-  let minutes = newTime.getMinutes();
-  let hourFormat = hours < 12 ? `오전 ${hours}` : `오후 ${hours-12}`;
-  let minFormat = minutes < 10 ? `0${minutes}` : minutes.toString();
-  const madeTime = hourFormat + ":" + minFormat;
-  return madeTime;
-}
-function ChatRoom({roomid, userid, username, messages,time} : IRoomInfo){
+function ChatRoom({roomid, userid, username, messages,time,active,onClick} : IRoomInfo) : JSX.Element{
+
+  const [currentUser, setCurrentUser] = useRecoilState<IUser>(userInfo);
+  const [partnerUser, setPartnerUser] = useRecoilState<IUser>(partnerInfo);
+  const navigate = useNavigate();
+  const makeTime = (time : number) =>{
+    const newTime = new Date(time);
+    let hours = newTime.getHours();
+    let minutes = newTime.getMinutes();
+    let hourFormat = hours < 12 ? `오전 ${hours}` : `오후 ${hours-12}`;
+    let minFormat = minutes < 10 ? `0${minutes}` : minutes.toString();
+    const madeTime = hourFormat + ":" + minFormat;
+    return madeTime;
+  }
+  const handleDoubleClick = () => {
+    setCurrentUser({userid : 0, username : '성준'});
+    setPartnerUser({userid : userid,username : username});
+    navigate(`/chat/${roomid}`);
+  }
   return (
-    <Wrapper to={`/chat/${roomid}`}>
+    <Wrapper active = {active} onClick = {onClick} onDoubleClick={handleDoubleClick}>
         <UserImage src={`${process.env.PUBLIC_URL}/images/${userid}.jpg`} />
         <UserInfoWrapper>
           <UserName>{username}</UserName>
@@ -30,15 +43,14 @@ function ChatRoom({roomid, userid, username, messages,time} : IRoomInfo){
     </Wrapper>
   );
 };
-const Wrapper = styled(Link)`
+const Wrapper = styled.div<{active : boolean}>`
   display: flex;
   height: 50px;
   padding: 5px;
-  textDecoration: 'none';
-  &:focus, &:hover, &:visited, &:link, &:active {
-    text-decoration: none;
+  background-color: ${props => (props.active ? 'rgba(221,221,226,0.9)' : 'rgba(247, 247, 248, 0.9)')};
+  &:hover{
+    background-color : rgba(230,230,230,0.9);
   }
-
 `;
 
 const UserImage = styled.img`
