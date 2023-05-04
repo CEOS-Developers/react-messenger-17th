@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import Chat from './Chat';
 import styled from 'styled-components';
-import { IChat, IUser } from '../../interface/interface';
+import { IUser, IChat } from '../../interface/interface';
+import { useRecoilValue } from 'recoil';
+import { selectedChatListState } from '../../state/atom';
 
 type ChatListProps = {
   friendInfo: IUser;
@@ -10,6 +12,7 @@ type ChatListProps = {
 
 const ChatList = ({ chatList }: ChatListProps) => {
   const chatListRef = useRef<HTMLDivElement>(null);
+  //const chatList = useRecoilValue(selectedChatListState);
 
   const moveToBottom = () => {
     if (chatListRef.current) {

@@ -11,15 +11,15 @@ const ChatRoomList = () => {
     <div>
       <ul>
         {allChatRoomsInfo.map((chatRoomInfo) => {
-          const selectedFriendInfo = friendsInfo.find(
+          const friendInfo = friendsInfo.find(
             (friend) => friend.userId === chatRoomInfo.userId
-          )!; //채팅방 정보 안의 userId
+          )!;
           const chatList = chatRoomInfo.chatList;
 
           return (
             <ChatRoom
-              key={selectedFriendInfo.userId}
-              friendInfo={selectedFriendInfo}
+              key={friendInfo.userId}
+              friendInfo={friendInfo}
               chatList={chatList}
             />
           );

@@ -1,24 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { currentUserState } from '../../state/atom';
+import {
+  currentUserState,
+  allChatRoomsInfoState,
+  selectedChatListState,
+} from '../../state/atom';
 import styled from 'styled-components';
 import { IoIosSend } from 'react-icons/io';
-import { IChat } from '../../interface/interface';
+import { IChat, IUser } from '../../interface/interface';
 
 type ChatInputProps = {
+  friendInfo: IUser;
   chatList: IChat[];
 };
 
-const ChatInput = ({ chatList }: ChatInputProps) => {
-  const [text, setText] = useState('');
-  const [chats, setChats] = useState(chatList);
+const ChatInput = ({ friendInfo, chatList }: ChatInputProps) => {
+  //const [chatList, setChatList] = useRecoilState(selectedChatListState);
   const currentUser = useRecoilValue(currentUserState);
+  const [text, setText] = useState('');
+  const [newChatList, setNewChatList] = useState(chatList);
+  const [allChatRoomsInfo, setAllChatRoomsInfo] = useRecoilState(
+    allChatRoomsInfoState
+  );
 
   const addChat = () => {
-    setChats([
-      ...chats,
+    setNewChatList([
+      ...newChatList,
       { userId: currentUser.userId, content: text, time: currentTime() },
     ]);
+
+    /*
+    setAllChatRoomsInfo([
+      ...allChatRoomsInfo,
+      {
+        userId: friendInfo.userId,
+        chatList: [...newChatList],
+      },
+    ]);
+    */
+    //console.log(allChatRoomsInfo);
   };
 
   const currentTime = () => {
@@ -42,6 +62,19 @@ const ChatInput = ({ chatList }: ChatInputProps) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setText(e.target.value);
+
+  useEffect(() => {
+    setAllChatRoomsInfo(
+      allChatRoomsInfo.map((chatRoomInfo) =>
+        chatRoomInfo.userId === friendInfo.userId
+          ? {
+              userId: friendInfo.userId,
+              chatList: [...newChatList],
+            }
+          : chatRoomInfo
+      )
+    );
+  }, [newChatList]);
 
   return (
     <SendForm onSubmit={handleSubmit}>

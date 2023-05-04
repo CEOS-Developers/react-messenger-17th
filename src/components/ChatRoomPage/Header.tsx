@@ -1,6 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { currentUserState, myInfoSelector } from '../../state/atom';
+import {
+  currentUserState,
+  myInfoSelector,
+  selectedFriendInfoState,
+} from '../../state/atom';
 import styled from 'styled-components';
 import { RiArrowLeftSLine } from 'react-icons/ri';
 import { IUser } from '../../interface/interface';
@@ -10,17 +15,23 @@ type HeaderProps = {
 };
 
 const Header = ({ friendInfo }: HeaderProps) => {
+  const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
   const myInfo = useRecoilValue(myInfoSelector);
+  //const friendInfo = useRecoilValue(selectedFriendInfoState);
   const isMyAccount = currentUser.userId === myInfo.userId; //currentUser=나
 
   const toggleUser = () => {
-    isMyAccount ? setCurrentUser(friendInfo) : setCurrentUser(myInfo); //내기 currentUser였으면, 친구로 currentUser를 toggle
+    isMyAccount ? setCurrentUser(friendInfo) : setCurrentUser(myInfo); //내가 currentUser였으면, 친구로 currentUser를 toggle
   };
 
   return (
     <HeaderBox>
-      <ExitBtn>
+      <ExitBtn
+        onClick={() => {
+          navigate('/chatrooms');
+        }}
+      >
         <RiArrowLeftSLine />
       </ExitBtn>
       {/* 채팅룸 나가기 버튼 */}

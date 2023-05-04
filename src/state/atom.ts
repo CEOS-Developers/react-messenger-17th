@@ -33,12 +33,22 @@ export const allChatRoomsInfoState = atom<IChatRoom[]>({
   default: chatData.chatRooms,
 });
 
+/*
+//선택된 채팅방의 모든 채팅
+export const selectedChatListState = atom<IChat[]>({
+  key: 'selectedChatList',
+  default: [],
+});
+
+//선택된 친구의 모든 정보
+export const selectedFriendInfoState = atom<IUser>({
+  key: 'selectedFriendInfo',
+  default: userData.users[1],
+});
+*/
+
 //채팅방 안에서 현재 사용 유저
 export const currentUserState = atom<IUser>({
   key: 'currentuser',
   default: userData.users[0],
 });
-
-//각 채팅방 정보?
-
-//**otherUserState 만들기
