@@ -2,11 +2,13 @@ import { Outlet } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import styled from 'styled-components';
 import GlobalStyle from './styles/GlobalStyles';
+import Menu from './components/Menu';
 
 function App() {
   return (
     <RecoilRoot>
       <GlobalStyle />
+      <Menu />
       <Container>
         <Outlet />
       </Container>
