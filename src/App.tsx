@@ -7,6 +7,7 @@ import {showDivState, hideButtonState} from './store/atom';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Members from './views/Members';
 import Setting from './views/Setting';
+import ChatList from './views/ChatList';
 
 function App(): JSX.Element {
   const [showDiv, setShowDiv] = useRecoilState(showDivState);
@@ -38,8 +39,9 @@ function App(): JSX.Element {
         <ChatWrapper className={`${showDiv ? 'show' : ''}`}>
           <BrowserRouter>
             <Routes>
-              <Route path="/chat" element={<Chat />} />
               <Route path="/" element={<Members />} />
+              <Route path="/chat" element={<ChatList/>} />
+              <Route path="/chat/:roomid" element={<Chat />} />
               <Route path="/setting" element={<Setting />} />
             </Routes>
           </BrowserRouter>
