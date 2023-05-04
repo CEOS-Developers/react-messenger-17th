@@ -1,11 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import Chat from './Chat';
-import { useRecoilValue } from 'recoil';
-import { chatState } from '../../state/atom';
+//import { useRecoilValue } from 'recoil';
+//import { chatState } from '../../state/atom';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
+import { IChat } from '../../interface/interface';
 
 const ChatList = () => {
-  const chats = useRecoilValue(chatState);
+  const {
+    state: { chatList },
+  } = useLocation();
+
+  //const chats = useRecoilValue(chatState);
   const chatListRef = useRef<HTMLDivElement>(null);
 
   const moveToBottom = () => {
@@ -20,7 +26,7 @@ const ChatList = () => {
 
   return (
     <ChatListBox ref={chatListRef}>
-      {chats.map((chat, idx) => (
+      {chatList.map((chat: IChat, idx: number) => (
         <Chat key={idx} {...chat} />
       ))}
     </ChatListBox>

@@ -20,6 +20,7 @@ const ChatRoomList = () => {
           return (
             <ChatRoom
               key={userId}
+              userId={userId}
               userName={userName}
               userImg={userImg}
               chatList={chatList}
