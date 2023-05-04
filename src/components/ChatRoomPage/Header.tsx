@@ -30,6 +30,7 @@ const Header = ({ friendInfo }: HeaderProps) => {
       <ExitBtn
         onClick={() => {
           navigate('/chatrooms');
+          setCurrentUser(myInfo);
         }}
       >
         <RiArrowLeftSLine />
