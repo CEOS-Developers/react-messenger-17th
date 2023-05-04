@@ -34,7 +34,8 @@ const PageWrapper = styled.div`
     flex-direction: row;
     background-color: #FEF8F2;
     margin-top: 10px;
-    `;
+    box-shadow: 5px 5px 5px 5px rgb(200, 200, 200);
+`;
 
 const Main = styled.div`
   width: 80%;

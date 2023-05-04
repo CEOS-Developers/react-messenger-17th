@@ -11,3 +11,10 @@ export interface User {
     text: string;
     date: string;
   }
+
+  export interface ChatRoom {
+    roomId: number;
+    timestamp: number;
+    chatMessages: string;
+  }
+  

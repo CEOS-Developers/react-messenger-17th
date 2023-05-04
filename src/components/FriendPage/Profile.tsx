@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import userData from "../../json/userData.json";
 import { User } from "../../common/interface";
+import Modal from "../FriendPage/Modal"
 
 interface ProfileProps {
   users: User[];
@@ -9,12 +10,25 @@ interface ProfileProps {
 
 const Profile = ({users} : ProfileProps) => {
 
+    const [modal, setModal] = useState(false);
+    const [modalUserId, setModalUserId] = useState<number | null>(null);
+
+    const openModal = (userId: number) => {
+      setModal(true);
+      setModalUserId(userId);
+    }
+
+    const closeModal = () => {
+      setModal(false);
+      setModalUserId(null);
+    }
+
     return (
         <div>
+        {modal && modalUserId !== null && <Modal userId={modalUserId} closeModal={closeModal} />}
         {users.map(user => (
         <ProfileWrapper key={user.id}>
-            {/* 왜 이미지를 꼭 https 주소로 넣어야 했을까.. 으헝헝.. */}
-            <ProfileImg>
+            <ProfileImg onClick={() => openModal(user.id)}>
                 <img src={user.profileImage}></img>
             </ProfileImg>
             <ProfileInfo>
@@ -33,6 +47,9 @@ const ProfileWrapper = styled.div`
   align-items: center;
   height: 5rem;
   gap: 15px;
+  :hover {
+    background-color: #ffecd8;
+  }
 `;
 
 const ProfileImg = styled.div`
@@ -42,7 +59,7 @@ const ProfileImg = styled.div`
   img {
     width: 3rem;
     height: 3rem;
-    border-radius: 1rem;
+    border-radius: 50%;
     border: 2px solid #D9D9D9;
     cursor: pointer;
   }

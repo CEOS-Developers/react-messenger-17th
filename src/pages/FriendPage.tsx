@@ -15,7 +15,6 @@ const FriendPage = () => {
   const filteredUsers = userData.users.filter((user: User) => {
     return user.name.toLowerCase().includes(searchInput.toLowerCase());
   });
-
  
   return (
     <Wrapper>
@@ -36,14 +35,12 @@ const FriendPage = () => {
           setSearchInput(e.target.value)
         }}/>}
 
-        {/* 검색 기능 추가하기.. */}
         <div>
         {filteredUsers.length === 0 ? (
                 <p style={{fontSize:"1rem", textAlign: "center"}}>그런 친구는 없어요!</p>
               ) : (
                 <Profile users={filteredUsers} />
               )}
-        
         </div>
       </Header>
 
@@ -90,7 +87,4 @@ const SearchInput = styled.input`
   border-color: #FFD7C0;
 `;
 
-const ProfileWrapper = styled.div`
-
-`;
 
