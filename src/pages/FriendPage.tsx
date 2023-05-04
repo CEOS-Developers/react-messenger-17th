@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {useState} from 'react';
-import ProfileList from "../components/HomeMain/ProfileList";
 import userData from "../json/userData.json";
 import { User } from "../common/interface"
 import Profile from "../components/FriendPage/Profile";
@@ -64,7 +63,6 @@ const Title = styled.h1`
   font-size: 1.5rem;
   display: flex;
   align-items: center;
-  // justify-content: center;
   padding-top: 1rem;
   padding-left: 1rem;
 `;

@@ -13,7 +13,6 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-      {/* 왜 GlobalStyle을 BrowserRouter 위에 놓으니깐 폰트 적용 안됐지? */}
       <GlobalStyle />
         <Routes>
           <Route path="/" element={<Start/>}></Route>

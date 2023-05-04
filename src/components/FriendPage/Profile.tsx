@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useState } from "react";
-import userData from "../../json/userData.json";
 import { User } from "../../common/interface";
 import Modal from "../FriendPage/Modal"
 

@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
-import userData from "../json/userData.json";
 import chatData from "../json/chatRoom.json";
-import { User, Chat } from "../common/interface"
 import { getRoomMembers } from "../common/Custom";
-import { ProfileImage } from "../common/StyledComponent";
 import styled from "styled-components";
 import { useState } from "react";
 import LatestMsg from "../components/ChatRoomPage/LatestMsg";

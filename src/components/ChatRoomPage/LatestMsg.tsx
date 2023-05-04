@@ -1,10 +1,4 @@
-import { ChatRoom, User } from "../../common/interface";
 import styled from "styled-components";
-
-// type LateProps = {
-//   chat: ChatRoom;
-//   user: User;
-// };
 
 interface LatestMsgProps {
     userName: string;

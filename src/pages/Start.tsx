@@ -15,8 +15,7 @@ const Start = () => {
       src={`${process.env.PUBLIC_URL}/image/start3.png`}
       alt='React'
       />
-      {/* button안에 폰트 바꾸기 */}
-      <Button onClick={goFriendPage} style={{fontFamily: 'GmartketSansMedium'}}> 
+      <Button onClick={goFriendPage}> 
         Start!
       </Button>
     </MainPageContainer>

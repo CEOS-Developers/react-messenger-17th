@@ -1,20 +1,3 @@
-// import styled from "styled-components";
-// import userData from "../../json/userData.json"
-
-// const Modal = ({userId}: {userId: number}) => {
-//     const user = userData.users.find((u) => u.id === userId);
-//     return (
-//       <ModalWrapper>
-//             <ModalImage>
-//               <img src={user?.profileImage}/>
-//             </ModalImage>
-//             <ModalName>{user?.name}</ModalName>
-//             <ModalMessage>{user?.message}</ModalMessage>
-//       </ModalWrapper>
-//     );
-//   };
-// export default Modal;
-
 import styled from "styled-components";
 import userData from "../../json/userData.json"
 
