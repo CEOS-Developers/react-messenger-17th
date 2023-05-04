@@ -8,17 +8,15 @@ function ChatList(): JSX.Element {
   console.log(roomLists);
   return (
     <ChatListWrapper>
-      <div>
-      {roomLists.map((room) => (
-        <>
-          <ChatRoom key = {room.roomid} 
-          roomid = {room.roomid} 
-          userid = {room.userid} 
-          username = {room.username} 
-          messages = {room.messages[room.messages.length - 1].message}/>
-        </>
+      {roomLists.map(({roomid,userid,username,messages}: IChatRoom) => (
+          <ChatRoom 
+          key = {roomid} 
+          roomid = {roomid} 
+          userid = {userid} 
+          username = {username} 
+          messages = {messages[messages.length - 1].message}
+          time = {messages[messages.length - 1].id}/>
       ))}
-    </div>
     </ChatListWrapper>
   )
 }
