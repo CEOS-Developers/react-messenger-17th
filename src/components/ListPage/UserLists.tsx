@@ -2,6 +2,7 @@ import {useState, useRef, useEffect} from 'react';
 import {User} from '../../interfaces/Interface'
 import styled from 'styled-components';
 import ModalPage from './ModalPage';
+import userData from '../../jsons/userData.json'; 
 
 const Wrapper = styled.div`
 user-select:none;
@@ -60,10 +61,15 @@ interface UserListsProps{
 function UserLists({userId, users}: UserListsProps){
   const [modalOpen,setModalOpen] = useState<boolean>(false);
   const [userIds, setUserIds] = useState(userId);
+  const user = userData.users;
 
   const showModal = (id: number) => {
     setModalOpen(true);
-    setUserIds(id - 1);
+    if(users == user){
+    setUserIds(id-1);}
+    else{
+    setUserIds(id);
+    }
   }
   
     return(

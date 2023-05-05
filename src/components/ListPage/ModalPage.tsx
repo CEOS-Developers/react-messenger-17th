@@ -51,7 +51,6 @@ function ModalPage({userId, users, setModalOpen}: ModalProps){
                 setModalOpen(false);
             }
         };
-        
         document.addEventListener('mousedown', handler);
         
         return () => {
