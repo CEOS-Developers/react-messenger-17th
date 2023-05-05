@@ -12,7 +12,7 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
   const chatList : IMessage[] = roomLists[roomIndex]?.messages || [];
   const chatContent = useRef<HTMLDivElement>(null);
   const prevTimeValue = useRef<String | null>(null);
-  const prevUserValue = useRef<Number | null>(null);
+  let prevUserValue = -1;
   const scrollChat = () => {
     if (chatContent.current){
       chatContent.current.scrollTop = chatContent.current.scrollHeight;
@@ -47,13 +47,13 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
             showTime = false;
           }
         }
-        if(prevUserValue.current === item.userid && prevUserValue !== null){
+        if(prevUserValue === item.userid && prevUserValue !== null){
           showUser = true;
         }
         if( prevTimeValue.current !== time)
           showUser = false;
         prevTimeValue.current = time;
-        prevUserValue.current = item.userid;
+        prevUserValue = item.userid;
       return (
         <ChatItem
           key={item.id}
