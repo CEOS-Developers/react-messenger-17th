@@ -1,9 +1,9 @@
 import {useRecoilState,useRecoilValue} from 'recoil';
 import {useState,useRef,useEffect} from 'react';
-import {ChatInputWrapper, Input, SubmitButton} from '../styles/style.chatinput';
+import {ChatInputWrapper, Input, SubmitButton} from '../../styles/style.chatinput';
 import {FaTelegramPlane} from 'react-icons/fa';
-import {IChatRoom,IUser,IRoomId} from '../store/interface';
-import {roomList,userInfo,partnerInfo,roomInfo} from '../store/atom';
+import {IChatRoom,IUser,IRoomId} from '../../store/interface';
+import {roomList,userInfo,partnerInfo,roomInfo} from '../../store/atom';
 
 function ChatInput({roomid} : IRoomId) : JSX.Element {
   const currentUser = useRecoilValue<IUser>(userInfo);

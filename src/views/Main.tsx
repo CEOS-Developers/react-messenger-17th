@@ -1,5 +1,5 @@
 import {Container, Title, ChatButton, ChatWrapper,ButtonWrapper} from '../styles/style.main';
-import Chat from '../components/Chat';
+import Chat from '../components/chat/Chat';
 import { useRecoilState } from 'recoil';
 import {TbBrandHipchat} from 'react-icons/tb';
 import {showDivState, hideButtonState} from '../store/atom';

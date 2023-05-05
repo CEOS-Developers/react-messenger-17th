@@ -1,8 +1,8 @@
 import {IoChevronBackOutline, IoCloseOutline} from 'react-icons/io5';
-import {Header, BackButton, UserName, CloseButton} from '../styles/style.chatheader';
-import {showDivState, hideButtonState, userInfo, partnerInfo} from '../store/atom';
+import {Header, BackButton, UserName, CloseButton} from '../../styles/style.chatheader';
+import {showDivState, hideButtonState, userInfo, partnerInfo} from '../../store/atom';
 import {useRecoilState ,useSetRecoilState} from 'recoil';
-import {IUser} from '../store/interface';
+import {IUser} from '../../store/interface';
 import {useNavigate} from "react-router-dom";
 
 function ChatHeader(): JSX.Element {

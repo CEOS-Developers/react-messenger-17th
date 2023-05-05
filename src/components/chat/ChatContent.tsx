@@ -1,9 +1,9 @@
 import {useRecoilValue, useRecoilState } from 'recoil';
-import { ChatContentWrapper } from '../styles/style.chatcontent';
-import {roomList,userInfo,partnerInfo,roomInfo} from '../store/atom';
+import { ChatContentWrapper } from '../../styles/style.chatcontent';
+import {roomList,userInfo,partnerInfo,roomInfo} from '../../store/atom';
 import ChatItem from './ChatItem';
 import {useRef,useEffect} from 'react';
-import {IChatRoom, IUser,IMessage,IRoomId} from '../store/interface';
+import {IChatRoom, IUser,IMessage,IRoomId} from '../../store/interface';
 function ChatContent({roomid} : IRoomId): JSX.Element {
   const roomLists = useRecoilValue<IChatRoom[]>(roomList);
   const roomId = useRecoilValue<Number>(roomInfo);
