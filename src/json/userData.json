@@ -1,0 +1,40 @@
+{
+  "users": [
+      {
+          "id": 0,
+          "name": "예린🥦👩‍🦱",
+          "profileImage": "https://avatars.githubusercontent.com/u/110076475?v=4",
+          "message": "내가 여기 주인이다"
+      },
+      {
+          "id": 1,
+          "name": "Joy😄",
+          "profileImage": "https://static.tumblr.com/8mjfnza/j2tnkz3sf/character-filters-joy.png",
+          "message": "내일도 행복한 하루가 되게 해줄게!"
+      },
+      {
+        "id": 2,
+        "name": "Sadness😥",
+        "profileImage": "https://static.tumblr.com/8mjfnza/foPnkz3t0/character-filters-sadness.png",
+        "message": "너무 슬퍼서 걸을 수가 없어..."
+      },
+      {
+        "id": 3,
+        "name": "Anger🤬",
+        "profileImage": "https://static.tumblr.com/8mjfnza/tbKnkz1ix/character-filters-anger.png",
+        "message": "🔥🔥🔥🔥🔥"
+      },
+      {
+        "id": 4,
+        "name": "Disgust🤮",
+        "profileImage": "https://static.tumblr.com/8mjfnza/VNknkz1kv/character-filters-disgust.png",
+        "message": "브로콜리는 최악이야!"
+      },
+      {
+        "id": 5,
+        "name": "Fear😨😨",
+        "profileImage": "https://static.tumblr.com/8mjfnza/46ynkz3ra/character-filters-fear.png",
+        "message": "헉 헐 왜?? 어떡해???!"
+      }
+  ]
+}
