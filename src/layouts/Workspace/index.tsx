@@ -8,7 +8,7 @@ import Modal from '../../components/Modal';
 import Channel from '../../pages/Channel';
 */
 import useInput from '../../hooks/useInput';
-
+import DMList from 'src/components/DMList';
 //import DirectMessage from '../../pages/DirectMessage';
 import { Button, Input, Label } from '../../pages/SignUp/style';
 import { IChannel, IUser } from '../../typings/db';
@@ -45,8 +45,10 @@ import DirectMessage from 'src/pages/DirectMessage';
 import Channel from 'src/pages/Channel';
 import Menu from 'src/components/Menu';
 import { IWorkspace } from '../../typings/db';
+import ChannelList from 'src/components/ChannelList';
 const Workspace = () => {
   const [userData, setUserData] = useRecoilState(userState);
+
   const params = useParams<{ workspace?: string }>();
   // console.log('params', params, 'location', location, 'routeMatch', routeMatch, 'history', history);
   const { workspace } = params;
@@ -159,9 +161,12 @@ const Workspace = () => {
                 </WorkspaceModal>
               </Menu>
             )}
+
+            <ChannelList />
+            <DMList />
           </MenuScroll>
         </Channels>
-        <Chats>Chats</Chats>
+
         <Routes>
           <Route path="/channel/:channel" element={<Channel />} />
           <Route path="/dm/:dm" element={<DirectMessage />} />

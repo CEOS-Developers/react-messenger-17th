@@ -10,14 +10,16 @@ interface Props {
   isEmpty: boolean;
   chatSections: { [key: string]: (IDM | IChat)[] };
 }
-const ChatList: FC<Props> = ({ scrollbarRef, isReachingEnd, isEmpty, chatSections }) => {
+const ChatList: FC<Props> = ({ scrollbarRef, chatSections }) => {
   const onScroll = useCallback(
     (values: any) => {
+      /*
       if (values.scrollTop === 0 && !isReachingEnd && !isEmpty) {
         scrollbarRef.current?.scrollTop(scrollbarRef.current?.getScrollHeight() - values.scrollHeight);
       }
+      */
     },
-    [scrollbarRef, isReachingEnd, isEmpty],
+    [scrollbarRef],
   );
 
   return (

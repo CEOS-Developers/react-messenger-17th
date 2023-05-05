@@ -12,7 +12,7 @@ import SignUp from 'src/pages/SignUp';
 import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from 'recoil';
 
 import Workspace from './Workspace';
-import Channel from 'src/pages/Channel';
+
 export default function App() {
   return (
     <RecoilRoot>

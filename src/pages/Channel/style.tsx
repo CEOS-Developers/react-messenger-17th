@@ -6,6 +6,7 @@ export const Container = styled.div`
   height: calc(100vh - 38px);
   flex-flow: column;
   position: relative;
+  width: 100%;
 `;
 
 export const Header = styled.header`
