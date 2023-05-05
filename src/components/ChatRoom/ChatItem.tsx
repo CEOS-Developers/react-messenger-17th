@@ -41,7 +41,7 @@ interface ChatItemProps {
 function ChatItem({ chat, isUser, sender }: ChatItemProps) {
   const hour = String(new Date(chat.date).getHours()).padStart(2, '0');
   const minute = String(new Date(chat.date).getMinutes()).padStart(2, '0');
-
+  
   return (
     <Wrapper isUser={isUser}>
       {isUser ? (
@@ -53,7 +53,7 @@ function ChatItem({ chat, isUser, sender }: ChatItemProps) {
         </>
       ) : (
         <>
-          <Image src={sender.image} />
+          <Image src={sender.image}></Image>
           <ContentWrapper>
             {sender.name}
             <ChatWrapper>
