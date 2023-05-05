@@ -23,8 +23,8 @@ function App(): JSX.Element {
     setHideButton(true);
   };
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    event.preventDefault();
     if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
+      event.preventDefault();
       setIsSearchVisible(true);
     }
     else if ((event.key === 'Escape')){
@@ -47,7 +47,7 @@ function App(): JSX.Element {
         </ButtonWrapper>
         {showDiv &&
         <>
-        <ChatWrapper className={`${showDiv ? 'show' : ''}`}>
+        <ChatWrapper className={`${showDiv ? 'show' : ''}`} onKeyDown={handleKeyDown}>
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Members />} />

@@ -20,11 +20,22 @@ function ChatRoom({roomid, userid, username, messages,time,active,onClick} : IRo
   const navigate = useNavigate();
   const makeTime = (time : number) =>{
     const newTime = new Date(time);
+    const nowTime = new Date();
+    let nowMonth = nowTime.getMonth() + 1;
+    let nowDate = nowTime.getDate();
+    let month = newTime.getMonth() + 1;
+    let date = newTime.getDate();
     let hours = newTime.getHours();
     let minutes = newTime.getMinutes();
-    let hourFormat = hours < 12 ? `오전 ${hours}` : `오후 ${hours-12}`;
-    let minFormat = minutes < 10 ? `0${minutes}` : minutes.toString();
-    const madeTime = hourFormat + ":" + minFormat;
+    let madeTime = '';
+    if(nowMonth === month && nowDate === date){
+      let hourFormat = hours < 12 ? `오전 ${hours}` : `오후 ${hours-12}`;
+      let minFormat = minutes < 10 ? `0${minutes}` : minutes.toString();
+      madeTime = hourFormat + ":" + minFormat;
+    }
+    else{
+      madeTime = `${month}월 ${date}일`;
+    }
     return madeTime;
   }
   const handleDoubleClick = () => {

@@ -24,7 +24,6 @@ function ChatList(): JSX.Element {
     setFilterChat(filteredChat);
   };
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    event.preventDefault();
     if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
       event.preventDefault();
       setIsSearchVisible(true);
