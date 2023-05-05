@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "미첼🐰",
+      "image": "https://i.ibb.co/N24HgNm/B39-F1-C4-D-FCF4-473-A-BA3-B-3-A579-FCB99-C4.png",
+      "contents" : "동글"
+    },
+    {
+      "id": 2,
+      "name": "스피카🐿",
+      "image": "https://i.ibb.co/njx6Bb8/66-D06753-ACAC-4-FA9-A506-C4618-DA8-FDA6.jpg",
+      "contents" : "🌟반짝!🌟"
+    },
+    {
+      "id": 3,
+      "name": "잭슨🐱",
+      "image": "https://i.ibb.co/d0sLMbJ/1-BB57-CFB-F755-4-BA2-96-A4-0454-F2-CB1-BE3.png",
+      "contents" : "우쭐"
+    },
+    {
+      "id": 4,
+      "name": "호떡🐧",
+      "image": "https://i.ibb.co/7SVcbsG/F08-A0016-27-A8-49-A4-B609-3-BC29866-A47-E.png",
+      "contents" : "🍳뒤집어!"
+    },
+    {
+      "id": 5,
+      "name": "휴지🐘",
+      "image": "https://i.ibb.co/MBxWP0D/3-B44-B614-C3-B7-452-A-BBF3-BCEBA4-A34350.png",
+      "contents" : "🍩휴휴"
+    },
+    {
+      "id": 6,
+      "name": "쭈니🐿",
+      "image": "https://i.ibb.co/DQ2VH0d/37-F33-E0-B-0562-4-CD5-A2-B8-00-A1-CF80-BD7-C.png",
+      "contents" : "어차피"
+    }
+  ],
+  
+  "me":[
+    {
+      "id": 0,
+      "name": "알톨이🌰",
+      "image": "https://i.ibb.co/9gLqdnK/78-DEE206-CF30-4-FDB-86-D6-F0-B9-DC47-CC0-B.jpg",
+      "contents" : "청포도주민대표"
+    }
+  ]
+}
