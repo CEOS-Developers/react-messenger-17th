@@ -45,3 +45,13 @@ export const isSearch = atom<boolean>({
 	key : 'isSeach',
 	default : false,
 })
+
+export const orderChat = atom<string>({
+	key : 'orderChat',
+	default : "최신순",
+})
+
+export const searchInput = atom<string>({
+	key : 'searchInput',
+	default : "",
+})

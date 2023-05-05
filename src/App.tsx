@@ -8,7 +8,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Members from './views/Members';
 import Setting from './views/Setting';
 import ChatList from './views/ChatList';
-import {isSearch} from './store/atom';
+import {isSearch,searchInput} from './store/atom';
 import { useEffect } from 'react';
 
 function App(): JSX.Element {

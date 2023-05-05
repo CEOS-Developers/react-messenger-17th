@@ -2,21 +2,28 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {BsChat} from 'react-icons/bs';
 import {AiOutlineSetting,AiOutlineUser} from 'react-icons/ai';
-
+import {searchInput, isSearch} from '../../store/atom';
+import { useRecoilState } from 'recoil';
 interface IFooterName{
     name : string
 }
 
 function Footer({name} : IFooterName){
+  const [isSearchVisible, setIsSearchVisible] = useRecoilState(isSearch);
+  const [searchInputs, setSearchInputs] = useRecoilState(searchInput);
+  const handleClick = () => {
+    setSearchInputs('');
+    setIsSearchVisible(false);
+  };
   return (
     <Wrapper>
-      <SelectLink to = "/" selected = {name === "상담원"}>
+      <SelectLink to = "/" selected = {name === "상담원"} onClick = {handleClick}>
         <AiOutlineUser size = "20"/>
       </SelectLink>
-      <SelectLink to = "/chat" selected = {name === "상담목록"}>
+      <SelectLink to = "/chat" selected = {name === "상담목록"} onClick = {handleClick}>
         <BsChat size = "20"/>
       </SelectLink>
-      <SelectLink to = "/setting" selected = {name === "설정"}>
+      <SelectLink to = "/setting" selected = {name === "설정"} onClick = {handleClick}>
         <AiOutlineSetting size = "20" />
       </SelectLink>
     </Wrapper>

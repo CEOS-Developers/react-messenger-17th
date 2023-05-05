@@ -1,26 +1,31 @@
 import styled from 'styled-components';
-import {useRecoilValue} from 'recoil';
-import {roomList,selectedRoom} from '../../store/atom';
+import {useRecoilValue,useRecoilState} from 'recoil';
+import {roomList,selectedRoom,isSearch,orderChat} from '../../store/atom';
 import {IChatRoom} from '../../store/interface';
 import Search from '../common/Search';
 import ChatRoom from './ChatRoom';
-import {useRecoilState} from 'recoil';
-import {isSearch} from '../../store/atom'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 function ChatList(): JSX.Element {
   const roomLists = useRecoilValue<IChatRoom[]>(roomList);
   const [selectedRoomId, setSelectedRoomId] = useRecoilState<number>(selectedRoom);
-  const sortedRoomLists = roomLists.slice().sort((a, b) => b.messages[b.messages.length - 1].id - a.messages[a.messages.length - 1].id);
+  const [view, setView] = useRecoilState<string>(orderChat); 
   const [isSearchVisible, setIsSearchVisible] = useRecoilState(isSearch);
-
-  const [filterChat, setFilterChat] = useState(sortedRoomLists);
+  const [filterChat, setFilterChat] = useState(roomLists);
+  useEffect(() => {
+    const sortedRoomLists =
+      view === '최신순'
+        ? roomLists.slice().sort((a, b) => b.messages[b.messages.length - 1].id - a.messages[a.messages.length - 1].id)
+        : roomLists.slice().sort((a, b) => a.messages[a.messages.length - 1].id - b.messages[b.messages.length - 1].id);
+    setFilterChat(sortedRoomLists);
+  }, [roomLists, view]);
   const filterChats = (input: string): void => {
-    const filteredChat = sortedRoomLists.filter((room) =>
+    const filteredChat = roomLists.filter((room) =>
       room.username.includes(input) ||
       room.messages.some(message => message.message.includes(input))
     );
     setFilterChat(filteredChat);
   };
+  
   return (
     <ChatListWrapper className={`${isSearchVisible ?  'show' : ''}`}>
      {isSearchVisible && <Search filtering={filterChats} onClose={() => setIsSearchVisible(false)} />}

@@ -32,7 +32,6 @@ function ChatInput({roomid} : IRoomId) : JSX.Element {
       userid : currentUser.userid,
       message : inputValue
     };
-    console.log(roomIndex);
     if(roomIndex ===-1){ //기존에 방이 없는 경우
       const newRoom = {
         "roomid" : partnerUser.userid,
@@ -55,7 +54,6 @@ function ChatInput({roomid} : IRoomId) : JSX.Element {
         ...roomLists.slice(roomIndex+1),
       ]);
     }
-    console.log(roomLists);
     setInputValue("");
   };
   
