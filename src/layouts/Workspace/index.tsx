@@ -169,7 +169,7 @@ const Workspace = () => {
 
         <Routes>
           <Route path="/channel/:channel" element={<Channel />} />
-          <Route path="/dm/:dm" element={<DirectMessage />} />
+          <Route path="/dm/:id" element={<DirectMessage />} />
         </Routes>
       </WorkspaceWrapper>
     </div>

@@ -11,21 +11,50 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
-import chatDataJson from '../../db/chatData.json';
 import userDataJson from '../../db/userData.json';
+
 import { useRecoilState } from 'recoil';
 import { userState } from '../../recoil/atom';
+import channelDMChatDataJson from '../../db/channelDMChatList.json';
 
+type ChannelDMChatDataType = {
+  [userId: string]: IDM[];
+};
+
+type ChatPartnerDataType = {
+  [userId: string]: IUser;
+};
 const DirectMessage = () => {
   const { workspace, id } = useParams<{ workspace: string; id: string }>();
 
-  const [chatData, setChatData] = useState<IDM[]>(chatDataJson);
+  const channelDMChatData: ChannelDMChatDataType = channelDMChatDataJson;
+  const chatPartnerData: ChatPartnerDataType = userDataJson;
+
+  // DM 대화내역 가져올때
+  // 1. 각각의 dm의 고유 번호 할당하기
+  // 2. 대화상대 id로 dm 가져오기 -> 서로 다른 채널에서 같은 dm 내역 공유
+  // 둘 중 어느 방법이 더 좋은 방법일까요?
+
+  const [chatData, setChatData] = useState(id && channelDMChatData[id]);
+
+  useEffect(() => {
+    console.log(id && channelDMChatData[id]);
+    setChatData(id && channelDMChatData[id]);
+    if (id) {
+      setUserData(chatPartnerData[id]);
+    }
+  }, [id]);
+
   const [chat, onChangeChat, setChat] = useInput('');
   const scrollbarRef = useRef<Scrollbars>(null);
   const [dragOver, setDragOver] = useState(false);
   const [myData, setMyData] = useRecoilState<IUser>(userState);
-  const [userData, setUserData] = useState<IUser>(userDataJson); //대화 상대
-  const isEmpty = chatData.length === 0;
+  const [userData, setUserData] = useState<IUser>({
+    id: 811,
+    nickname: '김서연',
+    email: '서연@gmail.com',
+  }); //대화 상대
+  const isEmpty = chatData?.length === 0;
 
   const onSubmitForm = useCallback(
     (e: any) => {
@@ -75,6 +104,7 @@ const DirectMessage = () => {
     setMyData(userData);
     setUserData(savedMyData);
   };
+  console.log('내데이터', myData);
   return (
     <Container onDragOver={onDragOver}>
       <Header>

@@ -4,33 +4,24 @@ import { NavLink } from 'react-router-dom';
 import useSWR from 'swr';
 import { useRecoilState } from 'recoil';
 import { userState } from '../../recoil/atom';
+import ChannelListDataJson from '../../db/channelListData.json';
+import { IChannel } from 'src/typings/db';
+
+type ChannelChatDataType = {
+  [workspace: string]: IChannel[];
+};
 const ChannelList = () => {
   const { workspace, channel } = useParams();
 
+  const ChanelListData: ChannelChatDataType = ChannelListDataJson;
   const location = useLocation();
 
   const [userData, setUserData] = useRecoilState(userState);
-  const [channelData, setChannelData] = useState([
-    {
-      id: 1234,
-      name: '일반',
-      private: false,
-      WorkspaceId: 1,
-    },
-    {
-      id: 1234,
-      name: '프론트',
-      private: false,
-      WorkspaceId: 1,
-    },
-    {
-      id: 1234,
-      name: '백엔드',
-      private: false,
-      WorkspaceId: 1,
-    },
-  ]);
+  const [channelData, setChannelData] = useState(workspace && ChanelListData[workspace]);
 
+  useEffect(() => {
+    setChannelData(workspace && ChanelListData[workspace]);
+  }, [workspace]);
   const [countList, setCountList] = useState({});
 
   const toggleChannelCollapse = useCallback(() => {
@@ -68,13 +59,14 @@ const ChannelList = () => {
         <span>Channels</span>
       </h2>
       <div>
-        {channelData?.map((ch) => {
-          return (
-            <NavLink key={ch.name} to={`/workspace/${workspace}/channel/${ch.name}`}>
-              <span className={channel === ch.name ? 'bold' : undefined}># {ch.name}</span>
-            </NavLink>
-          );
-        })}
+        {channelData &&
+          channelData?.map((ch: IChannel) => {
+            return (
+              <NavLink key={ch.name} to={`/workspace/${workspace}/channel/${ch.name}`}>
+                <span className={channel === ch.name ? 'bold' : undefined}># {ch.name}</span>
+              </NavLink>
+            );
+          })}
       </div>
     </>
   );
