@@ -1,19 +1,41 @@
 import styled from 'styled-components';
 import {IFriendItem} from '../../store/interface';
-import {friendList} from '../../store/atom';
 import Friend from './Friend'
-import {useRecoilState} from 'recoil';
+import Search from '../common/Search';
+import user from '../../data/user.json';
+import { useState } from 'react';
+import {isSearch} from '../../store/atom'
+import { useRecoilState } from 'recoil';
 function FriendList(): JSX.Element {
-  const [friendLists, setFriendLists] = useRecoilState<IFriendItem[]>(friendList);
-  const mine = friendLists.slice(0,1);
-  const friends = friendLists.slice(1);
+  // const [friendListss, setFriendLists] = useRecoilState<IFriendItem[]>(friendList);
+  const friendsLists = user;
+  const mine = friendsLists.slice(0,1);
+  const friends = friendsLists.slice(1);
+  const [filterFriends, setFilterFriends] = useState(friends);
+  const [isSearchVisible, setIsSearchVisible] = useRecoilState(isSearch);
+  const filterMember = (input: string): void => {
+    const filteredFriend = friends.filter((friend) =>
+      friend.username.toLowerCase().includes(input.trim().toLowerCase())
+    );
+    setFilterFriends(filteredFriend);
+  };
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
+      event.preventDefault();
+      setIsSearchVisible(true);
+    }
+    else if ((event.key === 'Escape')){
+      setIsSearchVisible(false);
+    }
+  };
   return (
-    <FriendsWrapper>
+    <FriendsWrapper className={`${isSearchVisible ?  'show' : ''}`} onKeyDown = {handleKeyDown}>
+      {isSearchVisible && <Search filtering={filterMember} onClose={() => setIsSearchVisible(false)} />}
       {mine.map(({ userid, username, status}: IFriendItem) => (
           <Friend key = {userid} userid = {userid} status = {status} username = {username} />
       ))}
       <hr></hr>
-      {friends.map(({ userid, username, status}: IFriendItem) => (
+      {filterFriends.map(({ userid, username, status}: IFriendItem) => (
           <Friend key = {userid} userid = {userid} status = {status} username = {username} />
       ))}
     </FriendsWrapper>
@@ -21,10 +43,13 @@ function FriendList(): JSX.Element {
 }
 
 export default FriendList;
-
-const FriendsWrapper = styled.div`
+const FriendsWrapper = styled.div.attrs({
+  tabIndex: 0,
+})`
 	height : 460px;
   padding : 1rem;
-  margin-top : 50px;
   overflow : scroll;
-`
+  &.show{
+    margin-top : 50px;
+  }
+`;

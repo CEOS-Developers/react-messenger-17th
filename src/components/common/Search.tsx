@@ -1,11 +1,22 @@
 import styled from "styled-components";
 import {AiOutlineSearch} from 'react-icons/ai';
 import { useEffect, useState } from "react";
-function Search(){
+function Search({filtering} : any){
+  const [ searchInput, setSearchInput ] = useState<string>("");
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(event.target.value);
+  };
+  useEffect(() => {
+    filtering(searchInput);
+  }, [searchInput]);
   return (
     <Wrapper>
       <GlassImg><AiOutlineSearch size = "15"/></GlassImg>
-      <SearchInput></SearchInput>
+      <SearchInput
+        value={searchInput}
+        placeholder=""
+        onChange={handleInputChange}
+      />
     </Wrapper>
   );
 };
@@ -17,9 +28,11 @@ const Wrapper = styled.div`
   display:flex;
   align-items : center;
   justify-content : center;
-	width : 100%;
+	width : 90%;
   margin-bottom : 10px;
   background-color : white;
+  position : fixed;
+  top : 60px;
 `;
 
 const GlassImg = styled.div`

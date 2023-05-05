@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Search from '../common/Search';
 
 interface IHeaderName{
     name : string
@@ -9,7 +8,6 @@ function Header({name} : IHeaderName){
   return (
     <Wrapper>
       <HeaderName>{name}</HeaderName>
-      <Search/>
     </Wrapper>
   );
 };

@@ -40,3 +40,8 @@ export const selectedRoom = atom<number>({
 	key : 'selectedRoom',
 	default : -1,
 });
+
+export const isSearch = atom<boolean>({
+	key : 'isSeach',
+	default : false,
+})

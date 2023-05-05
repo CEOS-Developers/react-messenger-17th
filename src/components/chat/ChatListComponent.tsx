@@ -2,17 +2,40 @@ import styled from 'styled-components';
 import {useRecoilValue} from 'recoil';
 import {roomList,selectedRoom} from '../../store/atom';
 import {IChatRoom,IUser} from '../../store/interface';
+import Search from '../common/Search';
 import ChatRoom from './ChatRoom';
 import {useRecoilState} from 'recoil';
-import {userInfo, partnerInfo} from '../../store/atom';
+import message from '../../data/message.json';
+import {isSearch} from '../../store/atom'
+import { useState } from 'react';
 function ChatList(): JSX.Element {
   const roomLists = useRecoilValue<IChatRoom[]>(roomList);
   const [selectedRoomId, setSelectedRoomId] = useRecoilState<number>(selectedRoom);
   const sortedRoomLists = roomLists.slice().sort((a, b) => b.messages[b.messages.length - 1].id - a.messages[a.messages.length - 1].id);
+  const [isSearchVisible, setIsSearchVisible] = useRecoilState(isSearch);
 
+  const messages = message;
+  const [filterChat, setFilterChat] = useState(sortedRoomLists);
+  const filterChats = (input: string): void => {
+    const filteredChat = sortedRoomLists.filter((room) =>
+      room.username.includes(input) ||
+      room.messages.some(message => message.message.includes(input))
+    );
+    setFilterChat(filteredChat);
+  };
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
+      event.preventDefault();
+      setIsSearchVisible(true);
+    }
+    else if ((event.key === 'Escape')){
+      setIsSearchVisible(false);
+    }
+  };
   return (
-    <ChatListWrapper>
-      {sortedRoomLists.map(({roomid,userid,username,messages}: IChatRoom) => (
+    <ChatListWrapper className={`${isSearchVisible ?  'show' : ''}`} onKeyDown = {handleKeyDown}>
+     {isSearchVisible && <Search filtering={filterChats} onClose={() => setIsSearchVisible(false)} />}
+      {filterChat.map(({roomid,userid,username,messages}: IChatRoom) => (
           <ChatRoom 
           key = {roomid} 
           roomid = {roomid} 
@@ -30,7 +53,13 @@ function ChatList(): JSX.Element {
 
 export default ChatList;
 
-const ChatListWrapper = styled.div`
-	height : 480px;
+const ChatListWrapper = styled.div.attrs({
+  tabIndex: 0,
+})`
+	height : 460px;
   padding : 1rem;
-`
+  overflow : scroll;
+  &.show{
+    margin-top : 50px;
+  }
+`;
