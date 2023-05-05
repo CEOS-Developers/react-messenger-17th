@@ -12,7 +12,7 @@ const Start = () => {
   return (
     <MainPageContainer>
       <MainPageImage
-      src={`/image/start3.png`}
+      src={`${process.env.PUBLIC_URL}/image/start3.png`}
       alt='main'
       />
       <Button onClick={goFriendPage}> 
