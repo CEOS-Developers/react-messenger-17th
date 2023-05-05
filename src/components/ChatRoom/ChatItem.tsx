@@ -41,8 +41,6 @@ interface ChatItemProps {
 function ChatItem({ chat, isUser, sender }: ChatItemProps) {
   const hour = String(new Date(chat.date).getHours()).padStart(2, '0');
   const minute = String(new Date(chat.date).getMinutes()).padStart(2, '0');
-  const month = String(new Date(chat.date).getMonth()).padStart(2, '0');
-  const day = String(new Date(chat.date).getDay()).padStart(2, '0');
   
   return (
     <Wrapper isUser={isUser}>
