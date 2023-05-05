@@ -1,6 +1,6 @@
-import {useRecoilValue, useRecoilState } from 'recoil';
+import {useRecoilValue} from 'recoil';
 import { ChatContentWrapper } from '../../styles/style.chatcontent';
-import {roomList,userInfo,partnerInfo,roomInfo} from '../../store/atom';
+import {roomList,userInfo,roomInfo} from '../../store/atom';
 import ChatItem from './ChatItem';
 import {useRef,useEffect} from 'react';
 import {IChatRoom, IUser,IMessage,IRoomId} from '../../store/interface';

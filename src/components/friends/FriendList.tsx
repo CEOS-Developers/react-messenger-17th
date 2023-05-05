@@ -23,6 +23,8 @@ function FriendList(): JSX.Element {
 export default FriendList;
 
 const FriendsWrapper = styled.div`
-	height : 480px;
+	height : 460px;
   padding : 1rem;
+  margin-top : 50px;
+  overflow : scroll;
 `
