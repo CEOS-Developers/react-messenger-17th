@@ -34,7 +34,7 @@ export default ChatList;
 
 const ChatListBox = styled.div`
   flex-basis: 80%;
-  overflow-y: auto;
+  overflow-y: scroll;
 
   background-color: #9bbbd4;
 

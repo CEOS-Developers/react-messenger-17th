@@ -72,6 +72,7 @@ const ChatContent = styled.div<{ isActive: boolean }>`
   margin: 0.3rem 0.4rem;
   font-size: 0.88rem;
   font-family: 'IBMPlexSansKR-Regular';
+  word-break: break-all;
 
   border-radius: ${(props) =>
     props.isActive ? ' 1rem 0 1rem 1rem' : '0 1rem 1rem 1rem'};
