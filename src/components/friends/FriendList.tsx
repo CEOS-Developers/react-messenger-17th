@@ -7,7 +7,6 @@ import { useState } from 'react';
 import {isSearch} from '../../store/atom'
 import { useRecoilState } from 'recoil';
 function FriendList(): JSX.Element {
-  // const [friendListss, setFriendLists] = useRecoilState<IFriendItem[]>(friendList);
   const friendsLists = user;
   const mine = friendsLists.slice(0,1);
   const friends = friendsLists.slice(1);

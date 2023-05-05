@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 import {useNavigate} from "react-router-dom";
 import {useRecoilState} from 'recoil';
-import { IFriendItem, IUser, IRoomId} from '../../store/interface';
+import { IFriendItem, IUser} from '../../store/interface';
 import {userInfo,partnerInfo,roomInfo} from '../../store/atom';
 
 function Friend({userid, status, username} : IFriendItem){

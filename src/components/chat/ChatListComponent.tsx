@@ -5,7 +5,6 @@ import {IChatRoom} from '../../store/interface';
 import Search from '../common/Search';
 import ChatRoom from './ChatRoom';
 import {useRecoilState} from 'recoil';
-import message from '../../data/message.json';
 import {isSearch} from '../../store/atom'
 import { useState } from 'react';
 function ChatList(): JSX.Element {
