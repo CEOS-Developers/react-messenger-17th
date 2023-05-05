@@ -17,7 +17,7 @@ const LogIn = () => {
     (e: any) => {
       e.preventDefault();
       setLogInError(false);
-      navigate('/workspace/channel'); // TODO 채팅창 목록으로 보내기
+      navigate('/workspace/CEOS/channel/일반'); // TODO 채팅창 목록으로 보내기
       alert('로그인 성공!');
       let newUser = {
         id: 811,

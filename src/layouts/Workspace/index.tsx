@@ -44,6 +44,7 @@ import { userState } from '../../recoil/atom';
 import DirectMessage from 'src/pages/DirectMessage';
 import Channel from 'src/pages/Channel';
 import Menu from 'src/components/Menu';
+import { IWorkspace } from '../../typings/db';
 const Workspace = () => {
   const [userData, setUserData] = useRecoilState(userState);
   const params = useParams<{ workspace?: string }>();
@@ -57,6 +58,43 @@ const Workspace = () => {
   const [newWorkspace, onChangeNewWorkspace, setNewWorkspace] = useInput('');
   const [newUrl, onChangeNewUrl, setNewUrl] = useInput('');
 
+  const [workSpaces, setWorkSpaces] = useState<IWorkspace[]>([
+    {
+      id: 1,
+      name: 'CEOS',
+      url: 'http://localhost:3000/workspace/CEOS',
+      OwnerId: 1811,
+    },
+    {
+      id: 2,
+      name: 'GDSC',
+      url: 'http://localhost:3000/workspace/GDSC',
+      OwnerId: 1811,
+    },
+    {
+      id: 3,
+      name: 'EWHA',
+      url: 'http://localhost:3000/workspace/EWHA',
+      OwnerId: 1811,
+    },
+    {
+      id: 4,
+      name: 'EFUB',
+      url: 'http://localhost:3000/workspace/EFUB',
+      OwnerId: 1811,
+    },
+  ]);
+  const [channelData, setChannelData] = useState([
+    {
+      name: '일반',
+    },
+    {
+      name: '프론트',
+    },
+    {
+      name: '백엔드',
+    },
+  ]);
   var navigate = useNavigate();
   const onLogout = useCallback(() => {
     // 로그아웃 요청
@@ -66,6 +104,18 @@ const Workspace = () => {
   const onClickUserProfile = useCallback(() => {
     setShowUserMenu((prev) => !prev);
   }, []);
+
+  const onClickAddChannel = () => {
+    alert('공사중입니다.');
+  };
+
+  const toggleWorkspaceModal = () => {
+    setShowWorkspaceModal((prev) => !prev);
+  };
+
+  const onClickCreateWorkSpace = () => {
+    alert('공사중입니다.');
+  };
   return (
     <div>
       <Header>
@@ -87,17 +137,34 @@ const Workspace = () => {
           )}
         </RightMenu>
       </Header>
-      <button onClick={onLogout}>로그아웃</button>
+
       <WorkspaceWrapper>
-        <Workspaces>CEOS</Workspaces>
+        <Workspaces>
+          {workSpaces?.map((ws: IWorkspace) => (
+            <Link key={ws.id} to={`/workspace/${ws.name}/channel/일반`}>
+              <WorkspaceButton>{ws.name.slice(0, 1).toUpperCase()}</WorkspaceButton>
+            </Link>
+          ))}
+          <AddButton onClick={onClickCreateWorkSpace}>+</AddButton>
+        </Workspaces>
         <Channels>
-          <WorkspaceName>CEOS</WorkspaceName>
-          <MenuScroll>menu scroll</MenuScroll>
+          <WorkspaceName>{workspace}</WorkspaceName>
+          <MenuScroll>
+            {showWorkspaceModal && (
+              <Menu show={showWorkspaceModal} onCloseModal={toggleWorkspaceModal} style={{ top: 95, left: 80 }}>
+                <WorkspaceModal>
+                  <h2>{workspace}</h2>
+                  <button onClick={onClickAddChannel}>채널 만들기</button>
+                  <button onClick={onLogout}>로그아웃</button>
+                </WorkspaceModal>
+              </Menu>
+            )}
+          </MenuScroll>
         </Channels>
         <Chats>Chats</Chats>
         <Routes>
-          <Route path="/channel" element={<Channel />} />
-          <Route path="/dm" element={<DirectMessage />} />
+          <Route path="/channel/:channel" element={<Channel />} />
+          <Route path="/dm/:dm" element={<DirectMessage />} />
         </Routes>
       </WorkspaceWrapper>
     </div>
