@@ -1,0 +1,58 @@
+{
+  "CEOS": [
+    {
+      "id": 1,
+      "name": "일반",
+      "private": false,
+      "WorkspaceId": 1
+    },
+    {
+      "id": 2,
+      "name": "프론트",
+      "private": false,
+      "WorkspaceId": 2
+    },
+    {
+      "id": 3,
+      "name": "백엔드",
+      "private": false,
+      "WorkspaceId": 3
+    }
+  ],
+  "GDSC": [
+    {
+      "id": 4,
+      "name": "사담",
+      "private": false,
+      "WorkspaceId": 2
+    },
+    {
+      "id": 5,
+      "name": "개발TALK",
+      "private": false,
+      "WorkspaceId": 2
+    },
+    {
+      "id": 6,
+      "name": "공지사항",
+      "private": false,
+      "WorkspaceId": 2
+    }
+  ],
+  "EWHA": [
+    {
+      "id": 5,
+      "name": "일반",
+      "private": false,
+      "WorkspaceId": 3
+    }
+  ],
+  "EFUB": [
+    {
+      "id": 6,
+      "name": "일반",
+      "private": false,
+      "WorkspaceId": 4
+    }
+  ]
+}

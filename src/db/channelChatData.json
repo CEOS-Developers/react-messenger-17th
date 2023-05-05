@@ -1,0 +1,136 @@
+{
+  "CEOS": {
+    "일반": [
+      {
+        "id": 1234,
+        "UserId": 924,
+        "User": {
+          "id": 924,
+          "nickname": "세오스",
+          "email": "ceos@gmail.com"
+        },
+
+        "content": "세오스 일반 채널입니다! ",
+        "createdAt": "2021-03-21",
+        "ChannelId": 1,
+        "Channel": {
+          "id": 1,
+          "name": "일반",
+          "private": false,
+          "WorkspaceId": 811
+        }
+      }
+    ],
+    "프론트": [
+      {
+        "id": 1234,
+        "UserId": 924,
+        "User": {
+          "id": 924,
+          "nickname": "세오스",
+          "email": "ceos@gmail.com"
+        },
+
+        "content": "프론트가 미래다!",
+        "createdAt": "2023-03-21",
+        "ChannelId": 1,
+        "Channel": {
+          "id": 1,
+          "name": "일반",
+          "private": false,
+          "WorkspaceId": 811
+        }
+      }
+    ],
+    "백엔드": [
+      {
+        "id": 1234,
+        "UserId": 924,
+        "User": {
+          "id": 924,
+          "nickname": "CEOS",
+          "email": "ceos@gmail.com"
+        },
+
+        "content": "세오스 백엔드 채널입니다! ",
+        "createdAt": "2021-03-21",
+        "ChannelId": 1,
+        "Channel": {
+          "id": 1,
+          "name": "일반",
+          "private": false,
+          "WorkspaceId": 811
+        }
+      }
+    ]
+  },
+  "EWHA": {
+    "일반": [
+      {
+        "id": 2,
+        "UserId": 924,
+        "User": {
+          "id": 924,
+          "nickname": "이화",
+          "email": "ewha@gmail.com"
+        },
+
+        "content": "이화 일반 채널입니다! ",
+        "createdAt": "2021-03-21",
+        "ChannelId": 2,
+        "Channel": {
+          "id": 2,
+          "name": "일반",
+          "private": false,
+          "WorkspaceId": 811
+        }
+      }
+    ]
+  },
+  "GDSC": {
+    "일반": [
+      {
+        "id": 2,
+        "UserId": 924,
+        "User": {
+          "id": 924,
+          "nickname": "GDSC",
+          "email": "ewha@gmail.com"
+        },
+
+        "content": "GDSC 일반 채널입니다! ",
+        "createdAt": "2021-03-21",
+        "ChannelId": 3,
+        "Channel": {
+          "id": 3,
+          "name": "일반",
+          "private": false,
+          "WorkspaceId": 811
+        }
+      }
+    ]
+  },
+  "EFUB": {
+    "일반": [
+      {
+        "id": 4,
+        "UserId": 924,
+        "User": {
+          "id": 924,
+          "nickname": "이펍",
+          "email": "efub@gmail.com"
+        },
+
+        "content": "이화 일반 채널입니다! ",
+        "createdAt": "2021-03-21",
+        "ChannelId": 2,
+        "Channel": {
+          "id": 2,
+          "name": "일반",
+          "private": false,
+          "WorkspaceId": 811
+        }
+      }
+    ]
+  }
+}

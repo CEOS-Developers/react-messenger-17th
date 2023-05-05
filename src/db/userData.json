@@ -1,0 +1,32 @@
+{
+  "1811": {
+    "id": 1811,
+    "nickname": "김서연",
+    "email": "서연@gmail.com"
+  },
+  "123": {
+    "id": 123,
+    "nickname": "권가은",
+    "email": "가은@gmail.com"
+  },
+  "987": {
+    "id": 987,
+    "nickname": "최민주",
+    "email": "민주@gmail.com"
+  },
+  "999": {
+    "id": 999,
+    "nickname": "김구글",
+    "email": "google@gmail.com"
+  },
+  "1886": {
+    "id": 1886,
+    "nickname": "김이화",
+    "email": "ewha@gmail.com"
+  },
+  "222": {
+    "id": 222,
+    "nickname": "김이펍",
+    "email": "efub@gmail.com"
+  }
+}

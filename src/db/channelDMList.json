@@ -1,0 +1,90 @@
+{
+  "CEOS": [
+    {
+      "id": 1811,
+      "nickname": "김서연",
+      "email": "서연@gmail.com"
+    },
+    {
+      "id": 123,
+      "nickname": "권가은",
+      "email": "가은@gmail.com"
+    },
+    {
+      "id": 9,
+      "nickname": "최민주",
+      "email": "민주@gmail.com"
+    },
+    {
+      "id": 931,
+      "nickname": "오지은",
+      "email": "민주@gmail.com"
+    },
+    {
+      "id": 983,
+      "nickname": "김문기",
+      "email": "민주@gmail.com"
+    },
+    {
+      "id": 987,
+      "nickname": "최민주",
+      "email": "민주@gmail.com"
+    },
+    {
+      "id": 87,
+      "nickname": "주효정",
+      "email": "민주@gmail.com"
+    },
+    {
+      "id": 145,
+      "nickname": "유선호",
+      "email": "민주@gmail.com"
+    },
+    {
+      "id": 233,
+      "nickname": "오예린",
+      "email": "예린@gmail.com"
+    },
+    {
+      "id": 29,
+      "nickname": "장효신",
+      "email": "효신@gmail.com"
+    },
+    {
+      "id": 31,
+      "nickname": "노수진",
+      "email": "수진@gmail.com"
+    },
+    {
+      "id": 283,
+      "nickname": "강나연",
+      "email": "나연@gmail.com"
+    },
+    {
+      "id": 213,
+      "nickname": "배성준",
+      "email": "성준@gmail.com"
+    }
+  ],
+  "GDSC": [
+    {
+      "id": 999,
+      "nickname": "김구글",
+      "email": "google@gmail.com"
+    }
+  ],
+  "EWHA": [
+    {
+      "id": 1886,
+      "nickname": "김이화",
+      "email": "ewha@gmail.com"
+    }
+  ],
+  "EFUB": [
+    {
+      "id": 222,
+      "nickname": "김이펍",
+      "email": "efub@gmail.com"
+    }
+  ]
+}
