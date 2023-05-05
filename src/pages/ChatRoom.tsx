@@ -6,9 +6,12 @@ import UserList from '../components/ChatRoom/UserList';
 import ChatList from '../components/ChatRoom/ChatList';
 import styled from 'styled-components';
 import ChatInput from '../components/ChatRoom/ChatInput';
+import { useParams } from 'react-router-dom';
+import {User} from '../interfaces/Interface';
 
 const Wrapper = styled.div`
-  font-size: 12px;
+  font-size: 13px;
+  font-family: 'NanumL';
   display: flex;
   flex-direction: column;
   width: 350px;
@@ -19,11 +22,29 @@ const Wrapper = styled.div`
 `;
 
 function ChatRoom() {
-  const [chats, setChats] = useState<Chat[]>(chatData.chats);
-  const [userId, setUserId] = useState(0);
-  const nextChatId = useRef(chatData.chats.length + 1);
-  const users = userData.users;
+  const {id} = useParams<string>();
+  const roomId: number = parseInt(id!);
 
+  const curRoom = chatData.chatRooms[roomId];
+  const [chats, setChats] = useState<Chat[]>(curRoom.chats);
+  const [userId, setUserId] = useState(0);
+  
+  const nextChatId = useRef(chats.length + 1);
+  const users = userData.users;
+  const me = userData.me;
+  const all = me.concat(users);
+  const chatRooms = chatData.chatRooms;
+
+  const getRoomMember=(roomId: number, isCurUser: Boolean)=>{
+    const roomMember: User[] = [];
+    chatRooms[roomId].users.map((memberId) => roomMember.push(all[memberId]));
+    if(!isCurUser){
+      roomMember.shift();
+    }
+    console.log(roomMember);
+    return roomMember;
+  }
+ 
   const addChat = useCallback(
     (text: string) => {
       const chat = {
@@ -34,7 +55,6 @@ function ChatRoom() {
       };
       setChats(chats.concat(chat));
       nextChatId.current++;
-      console.log(chat);
     },
     [chats, userId]
   );
@@ -43,10 +63,12 @@ function ChatRoom() {
     setUserId(id);
   };
 
+  const roomMember = getRoomMember(roomId, true);
+
   return (
     <Wrapper>
-      <UserList userId={userId} users={users} changeUser={changeUser} />
-      <ChatList userId={userId} users={users} chats={chats} />
+      <UserList userId={userId} users={roomMember} changeUser={changeUser} />
+      <ChatList userId={userId} users={all} chats={chats} />
       <ChatInput addChat={addChat} />
     </Wrapper>
   );

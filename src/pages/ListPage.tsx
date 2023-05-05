@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import styled from "styled-components";
 import MenuBar from "../components/Bar/MenuBar";
 import Back from "../components/Bar/Back";
@@ -139,7 +139,7 @@ function ListPage(){
           </SearchBar>
           <SubTitle>Searching...</SubTitle>
           <Line/>
-          {filterFriend.map( (user)=> <UserListsS userId={user.id} users={users[user.id]}/>)}
+          {filterFriend.map( (user)=> <UserListsS userId={user.id} users={users[user.id - 1]}/>)}
           </>
         }
           </Content>

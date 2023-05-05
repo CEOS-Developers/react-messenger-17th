@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.form`
@@ -9,28 +9,34 @@ const Wrapper = styled.form`
   box-sizing: border-box;
 `;
 
+const Form = styled.div`
+  width: 350px;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+`;
+
 const InputForm = styled.textarea`
-  font-size: 12px;
+  font-size: 13px;
   display: flex;
   border: none;
-  border-radius: 20%;
   outline: none;
   resize: none;
   padding: 10px;
-  height: 80%;
+  height: 100%;
   width: 100%;
   box-sizing: border-box;
   word-break: break-all;
 `;
 
 const Button = styled.button`
-  font-size: 12px;
+  font-size: 13px;
   background-color: #ececec;
-  margin: 5px 5px;
-  width: 20%;
-  height: 30%;
+  margin: 5px 5px 5px 265px;
+  width: 23%;
+  height: 35%;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
 `;
 
 interface ChatInputProps {
@@ -71,12 +77,14 @@ function ChatInput({ addChat }: ChatInputProps) {
     <>
       {
         <Wrapper onSubmit={onSubmit}>
+          <Form>
           <InputForm
             required
             value={value}
             onChange={onChange}
             onKeyPress={handleEnter}
           />
+          </Form>
           <Button>전송</Button>
         </Wrapper>
       }

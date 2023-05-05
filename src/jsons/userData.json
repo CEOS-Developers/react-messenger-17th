@@ -1,37 +1,37 @@
 {
   "users": [
     {
-      "id": 0,
+      "id": 1,
       "name": "미첼🐰",
       "image": "images/Michel.png",
       "contents" : "동글"
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "스피카🐿",
       "image": "images/Spika.jpeg",
       "contents" : "🌟반짝!🌟"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "잭슨🐱",
       "image": "images/Jackson.png",
       "contents" : "우쭐"
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "호떡🐧",
       "image": "images/Hodduk.png",
       "contents" : "🍳뒤집어!"
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "휴지🐘",
       "image": "images/Huji.png",
       "contents" : "🍩휴휴"
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "쭈니🐿",
       "image": "images/Juny.png",
       "contents" : "어차피"

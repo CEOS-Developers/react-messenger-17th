@@ -10,12 +10,13 @@ const Wrapper = styled.div`
   gap: 20px;
   height: 70%;
   overflow: auto;
-  background-color: #a4c3df;
+  background: #D0F8B7;
   ::-webkit-scrollbar {
-    width: 1px;
+    width: 5px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: transparent;
+    border-radius: 2px;
+    background: lightgray;
   }
 `;
 
@@ -25,7 +26,7 @@ interface ChatListProps {
   users: User[];
 }
 
-function ChatList({ userId, chats, users }: ChatListProps) {
+function ChatList({ userId, chats, users}: ChatListProps) {
   const chatListRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     chatListRef.current?.scrollTo(0, chatListRef.current.scrollHeight);
