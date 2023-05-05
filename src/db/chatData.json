@@ -11,9 +11,9 @@
     {
       "userId": 2,
       "chatList": [
-        { "userId": 2, "content": "도망간 마리오 잡아요", "time": "3월 30일" },
-        { "userId": 0, "content": "지.명.수.배.", "time": "3월 30일" },
-        { "userId": 2, "content": "현상금 오처넌", "time": "3월 30일" }
+        { "userId": 2, "content": "도망간 마리오 잡아요", "time": "4월 2일" },
+        { "userId": 0, "content": "지.명.수.배.", "time": "4월 2일" },
+        { "userId": 2, "content": "현상금 오처넌", "time": "4월 2일" }
       ]
     },
     {
@@ -22,18 +22,18 @@
         {
           "userId": 3,
           "content": "난 정말 귀엽고 사랑스러워",
-          "time": "3월 30일"
+          "time": "4월 15일"
         },
-        { "userId": 0, "content": "인정", "time": "3월 30일" },
-        { "userId": 3, "content": "ㅎㅎㅎㅎ", "time": "3월 30일" }
+        { "userId": 0, "content": "인정", "time": "4월 15일" },
+        { "userId": 3, "content": "ㅎㅎㅎㅎ", "time": "4월 15일" }
       ]
     },
     {
       "userId": 4,
       "chatList": [
-        { "userId": 4, "content": "쿠파두파디바~", "time": "3월 30일" },
-        { "userId": 0, "content": "쿠파파두파파~", "time": "3월 30일" },
-        { "userId": 4, "content": "쿠파두파~", "time": "3월 30일" }
+        { "userId": 4, "content": "쿠파두파디바~", "time": "4월 27일" },
+        { "userId": 0, "content": "쿠파파두파파~", "time": "4월 27일" },
+        { "userId": 4, "content": "쿠파두파~", "time": "4월 27일" }
       ]
     },
     {
@@ -42,14 +42,14 @@
         {
           "userId": 5,
           "content": "머리에서 버섯이 자라요~",
-          "time": "3월 30일"
+          "time": "5월 3일"
         },
         {
           "userId": 0,
           "content": "말도 안되는 소리 하지마",
-          "time": "3월 30일"
+          "time": "5월 3일"
         },
-        { "userId": 5, "content": "쳇쳇", "time": "3월 30일" }
+        { "userId": 5, "content": "쳇쳇", "time": "5월 3일" }
       ]
     }
   ]

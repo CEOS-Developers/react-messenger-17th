@@ -9,17 +9,23 @@ const Menu = () => {
   return (
     <MenuBox>
       <IconBox>
-        <Link to="/">
+        <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>
           <BsFillPersonFill size={40} />
         </Link>
       </IconBox>
       <IconBox>
-        <Link to="/chatrooms">
+        <Link
+          to="/chatrooms"
+          style={{ color: 'inherit', textDecoration: 'inherit' }}
+        >
           <TbMessageCircle2Filled size={30} />
         </Link>
       </IconBox>
       <IconBox>
-        <Link to="/settings">
+        <Link
+          to="/settings"
+          style={{ color: 'inherit', textDecoration: 'inherit' }}
+        >
           <TfiMoreAlt size={30} />
         </Link>
       </IconBox>
