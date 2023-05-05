@@ -54,6 +54,10 @@ const HeaderBox = styled.header`
 
   padding: 1rem;
   padding-left: 0;
+
+  background-color: #9bbbd4;
+  border-top-left-radius: 2.3rem;
+  border-top-right-radius: 2.3rem;
 `;
 
 const ExitBtn = styled.button`

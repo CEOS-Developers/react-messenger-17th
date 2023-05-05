@@ -36,6 +36,8 @@ const ChatListBox = styled.div`
   flex-basis: 80%;
   overflow-y: auto;
 
+  background-color: #9bbbd4;
+
   ::-webkit-scrollbar {
     width: 0.32rem;
   }
@@ -43,4 +45,11 @@ const ChatListBox = styled.div`
   ::-webkit-scrollbar-thumb {
     background-color: #b5b4b4;
   }
+
+  /*
+  background-image: url('../../../public/Imgs/ChatroomImg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  */
 `;
