@@ -11,7 +11,7 @@ const All = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
-margin-left: 15px;
+margin-left: 8px;
 display: ${({ selected }: { selected?: boolean }) =>
 selected ? 'none' : 'visible'};
 `;
@@ -29,6 +29,16 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
+const Circle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: white;
+  border: 0.01px solid gray;
+`;
 
 interface UserItemProps {
   selected: boolean;
@@ -40,7 +50,9 @@ const UserItem = ({ selected, user, changeUser }: UserItemProps) => {
   return (
     <Wrapper onClick={() => changeUser(user.id)}>
       <All selected={selected}>
+      <Circle>
       <Image src={user.image}></Image>
+      </Circle>
       <Text>{user.name}</Text>
       </All>
     </Wrapper>
