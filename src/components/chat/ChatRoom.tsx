@@ -14,7 +14,6 @@ interface IRoomInfo{
   onClick : () => void;
 }
 function ChatRoom({roomid, userid, username, messages,time,active,onClick} : IRoomInfo) : JSX.Element{
-
   const [currentUser, setCurrentUser] = useRecoilState<IUser>(userInfo);
   const [partnerUser, setPartnerUser] = useRecoilState<IUser>(partnerInfo);
   const navigate = useNavigate();

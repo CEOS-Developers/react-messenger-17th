@@ -1,10 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import { IFriendItem } from '../../store/interface';
+import {useNavigate} from "react-router-dom";
+import {useRecoilState} from 'recoil';
+import { IFriendItem, IUser } from '../../store/interface';
+import {userInfo,partnerInfo} from '../../store/atom';
 
 function Friend({userid, status, username} : IFriendItem){
+  const [currentUser, setCurrentUser] = useRecoilState<IUser>(userInfo);
+  const [partnerUser, setPartnerUser] = useRecoilState<IUser>(partnerInfo);
+  const navigate = useNavigate();
+  const handleDoubleClick = () => {
+    setCurrentUser({userid : 0, username : '성준'});
+    setPartnerUser({userid : userid,username : username});
+    navigate(`/chat/${userid}`);
+  }
   return (
-    <Wrapper>
+    <Wrapper onDoubleClick={handleDoubleClick}>
       <UserImage src={`${process.env.PUBLIC_URL}/images/${userid}.jpg`} />
       <UserInfoWrapper>
         <UserName>{username}</UserName>
@@ -18,6 +29,9 @@ const Wrapper = styled.div`
   display: flex;
   height: 50px;
   padding: 5px;
+  &:hover{
+    background-color : rgba(230,230,230,0.9);
+  }
 `;
 
 const UserImage = styled.img`

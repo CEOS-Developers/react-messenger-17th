@@ -9,7 +9,7 @@ export const Header = styled.div`
     margin-bottom: 5px;
 `
 
-export const BackButton = styled(Link)`
+export const BackButton = styled.div`
     display: flex;
     align-items: center;
     min-width: 25px;
