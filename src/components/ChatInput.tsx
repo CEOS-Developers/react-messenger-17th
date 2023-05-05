@@ -3,15 +3,16 @@ import {useState,useRef,useEffect} from 'react';
 import {ChatInputWrapper, Input, SubmitButton} from '../styles/style.chatinput';
 import {FaTelegramPlane} from 'react-icons/fa';
 import {IChatRoom,IUser,IRoomId} from '../store/interface';
-import {roomList,userInfo} from '../store/atom';
+import {roomList,userInfo,partnerInfo,roomInfo} from '../store/atom';
 
 function ChatInput({roomid} : IRoomId) : JSX.Element {
   const currentUser = useRecoilValue<IUser>(userInfo);
+  const partnerUser = useRecoilValue<IUser>(partnerInfo);
+  const roomId = useRecoilValue<Number>(roomInfo);
   const [roomLists, setRoomLists] = useRecoilState<IChatRoom[]>(roomList);
   const [inputValue, setInputValue] = useState<string>("");
-  const roomIndex = roomLists.findIndex((room) => room.roomid === roomid);
+  const roomIndex = roomLists.findIndex((room) => room.roomid === roomId);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(event.target.value);
   };
@@ -31,16 +32,30 @@ function ChatInput({roomid} : IRoomId) : JSX.Element {
       userid : currentUser.userid,
       message : inputValue
     };
-    const newRoom = {
-      ...roomLists[roomIndex],
-      messages : [...roomLists[roomIndex].messages, newMessage],
-    };
-    
-    setRoomLists([
-      ...roomLists.slice(0,roomIndex),
-      newRoom,
-      ...roomLists.slice(roomIndex+1),
-    ]);
+    console.log(roomIndex);
+    if(roomIndex ===-1){ //기존에 방이 없는 경우
+      const newRoom = {
+        "roomid" : partnerUser.userid,
+        "userid" : partnerUser.userid,
+        "username" : partnerUser.username,
+        "messages" : [newMessage]
+      }
+      setRoomLists([
+        ...roomLists, newRoom,
+      ])
+    }
+    else{ //기존에 방이 있는 경우
+      const newRoom = {
+        ...roomLists[roomIndex],
+        messages : [...roomLists[roomIndex].messages, newMessage],
+      };
+      setRoomLists([
+        ...roomLists.slice(0,roomIndex),
+        newRoom,
+        ...roomLists.slice(roomIndex+1),
+      ]);
+    }
+    console.log(roomLists);
     setInputValue("");
   };
   

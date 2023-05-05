@@ -32,5 +32,5 @@ export default ChatList;
 
 const ChatListWrapper = styled.div`
 	height : 480px;
-  padding-top : 1rem;
+  padding : 1rem;
 `

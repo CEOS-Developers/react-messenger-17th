@@ -7,7 +7,6 @@ function FriendList(): JSX.Element {
   const [friendLists, setFriendLists] = useRecoilState<IFriendItem[]>(friendList);
   const mine = friendLists.slice(0,1);
   const friends = friendLists.slice(1);
-  console.log(friends);
   return (
     <FriendsWrapper>
       {mine.map(({ userid, username, status}: IFriendItem) => (

@@ -2,16 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import {useNavigate} from "react-router-dom";
 import {useRecoilState} from 'recoil';
-import { IFriendItem, IUser } from '../../store/interface';
-import {userInfo,partnerInfo} from '../../store/atom';
+import { IFriendItem, IUser, IRoomId} from '../../store/interface';
+import {userInfo,partnerInfo,roomInfo} from '../../store/atom';
 
 function Friend({userid, status, username} : IFriendItem){
   const [currentUser, setCurrentUser] = useRecoilState<IUser>(userInfo);
   const [partnerUser, setPartnerUser] = useRecoilState<IUser>(partnerInfo);
+  const [roomId, setRoomId] = useRecoilState<Number>(roomInfo);
   const navigate = useNavigate();
   const handleDoubleClick = () => {
     setCurrentUser({userid : 0, username : '성준'});
     setPartnerUser({userid : userid,username : username});
+    setRoomId(userid);
     navigate(`/chat/${userid}`);
   }
   return (

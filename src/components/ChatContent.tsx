@@ -1,17 +1,18 @@
-import {useRecoilValue } from 'recoil';
+import {useRecoilValue, useRecoilState } from 'recoil';
 import { ChatContentWrapper } from '../styles/style.chatcontent';
-import {roomList,userInfo} from '../store/atom';
+import {roomList,userInfo,partnerInfo,roomInfo} from '../store/atom';
 import ChatItem from './ChatItem';
 import {useRef,useEffect} from 'react';
 import {IChatRoom, IUser,IMessage,IRoomId} from '../store/interface';
 function ChatContent({roomid} : IRoomId): JSX.Element {
   const roomLists = useRecoilValue<IChatRoom[]>(roomList);
+  const roomId = useRecoilValue<Number>(roomInfo);
+  const roomIndex = roomLists.findIndex((room) => room.roomid === roomId);
   const currentUser = useRecoilValue<IUser>(userInfo);
-  const chatList : IMessage[] = roomLists[roomid-1].messages;
+  const chatList : IMessage[] = roomLists[roomIndex]?.messages || [];
   const chatContent = useRef<HTMLDivElement>(null);
   const prevTimeValue = useRef<String | null>(null);
   const prevUserValue = useRef<Number | null>(null);
-  
   const scrollChat = () => {
     if (chatContent.current){
       chatContent.current.scrollTop = chatContent.current.scrollHeight;
@@ -44,12 +45,13 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
           let nextTime = makeTime(chatList[index+1].id);
           if(chatList[index+1].userid === item.userid && time === nextTime){
             showTime = false;
-          }    
+          }
         }
-        if(prevUserValue.current === item.userid && prevUserValue !== null)
-            showUser = true;
+        if(prevUserValue.current === item.userid && prevUserValue !== null){
+          showUser = true;
+        }
         if( prevTimeValue.current !== time)
-            showUser = false;
+          showUser = false;
         prevTimeValue.current = time;
         prevUserValue.current = item.userid;
       return (

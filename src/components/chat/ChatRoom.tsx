@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useNavigate} from "react-router-dom";
-import {userInfo,partnerInfo} from '../../store/atom';
+import {userInfo,partnerInfo,roomInfo} from '../../store/atom';
 import {IUser} from '../../store/interface';
 import {useRecoilState} from 'recoil';
 interface IRoomInfo{
@@ -16,6 +16,7 @@ interface IRoomInfo{
 function ChatRoom({roomid, userid, username, messages,time,active,onClick} : IRoomInfo) : JSX.Element{
   const [currentUser, setCurrentUser] = useRecoilState<IUser>(userInfo);
   const [partnerUser, setPartnerUser] = useRecoilState<IUser>(partnerInfo);
+  const [roomId, setRoomId] = useRecoilState<Number>(roomInfo);
   const navigate = useNavigate();
   const makeTime = (time : number) =>{
     const newTime = new Date(time);
@@ -29,6 +30,7 @@ function ChatRoom({roomid, userid, username, messages,time,active,onClick} : IRo
   const handleDoubleClick = () => {
     setCurrentUser({userid : 0, username : '성준'});
     setPartnerUser({userid : userid,username : username});
+    setRoomId(userid);
     navigate(`/chat/${roomid}`);
   }
   return (
@@ -60,7 +62,7 @@ const UserImage = styled.img`
 `;
 
 const UserInfoWrapper = styled.div`
-  width : 100%;
+  width : 80%;
   display : grid;
   grid-template-columns: 1fr 1fr; 
   grid-template-rows: 1fr 1fr;

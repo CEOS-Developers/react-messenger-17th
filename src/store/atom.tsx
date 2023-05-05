@@ -1,12 +1,17 @@
 import { atom } from 'recoil';
 import message from '../data/message.json';
 import user from '../data/user.json';
-import {IChatRoom, IUser,IFriendItem} from './interface';
+import {IChatRoom, IUser,IFriendItem, IRoomId} from './interface';
 
 export const roomList = atom<IChatRoom[]>({
   key: 'roomList',
 	default: message
 });
+
+export const roomInfo = atom<Number>({
+	key : 'roomId',
+	default : -1,
+})
 export const friendList = atom<IFriendItem[]>({
   key : 'friendList',
 	default : user
