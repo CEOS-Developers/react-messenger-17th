@@ -1,0 +1,32 @@
+{  
+    "chatrooms": [
+        { 
+        "roomId":0,
+        "dorm": "grf",
+        "chat": [
+            {"sender": 0, "chat": "익스펙토 페트로눔!"}
+        ]
+        },
+        { 
+        "roomId":1,
+        "dorm": "hfl",
+        "chat": [
+            {"sender": 1, "chat": "프로테고!"}
+        ]
+        },
+        { 
+        "roomId":2,
+        "dorm": "sly",
+        "chat": [
+            {"sender": 2, "chat": "스투페파이!"}
+        ]
+        },
+        { 
+        "roomId":3,
+        "dorm": "rav",
+        "chat": [
+            {"sender": 3, "chat": "윙가르디움 레비오우사~"}
+        ]
+        }
+    ]   
+}
