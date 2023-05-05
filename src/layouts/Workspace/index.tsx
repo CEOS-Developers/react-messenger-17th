@@ -43,6 +43,7 @@ import { useRecoilState } from 'recoil';
 import { userState } from '../../recoil/atom';
 import DirectMessage from 'src/pages/DirectMessage';
 import Channel from 'src/pages/Channel';
+import Menu from 'src/components/Menu';
 const Workspace = () => {
   const [userData, setUserData] = useRecoilState(userState);
   const params = useParams<{ workspace?: string }>();
@@ -62,13 +63,28 @@ const Workspace = () => {
     navigate('/'); // 루트 경로로 이동
   }, []);
 
+  const onClickUserProfile = useCallback(() => {
+    setShowUserMenu((prev) => !prev);
+  }, []);
   return (
     <div>
       <Header>
         <RightMenu>
-          <span>
+          <span onClick={onClickUserProfile}>
             <ProfileImg src={gravatar.url(userData.email, { s: '28px', d: 'retro' })} alt={userData.nickname} />
           </span>
+          {showUserMenu && (
+            <Menu style={{ right: 0, top: 38 }} show={showUserMenu} onCloseModal={onClickUserProfile}>
+              <ProfileModal>
+                <img src={gravatar.url(userData.email, { s: '36px', d: 'retro' })} alt={userData.nickname} />
+                <div>
+                  <span id="profile-name">{userData.nickname}</span>
+                  <span id="profile-active">Active</span>
+                </div>
+              </ProfileModal>
+              <LogOutButton onClick={onLogout}>로그아웃</LogOutButton>
+            </Menu>
+          )}
         </RightMenu>
       </Header>
       <button onClick={onLogout}>로그아웃</button>

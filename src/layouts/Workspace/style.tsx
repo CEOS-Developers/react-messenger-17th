@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const RightMenu = styled.div`
   float: right;
+  padding-right: 14px;
 `;
 
 export const Header = styled.header`
@@ -16,9 +17,6 @@ export const Header = styled.header`
 export const ProfileImg = styled.img`
   width: 28px;
   height: 28px;
-  position: absolute;
-  top: 5px;
-  right: 16px;
 `;
 
 export const ProfileModal = styled.div`
