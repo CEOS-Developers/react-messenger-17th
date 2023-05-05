@@ -20,7 +20,7 @@ const ChatroomPage = () => {
         <Title>
           <span>채팅</span>
         </Title>
-        <div style={{display: "flex", flexDirection: "row", gap: "4px", paddingTop: "1rem", paddingLeft: "1rem"}}> 
+        <SortBox> 
             <h3>오래된 순</h3>
             <ToggleWrapper>
               <CheckBox
@@ -30,7 +30,7 @@ const ChatroomPage = () => {
               <LeftSide isChecked={sort}></LeftSide>
               <RightSide isChecked={!sort}></RightSide>
             </ToggleWrapper>
-        </div>
+        </SortBox>
       </Header>
 
       <Body> 
@@ -65,6 +65,15 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
   font-size: 1.5rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+`;
+
+const SortBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
   padding-top: 1rem;
   padding-left: 1rem;
 `;
@@ -112,6 +121,7 @@ const ToggleWrapper = styled.div`
     height: 30px;
     position: relative;
     background-color: #EEEBEB;
+    right: 1px;
 `
 const LeftSide = styled.div<{ isChecked: boolean }>`
     cursor: pointer;
@@ -122,18 +132,19 @@ const RightSide = styled.div<{ isChecked: boolean }>`
     position: relative;
 `
 const CheckBox = styled.input`
-    // display: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     cursor: pointer;
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #BBCAFF;
     position: absolute;
     border-radius: 50%;
-    left: 5px;
-    top: 4px;
     transition: all 0.2s ease-in-out;
     :checked{
-      width: 1rem;
-      height: 1rem;
+      background-color: #4D74FF;
+      width: 1.5rem;
+      height: 1.5rem;
       position: absolute;
       left: 28px;
       transition: all 0.2s ease-in-out;
