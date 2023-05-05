@@ -9,8 +9,10 @@ const ChatRoomListPage = () => {
         <h1>채팅</h1>
       </Header>
 
+      {/*
       <p>최신 메시지 순</p>
       <p>오래된 메시지 순</p>
+      */}
 
       <ChatRoomList />
     </div>

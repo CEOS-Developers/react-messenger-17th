@@ -19,15 +19,27 @@ const ChatRoomPage = () => {
   )?.chatList!;
 
   return (
-    <ChatRoomBox>
-      <Header friendInfo={friendInfo} />
-      <ChatList friendInfo={friendInfo} chatList={chatList} />
-      <ChatInput friendInfo={friendInfo} chatList={chatList} />
-    </ChatRoomBox>
+    <Container>
+      <ChatRoomBox>
+        <Header friendInfo={friendInfo} />
+        <ChatList friendInfo={friendInfo} chatList={chatList} />
+        <ChatInput friendInfo={friendInfo} chatList={chatList} />
+      </ChatRoomBox>
+    </Container>
   );
 };
 
 export default ChatRoomPage;
+
+const Container = styled.div`
+  width: 26rem;
+  height: 46rem;
+
+  border-radius: 2.3rem;
+  box-shadow: 0px 0px 5px #444;
+
+  display: flex;
+`;
 
 const ChatRoomBox = styled.div`
   width: 100%;

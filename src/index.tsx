@@ -7,6 +7,8 @@ import FriendsPage from './components/FriendsPage/FriendsPage';
 import ChatRoomListPage from './components/ChatRoomListPage/ChatRoomListPage';
 import ChatRoomPage from './components/ChatRoomPage/ChatRoomPage';
 import SettingPage from './components/SettingPage/SettingPage';
+import { RecoilRoot } from 'recoil';
+import GlobalStyle from './styles/GlobalStyles';
 
 const router = createBrowserRouter([
   {
@@ -16,10 +18,10 @@ const router = createBrowserRouter([
       { index: true, element: <FriendsPage /> },
       { path: 'friends', element: <FriendsPage /> },
       { path: 'chatrooms', element: <ChatRoomListPage /> },
-      { path: 'chatrooms/:userId', element: <ChatRoomPage /> },
       { path: 'settings', element: <SettingPage /> },
     ],
   },
+  { path: 'chatrooms/:userId', element: <ChatRoomPage /> },
 ]);
 
 const root = ReactDOM.createRoot(
@@ -27,6 +29,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RecoilRoot>
+      <GlobalStyle />
+      <RouterProvider router={router} />
+    </RecoilRoot>
   </React.StrictMode>
 );
