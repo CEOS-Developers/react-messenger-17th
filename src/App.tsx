@@ -1,5 +1,4 @@
 import GlobalStyle from './styles/GlobalStyle';
-import styled from 'styled-components';
 import {Container, Title, ChatButton, ChatWrapper,ButtonWrapper} from './styles/style.main';
 import Chat from './components/chat/Chat';
 import { useRecoilState } from 'recoil';
@@ -10,6 +9,7 @@ import Members from './views/Members';
 import Setting from './views/Setting';
 import ChatList from './views/ChatList';
 import {isSearch} from './store/atom';
+import { useEffect } from 'react';
 
 function App(): JSX.Element {
   const [showDiv, setShowDiv] = useRecoilState(showDivState);
@@ -22,19 +22,22 @@ function App(): JSX.Element {
     setShowDiv(true);
     setHideButton(true);
   };
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
-      event.preventDefault();
-      setIsSearchVisible(true);
-    }
-    else if ((event.key === 'Escape')){
-      setIsSearchVisible(false);
-    }
-  };
+  useEffect(() => {
+    const handleKeyDown = (event: { ctrlKey: any; metaKey: any; key: string; preventDefault: () => void; }) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
+        event?.preventDefault();
+        setIsSearchVisible(true);
+      }
+      else if ((event?.key === 'Escape')){
+        setIsSearchVisible(false);
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+  }, []);
   return (
     <>
       <GlobalStyle/>
-      <Container onContextMenu = {handleContextMenuClick} onKeyDown={handleKeyDown}>
+      <Container onContextMenu = {handleContextMenuClick}>
         <ButtonWrapper>
           {!hideButton &&
           <>
@@ -47,7 +50,7 @@ function App(): JSX.Element {
         </ButtonWrapper>
         {showDiv &&
         <>
-        <ChatWrapper className={`${showDiv ? 'show' : ''}`} onKeyDown={handleKeyDown}>
+        <ChatWrapper className={`${showDiv ? 'show' : ''}`}>
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Members />} />

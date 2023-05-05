@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {useRecoilValue} from 'recoil';
 import {roomList,selectedRoom} from '../../store/atom';
-import {IChatRoom,IUser} from '../../store/interface';
+import {IChatRoom} from '../../store/interface';
 import Search from '../common/Search';
 import ChatRoom from './ChatRoom';
 import {useRecoilState} from 'recoil';
@@ -14,7 +14,6 @@ function ChatList(): JSX.Element {
   const sortedRoomLists = roomLists.slice().sort((a, b) => b.messages[b.messages.length - 1].id - a.messages[a.messages.length - 1].id);
   const [isSearchVisible, setIsSearchVisible] = useRecoilState(isSearch);
 
-  const messages = message;
   const [filterChat, setFilterChat] = useState(sortedRoomLists);
   const filterChats = (input: string): void => {
     const filteredChat = sortedRoomLists.filter((room) =>
@@ -23,17 +22,8 @@ function ChatList(): JSX.Element {
     );
     setFilterChat(filteredChat);
   };
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
-      event.preventDefault();
-      setIsSearchVisible(true);
-    }
-    else if ((event.key === 'Escape')){
-      setIsSearchVisible(false);
-    }
-  };
   return (
-    <ChatListWrapper className={`${isSearchVisible ?  'show' : ''}`} onKeyDown = {handleKeyDown}>
+    <ChatListWrapper className={`${isSearchVisible ?  'show' : ''}`}>
      {isSearchVisible && <Search filtering={filterChats} onClose={() => setIsSearchVisible(false)} />}
       {filterChat.map(({roomid,userid,username,messages}: IChatRoom) => (
           <ChatRoom 

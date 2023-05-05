@@ -19,17 +19,8 @@ function FriendList(): JSX.Element {
     );
     setFilterFriends(filteredFriend);
   };
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
-      event.preventDefault();
-      setIsSearchVisible(true);
-    }
-    else if ((event.key === 'Escape')){
-      setIsSearchVisible(false);
-    }
-  };
   return (
-    <FriendsWrapper className={`${isSearchVisible ?  'show' : ''}`} onKeyDown = {handleKeyDown}>
+    <FriendsWrapper className={`${isSearchVisible ?  'show' : ''}`}>
       {isSearchVisible && <Search filtering={filterMember} onClose={() => setIsSearchVisible(false)} />}
       {mine.map(({ userid, username, status}: IFriendItem) => (
           <Friend key = {userid} userid = {userid} status = {status} username = {username} />
