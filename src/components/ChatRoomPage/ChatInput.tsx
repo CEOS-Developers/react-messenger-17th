@@ -41,7 +41,7 @@ const ChatInput = ({ friendInfo, chatList }: ChatInputProps) => {
 
     addChat();
 
-    setText(''); //초기화
+    setText('');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>

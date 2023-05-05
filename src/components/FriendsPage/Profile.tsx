@@ -1,8 +1,14 @@
 import React from 'react';
-import { IUser } from '../../interface/interface';
 import styled from 'styled-components';
 
-const Profile = ({ userName, userImg, statusMessage }: IUser) => {
+type ProfileProps = {
+  userId?: number;
+  userName: string;
+  userImg: string;
+  statusMessage: string;
+};
+
+const Profile = ({ userName, userImg, statusMessage }: ProfileProps) => {
   return (
     <ProfileBox>
       <UserImg

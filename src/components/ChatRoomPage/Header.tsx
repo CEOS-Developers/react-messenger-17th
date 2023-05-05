@@ -14,10 +14,10 @@ const Header = ({ friendInfo }: HeaderProps) => {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
   const myInfo = useRecoilValue(myInfoSelector);
-  const isMyAccount = currentUser.userId === myInfo.userId; //currentUser=나
+  const isMyAccount = currentUser.userId === myInfo.userId;
 
   const toggleUser = () => {
-    isMyAccount ? setCurrentUser(friendInfo) : setCurrentUser(myInfo); //내가 currentUser였으면, 친구로 currentUser를 toggle
+    isMyAccount ? setCurrentUser(friendInfo) : setCurrentUser(myInfo);
   };
 
   return (
@@ -30,7 +30,7 @@ const Header = ({ friendInfo }: HeaderProps) => {
       >
         <RiArrowLeftSLine />
       </ExitBtn>
-      {/* 채팅룸 나가기 버튼 */}
+
       <UserInfo onClick={toggleUser}>
         <UserImg
           src={`${process.env.PUBLIC_URL}/Imgs/${
