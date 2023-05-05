@@ -1,0 +1,117 @@
+{
+  "1811": [
+    {
+      "id": 1234,
+      "SenderId": 1811,
+      "Sender": {
+        "id": 1811,
+        "nickname": "김서연",
+        "email": "서연@gmail.com"
+      },
+      "ReceiverId": 811,
+      "Receiver": {
+        "id": 811,
+        "nickname": "flowersayo",
+        "email": "flowersayo@gmail.com"
+      },
+      "content": "만나서 반가워~! ",
+      "createdAt": "2021-03-21"
+    }
+  ],
+
+  "123": [
+    {
+      "id": 1234,
+      "SenderId": 123,
+      "Sender": {
+        "id": 123,
+        "nickname": "권가은",
+        "email": "가은@gmail.com"
+      },
+      "ReceiverId": 811,
+      "Receiver": {
+        "id": 811,
+        "nickname": "flowersayo",
+        "email": "flowersayo@gmail.com"
+      },
+      "content": "만나서 반가워~! ",
+      "createdAt": "2021-03-21"
+    }
+  ],
+  "999": [
+    {
+      "id": 1234,
+      "SenderId": 999,
+      "Sender": {
+        "id": 999,
+        "nickname": "김구글",
+        "email": "ceos@gmail.com"
+      },
+      "ReceiverId": 811,
+      "Receiver": {
+        "id": 811,
+        "nickname": "flowersayo",
+        "email": "flowersayo@gmail.com"
+      },
+      "content": "만나서 반가워~! ",
+      "createdAt": "2021-03-21"
+    }
+  ],
+  "1886": [
+    {
+      "id": 1234,
+      "SenderId": 1886,
+      "Sender": {
+        "id": 1886,
+        "nickname": "김이화",
+        "email": "ewha@gmail.com"
+      },
+      "ReceiverId": 811,
+      "Receiver": {
+        "id": 811,
+        "nickname": "flowersayo",
+        "email": "flowersayo@gmail.com"
+      },
+      "content": "이화에 온걸 환영해~! ",
+      "createdAt": "2021-03-21"
+    }
+  ],
+  "222": [
+    {
+      "id": 1234,
+      "SenderId": 222,
+      "Sender": {
+        "id": 222,
+        "nickname": "김이펍",
+        "email": "efub@gmail.com"
+      },
+      "ReceiverId": 811,
+      "Receiver": {
+        "id": 811,
+        "nickname": "flowersayo",
+        "email": "flowersayo@gmail.com"
+      },
+      "content": "이펍이 궁금해? 나만 따라와~! ",
+      "createdAt": "2021-03-21"
+    }
+  ],
+  "987": [
+    {
+      "id": 1234,
+      "SenderId": 987,
+      "Sender": {
+        "id": 987,
+        "nickname": "최민주",
+        "email": "민주@gmail.com"
+      },
+      "ReceiverId": 811,
+      "Receiver": {
+        "id": 811,
+        "nickname": "flowersayo",
+        "email": "flowersayo@gmail.com"
+      },
+      "content": "만나서 반가워~! ",
+      "createdAt": "2021-03-21"
+    }
+  ]
+}
