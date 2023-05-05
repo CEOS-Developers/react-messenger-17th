@@ -63,7 +63,7 @@ function UserLists({userId, users}: UserListsProps){
 
   const showModal = (id: number) => {
     setModalOpen(true);
-    setUserIds(id);
+    setUserIds(id - 1);
   }
   
     return(
