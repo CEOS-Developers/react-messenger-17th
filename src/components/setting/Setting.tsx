@@ -1,10 +1,12 @@
 import styled from 'styled-components';
-
+import {AiFillGithub} from 'react-icons/ai';
 function Setting(): JSX.Element {
     
   return (
     <SettingWrapper>
-      <h1>세팅내용</h1>
+      <GithubIcon href= "https://github.com/westofsky">
+        <AiFillGithub size = "50"/>
+      </GithubIcon>
     </SettingWrapper>
   )
 }
@@ -12,6 +14,12 @@ function Setting(): JSX.Element {
 export default Setting;
 
 const SettingWrapper = styled.div`
-	width : 380px;
-	height : 480px;
+  height : 100%;
+  display : flex;
+  align-items: center;
+  justify-content: center;
+`
+const GithubIcon = styled.a`
+  text-decoration : none;
+  color: black;
 `
