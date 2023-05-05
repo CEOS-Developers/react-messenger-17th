@@ -5,6 +5,11 @@ export const RightMenu = styled.div`
   padding-right: 14px;
 `;
 
+export const LeftMenu = styled.div`
+  float: left;
+  padding-left: 14px;
+`;
+
 export const Header = styled.header`
   height: 38px;
   background: #350d36;

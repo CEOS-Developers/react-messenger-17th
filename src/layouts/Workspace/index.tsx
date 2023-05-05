@@ -37,6 +37,7 @@ import {
   WorkspaceName,
   Workspaces,
   WorkspaceWrapper,
+  LeftMenu,
 } from './style';
 
 import { useRecoilState } from 'recoil';
@@ -46,6 +47,8 @@ import Channel from 'src/pages/Channel';
 import Menu from 'src/components/Menu';
 import { IWorkspace } from '../../typings/db';
 import ChannelList from 'src/components/ChannelList';
+import Setting from 'src/pages/Setting';
+const SettingSrc = require('./settings.png');
 const Workspace = () => {
   const [userData, setUserData] = useRecoilState(userState);
 
@@ -118,9 +121,15 @@ const Workspace = () => {
   const onClickCreateWorkSpace = () => {
     alert('공사중입니다.');
   };
+
   return (
     <div>
       <Header>
+        <LeftMenu>
+          <Link to={`/workspace/${workspace}/setting`}>
+            <img src={SettingSrc} />
+          </Link>
+        </LeftMenu>
         <RightMenu>
           <span onClick={onClickUserProfile}>
             <ProfileImg src={gravatar.url(userData.email, { s: '28px', d: 'retro' })} alt={userData.nickname} />
@@ -170,6 +179,7 @@ const Workspace = () => {
         <Routes>
           <Route path="/channel/:channel" element={<Channel />} />
           <Route path="/dm/:id" element={<DirectMessage />} />
+          <Route path="/setting" element={<Setting />} />
         </Routes>
       </WorkspaceWrapper>
     </div>
