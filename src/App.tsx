@@ -8,9 +8,13 @@ function App() {
   return (
     <RecoilRoot>
       <GlobalStyle />
-      <Menu />
       <Container>
-        <Outlet />
+        <LeftBox>
+          <Menu />
+        </LeftBox>
+        <RightBox>
+          <Outlet />
+        </RightBox>
       </Container>
     </RecoilRoot>
   );
@@ -34,5 +38,17 @@ const Container = styled.div`
   box-shadow: 0px 0px 5px #444;
 
   display: flex;
-  flex-direction: column;
+`;
+
+const LeftBox = styled.div`
+  flex-basis: 20%;
+  background-color: #e3e0e0a8;
+  border-top-left-radius: 2.3rem;
+  border-bottom-left-radius: 2.3rem;
+  display: flex;
+  justify-content: center;
+`;
+
+const RightBox = styled.div`
+  flex-basis: 80%;
 `;

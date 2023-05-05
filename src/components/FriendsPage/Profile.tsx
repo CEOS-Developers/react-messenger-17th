@@ -1,13 +1,50 @@
 import React from 'react';
 import { IUser } from '../../interface/interface';
+import styled from 'styled-components';
 
 const Profile = ({ userName, userImg, statusMessage }: IUser) => {
   return (
-    <div>
-      <p>{userName}</p>
-      <p>{statusMessage}</p>
-    </div>
+    <ProfileBox>
+      <UserImg
+        src={`${process.env.PUBLIC_URL}/Imgs/${userImg}.jpg`}
+        alt={userName}
+      />
+      <div>
+        <UserName>{userName}</UserName>
+        <StatusMeaasge>{statusMessage}</StatusMeaasge>
+      </div>
+    </ProfileBox>
   );
 };
 
 export default Profile;
+
+const ProfileBox = styled.div`
+  display: flex;
+  padding: 0.5rem 1.5rem;
+  background-color: transparent;
+  transition: all 100ms ease-out;
+
+  &:hover {
+    background-color: #a6a4a321;
+  }
+`;
+
+const UserImg = styled.img`
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 0.15rem solid #b8b6b6;
+  border-radius: 50%;
+  margin-right: 1rem;
+`;
+
+const UserName = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  font-weight: bold;
+  font-family: 'IBMPlexSansKR-Regular';
+`;
+
+const StatusMeaasge = styled.div`
+  font-family: 'IBMPlexSansKR-Regular';
+`;
