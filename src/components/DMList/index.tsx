@@ -5,7 +5,7 @@ import { IUser } from 'src/typings/db';
 import { useParams } from 'react-router';
 
 import { serialize } from 'v8';
-
+const SearchSrc = require('./search.png');
 type ChannelDMListDataType = {
   [workspace: string]: IUser[];
 };
@@ -24,7 +24,8 @@ const DMList = () => {
       <h2>
         <span>Direct Messages</span>
       </h2>
-      <span>
+      <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <img src={SearchSrc} width={'20px'} />
         <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
       </span>
       <div>
