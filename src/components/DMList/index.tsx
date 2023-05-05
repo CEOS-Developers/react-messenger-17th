@@ -1,37 +1,39 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import EachDM from '../EachDM';
+import ChannelDMListJson from '../../db/channelDMList.json';
+import { IUser } from 'src/typings/db';
+import { useParams } from 'react-router';
+
+import { serialize } from 'v8';
+
+type ChannelDMListDataType = {
+  [workspace: string]: IUser[];
+};
 const DMList = () => {
-  const [memberData, setMemberData] = useState([
-    {
-      id: 924,
-      nickname: '김서연',
-      email: 'ceos@gmail.com',
-    },
-    {
-      id: 400,
-      nickname: '권가은',
-      email: '가은@gmail.com',
-    },
-    {
-      id: 963,
-      nickname: '최민주',
-      email: '민주@gmail.com',
-    },
-    {
-      id: 134,
-      nickname: '장효신',
-      email: '효신@gmail.com',
-    },
-  ]);
+  const { workspace } = useParams();
+  const chanelDMListData: ChannelDMListDataType = ChannelDMListJson;
+
+  const [searchValue, setSearchValue] = useState('');
+  const [memberData, setMemberData] = useState(workspace && chanelDMListData[workspace]);
+  useEffect(() => {
+    setMemberData(workspace && chanelDMListData[workspace]);
+  }, [workspace]);
+
   return (
     <>
       <h2>
         <span>Direct Messages</span>
       </h2>
+      <span>
+        <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+      </span>
       <div>
-        {memberData?.map((member) => {
-          return <EachDM key={member.id} member={member} />;
-        })}
+        {memberData &&
+          memberData
+            ?.filter((member) => member.nickname.includes(searchValue))
+            .map((member) => {
+              return <EachDM key={member.id} member={member} />;
+            })}
       </div>
     </>
   );
