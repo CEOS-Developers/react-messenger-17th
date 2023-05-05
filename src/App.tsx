@@ -1,4 +1,5 @@
 import GlobalStyle from './styles/GlobalStyle';
+import styled from 'styled-components';
 import {Container, Title, ChatButton, ChatWrapper,ButtonWrapper} from './styles/style.main';
 import Chat from './components/chat/Chat';
 import { useRecoilState } from 'recoil';
@@ -8,10 +9,12 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Members from './views/Members';
 import Setting from './views/Setting';
 import ChatList from './views/ChatList';
+import {isSearch} from './store/atom';
 
 function App(): JSX.Element {
   const [showDiv, setShowDiv] = useRecoilState(showDivState);
   const [hideButton, setHideButton] = useRecoilState(hideButtonState);
+  const [isSearchVisible, setIsSearchVisible] = useRecoilState(isSearch);
   const handleContextMenuClick = (e : any) => {
     e.preventDefault();
   }
@@ -19,11 +22,19 @@ function App(): JSX.Element {
     setShowDiv(true);
     setHideButton(true);
   };
-
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
+      setIsSearchVisible(true);
+    }
+    else if ((event.key === 'Escape')){
+      setIsSearchVisible(false);
+    }
+  };
   return (
     <>
       <GlobalStyle/>
-      <Container onContextMenu = {handleContextMenuClick}>
+      <Container onContextMenu = {handleContextMenuClick} onKeyDown={handleKeyDown}>
         <ButtonWrapper>
           {!hideButton &&
           <>
@@ -52,4 +63,5 @@ function App(): JSX.Element {
     </>
   )
 }
+
 export default App;

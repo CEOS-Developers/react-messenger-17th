@@ -20,6 +20,7 @@ function FriendList(): JSX.Element {
     setFilterFriends(filteredFriend);
   };
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    event.preventDefault();
     if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
       event.preventDefault();
       setIsSearchVisible(true);
@@ -46,7 +47,7 @@ export default FriendList;
 const FriendsWrapper = styled.div.attrs({
   tabIndex: 0,
 })`
-	height : 460px;
+	height : 100%;
   padding : 1rem;
   overflow : scroll;
   &.show{
