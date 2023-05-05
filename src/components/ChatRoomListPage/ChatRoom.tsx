@@ -67,6 +67,7 @@ const UserName = styled.div`
 
 const LastContent = styled.div`
   font-family: 'IBMPlexSansKR-Regular';
+  color: #6a6767;
 `;
 
 const LeftBox = styled.div`
@@ -80,4 +81,5 @@ const RightBox = styled.div`
 const LastTime = styled.div`
   font-size: 0.75rem;
   font-family: 'IBMPlexSansKR-Regular';
+  color: #8f8d8d;
 `;

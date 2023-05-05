@@ -4,6 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { friendsInfoSelector } from '../../state/atom';
 import Profile from './Profile';
 import styled from 'styled-components';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 const FriendsPage = () => {
   const [isSearching, setIsSearching] = useState(false);
@@ -18,7 +19,9 @@ const FriendsPage = () => {
     <FriendsPageBox>
       <Header>
         <h1>친구</h1>
-        <button onClick={() => setIsSearching(!isSearching)}>🔍</button>
+        <button onClick={() => setIsSearching(!isSearching)}>
+          <AiOutlineSearch size={30} />
+        </button>
       </Header>
 
       {isSearching ? (

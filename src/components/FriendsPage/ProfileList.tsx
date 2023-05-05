@@ -17,7 +17,7 @@ const ProfileList = () => {
         statusMessage={myInfo.statusMessage}
       />
       <FriendProfileList>
-        <FriendTitle>친구</FriendTitle>
+        <FriendTitle>친구 {friendsInfo.length}</FriendTitle>
         <ul>
           {friendsInfo.map((friend) => (
             <Profile

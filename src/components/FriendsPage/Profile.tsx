@@ -46,5 +46,6 @@ const UserName = styled.div`
 `;
 
 const StatusMeaasge = styled.div`
+  color: #6a6767;
   font-family: 'IBMPlexSansKR-Regular';
 `;
