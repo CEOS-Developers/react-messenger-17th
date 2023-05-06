@@ -1,0 +1,42 @@
+[
+    {
+      "userid": 0,
+      "username": "성준",
+      "status" : "나는야 배성준"
+    },
+    {
+      "userid" : 1,
+      "username" : "오은영",
+      "status" : "문제 아이는 없다, 양육에 문제가 있을 뿐"
+    },
+    {
+      "userid" : 2,
+      "username" : "주여정",
+      "status" : "동은아 .."
+    },
+    {
+      "userid" : 3,
+      "username" : "박연진",
+      "status" : "재준아 .."
+    },
+    {
+      "userid" : 4,
+      "username" : "손명오",
+      "status" : "블라디보스톡 같이 갈 사람?"
+    },
+    {
+      "userid" : 5,
+      "username" : "최혜정",
+      "status" : "러시아 알레르기 있음"
+    },
+    {
+      "userid" : 6,
+      "username" : "유선호",
+      "status" : "홍컴 집합하셈!"
+    },
+    {
+      "userid" : 7,
+      "username" : "이예지",
+      "status" : "선호오빠 17학번이야 ? 어우 .."
+    }
+  ]
