@@ -46,52 +46,53 @@ function Profile(){
 
 export default Profile;
 const WrapProfile = styled.div`
-	top: 0;
-	position: fixed;
-	left: -100%;
-  width : 340px;
-  height : 600px;
+  top: 0;
+  position: fixed;
+  left: 0;
+  padding:30px;
+  width : 280px;
+  height : 540px;
   border-radius : 1rem;
-	background-color : black;
+  background-color : rgb(0,0,0,0.8);
 `
 const Wrapper = styled.div`    
-  height : 500px;
-	display : flex;
-	align-items : center;
-	justify-content : center;
-	flex-direction : column;
-	border-radius: 1rem 1rem 0 0;
+  height : 470px;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  flex-direction : column;
+  border-radius: 1rem 1rem 0 0;
 `
 const WrapProfileImg = styled.img`
-	width: 10rem;
-	height: 10rem;
-	border-radius: 5rem;
-	user-select : none;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 5rem;
+  user-select : none;
 `
 const WrapProfileName = styled.p`
-	font-size : 1.5rem;
-	color : black;
-	background-color : rgba(255,255,255,0.6);
-	width : 90px;
-	height : 30px;
-	text-align : center;
-	border-radius : 1rem;
-    user-select : none;
+  font-size : 1.5rem;
+  color : black;
+  background-color : rgba(255,255,255,0.6);
+  width : 90px;
+  height : 30px;
+  text-align : center;
+  border-radius : 1rem;
+  user-select : none;
 `
 const SelectLink = styled.p`
   display: flex;
   justify-content: center;
-	color : white;
+  color : white;
   margin: 1rem;
   cursor: pointer;
 `;
 
 const CloseBtn = styled.p`
-	position :fixed;
-	top : 0;
-	right : 100%;
-	font-size : 1.5rem;
-	color : white;
-	padding : 1rem;
-	cursor : pointer;
+  position :fixed;
+  top : 0;
+  right : 0;
+  font-size : 1.5rem;
+  color : white;
+  padding : 1rem;
+  cursor : pointer;
 `
