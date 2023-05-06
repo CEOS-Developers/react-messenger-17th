@@ -1,5 +1,5 @@
 import {IoChevronBackOutline, IoCloseOutline} from 'react-icons/io5';
-import {userInfo, partnerInfo} from '../../store/atom';
+import {userInfo, partnerInfo,showProfile} from '../../store/atom';
 import {useRecoilState} from 'recoil';
 import {IUser} from '../../store/interface';
 import {useNavigate} from "react-router-dom";
@@ -8,6 +8,7 @@ import styled from 'styled-components';
 function ChatHeader(): JSX.Element {
   const [currentUser, setCurrentUser] = useRecoilState<IUser>(userInfo);
   const [partnerUser, setPartnerUser] = useRecoilState<IUser>(partnerInfo);
+  const [profileNum, setProfileNum] = useRecoilState<number>(showProfile);
   const navigate = useNavigate();
   const handleToggleClick = () => {
     const tempUser : IUser = currentUser;
@@ -16,6 +17,7 @@ function ChatHeader(): JSX.Element {
   };
   const handleGoBack = () => {
     navigate(-1);
+    setProfileNum(-1);
   }
   return (
   <>

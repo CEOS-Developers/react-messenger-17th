@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 import {useRecoilValue,useRecoilState} from 'recoil';
-import {roomList,selectedRoom,isSearch,orderChat} from '../../store/atom';
+import {roomList,selectedRoom,isSearch,orderChat,showProfile} from '../../store/atom';
 import {IChatRoom} from '../../store/interface';
 import Search from '../common/Search';
 import ChatRoom from './ChatRoom';
 import { useEffect, useState } from 'react';
+import Profile from '../common/Profile';
 function ChatList(): JSX.Element {
   const roomLists = useRecoilValue<IChatRoom[]>(roomList);
   const [selectedRoomId, setSelectedRoomId] = useRecoilState<number>(selectedRoom);
   const [view, setView] = useRecoilState<string>(orderChat); 
   const [isSearchVisible, setIsSearchVisible] = useRecoilState(isSearch);
   const [filterChat, setFilterChat] = useState(roomLists);
+  const [profileNum, setProfileNum] = useRecoilState<number>(showProfile);
   useEffect(() => {
     const sortedRoomLists =
       view === '최신순'
@@ -28,6 +30,8 @@ function ChatList(): JSX.Element {
   
   return (
     <ChatListWrapper className={`${isSearchVisible ?  'show' : ''}`}>
+        
+      {profileNum !== -1 && <Profile />}
      {isSearchVisible && <Search filtering={filterChats} onClose={() => setIsSearchVisible(false)} />}
       {filterChat.map(({roomid,userid,username,messages}: IChatRoom) => (
           <ChatRoom 

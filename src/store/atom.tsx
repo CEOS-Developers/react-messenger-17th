@@ -55,3 +55,8 @@ export const searchInput = atom<string>({
 	key : 'searchInput',
 	default : "",
 })
+
+export const showProfile = atom<number>({
+    key : 'showProfile',
+    default : -1,
+})

@@ -8,7 +8,7 @@ import styled,{keyframes} from 'styled-components';
 import Members from './views/Members';
 import Setting from './views/Setting';
 import ChatList from './views/ChatList';
-import {isSearch,searchInput} from './store/atom';
+import {isSearch} from './store/atom';
 import { useEffect } from 'react';
 
 function App(): JSX.Element {

@@ -4,14 +4,16 @@ import Friend from './Friend'
 import Search from '../common/Search';
 import user from '../../data/user.json';
 import { useState } from 'react';
-import {isSearch} from '../../store/atom'
+import {isSearch,showProfile} from '../../store/atom'
 import { useRecoilState } from 'recoil';
+import Profile from '../common/Profile';
 function FriendList(): JSX.Element {
   const friendsLists = user;
   const mine = friendsLists.slice(0,1);
   const friends = friendsLists.slice(1);
   const [filterFriends, setFilterFriends] = useState(friends);
   const [isSearchVisible, setIsSearchVisible] = useRecoilState(isSearch);
+  const [profileNum, setProfileNum] = useRecoilState<number>(showProfile);
   const filterMember = (input: string): void => {
     const filteredFriend = friends.filter((friend) =>
       friend.username.toLowerCase().includes(input.trim().toLowerCase())
@@ -20,6 +22,7 @@ function FriendList(): JSX.Element {
   };
   return (
     <FriendsWrapper className={`${isSearchVisible ?  'show' : ''}`}>
+      {profileNum !== -1 && <Profile />}
       {isSearchVisible && <Search filtering={filterMember} onClose={() => setIsSearchVisible(false)} />}
       {mine.map(({ userid, username, status}: IFriendItem) => (
           <Friend key = {userid} userid = {userid} status = {status} username = {username} />

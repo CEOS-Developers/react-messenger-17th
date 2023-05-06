@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {BsChat} from 'react-icons/bs';
 import {AiOutlineSetting,AiOutlineUser} from 'react-icons/ai';
-import {searchInput, isSearch} from '../../store/atom';
+import {searchInput, isSearch,showProfile} from '../../store/atom';
 import { useRecoilState } from 'recoil';
 interface IFooterName{
     name : string
@@ -11,9 +11,11 @@ interface IFooterName{
 function Footer({name} : IFooterName){
   const [isSearchVisible, setIsSearchVisible] = useRecoilState(isSearch);
   const [searchInputs, setSearchInputs] = useRecoilState(searchInput);
+  const [profileNum, setProfileNum] = useRecoilState<number>(showProfile);
   const handleClick = () => {
     setSearchInputs('');
     setIsSearchVisible(false);
+    setProfileNum(-1);
   };
   return (
     <Wrapper>
