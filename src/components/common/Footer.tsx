@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import {BsFillChatFill} from 'react-icons/bs';
+import {BsChat} from 'react-icons/bs';
 import {AiOutlineSetting,AiOutlineUser} from 'react-icons/ai';
 
 interface IFooterName{
@@ -14,7 +14,7 @@ function Footer({name} : IFooterName){
         <AiOutlineUser size = "20"/>
       </SelectLink>
       <SelectLink to = "/chat" selected = {name === "채팅"}>
-        <BsFillChatFill size = "20"/>
+        <BsChat size = "20"/>
       </SelectLink>
       <SelectLink to = "/setting" selected = {name === "설정"}>
         <AiOutlineSetting size = "20" />

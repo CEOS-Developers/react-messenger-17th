@@ -1,9 +1,9 @@
 import {useRecoilValue} from 'recoil';
-import { ChatContentWrapper } from '../../styles/style.chatcontent';
 import {roomList,userInfo,roomInfo} from '../../store/atom';
 import ChatItem from './ChatItem';
 import {useRef,useEffect} from 'react';
 import {IChatRoom, IUser,IMessage,IRoomId} from '../../store/interface';
+import styled from 'styled-components';
 function ChatContent({roomid} : IRoomId): JSX.Element {
   const roomLists = useRecoilValue<IChatRoom[]>(roomList);
   const roomId = useRecoilValue<Number>(roomInfo);
@@ -70,3 +70,18 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
 }
 
 export default ChatContent;
+const ChatContentWrapper = styled.div`
+    display: flex;
+    flex: 1;
+    overflow-y: scroll;
+    padding-right: 5px;
+    flex-direction: column;
+    &::-webkit-scrollbar{
+        width : 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        height: 30%;
+        background-color: rgb(137 130 211);
+        border-radius: 10px;
+    }
+`
