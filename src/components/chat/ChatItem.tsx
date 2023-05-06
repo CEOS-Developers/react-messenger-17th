@@ -1,46 +1,46 @@
 import styled from 'styled-components';
-import {useRecoilValue } from 'recoil';
-import {IChatProps,IUser} from '../../store/interface';
-import {userInfo,partnerInfo} from '../../store/atom';
+import { useRecoilValue } from 'recoil';
+import { IChatProps, IUser } from '../../store/interface';
+import { userInfo, partnerInfo } from '../../store/atom';
 
-function ChatItem({id,userid,message,time,user} : IChatProps) : JSX.Element {
-  const currentUser = useRecoilValue<IUser>(userInfo);
-  const partnerUser = useRecoilValue<IUser>(partnerInfo);
-  
-  return (
-    <>
-      {userid === currentUser.userid ? (
-        <MyMessageWrapper>
-          <MySendTime>
-          {time}
-          </MySendTime>
-          <MyMessage>
-            {message}
-          </MyMessage>
-        </MyMessageWrapper>
-      ) : (
-        <PartnerMessage>
-          <UserImage 
-            src = {`${process.env.PUBLIC_URL}/images/${userid}.jpg`} 
-            className={`${user ? 'notShow' : ''}`}/>
-          <MessageWrapper className={`${user ? 'notShow' : ''}`}>
-            <UserName className={`${user ? 'notShow' : ''}`}>   
-              {partnerUser.username}
-            </UserName>
-            
-            <UserInfoWrapper >
-              <UserMessage className = {`${user ? 'notShow' : ''}`}>
-                {message}
-              </UserMessage>
-              <SendTime>
-                {time}
-              </SendTime>
-            </UserInfoWrapper>
-          </MessageWrapper>
-        </PartnerMessage>
-      )}
-    </>
-  )
+function ChatItem({ id, userid, message, time, user }: IChatProps): JSX.Element {
+	const currentUser = useRecoilValue<IUser>(userInfo);
+	const partnerUser = useRecoilValue<IUser>(partnerInfo);
+
+	return (
+		<>
+			{userid === currentUser.userid ? (
+				<MyMessageWrapper>
+					<MySendTime>
+						{time}
+					</MySendTime>
+					<MyMessage>
+						{message}
+					</MyMessage>
+				</MyMessageWrapper>
+			) : (
+				<PartnerMessage>
+					<UserImage
+						src={`${process.env.PUBLIC_URL}/images/${userid}.jpg`}
+						className={`${user ? 'notShow' : ''}`} />
+					<MessageWrapper className={`${user ? 'notShow' : ''}`}>
+						<UserName className={`${user ? 'notShow' : ''}`}>
+							{partnerUser.username}
+						</UserName>
+
+						<UserInfoWrapper >
+							<UserMessage className={`${user ? 'notShow' : ''}`}>
+								{message}
+							</UserMessage>
+							<SendTime>
+								{time}
+							</SendTime>
+						</UserInfoWrapper>
+					</MessageWrapper>
+				</PartnerMessage>
+			)}
+		</>
+	)
 }
 
 export default ChatItem;

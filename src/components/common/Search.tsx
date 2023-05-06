@@ -1,29 +1,29 @@
 import styled from "styled-components";
-import {AiOutlineSearch} from 'react-icons/ai';
-import { useEffect} from "react";
+import { AiOutlineSearch } from 'react-icons/ai';
+import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import {searchInput} from '../../store/atom';
-function Search({filtering} : any){
-  const [ input, setInput ] = useRecoilState<string>(searchInput);
-  
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(event.target.value);
-  };
-  
-  useEffect(() => {
-    filtering(input);
-  }, [input]);
-  
-  return (
-    <Wrapper>
-      <GlassImg><AiOutlineSearch size = "15"/></GlassImg>
-      <SearchInput
-        value={input}
-        placeholder=""
-        onChange={handleInputChange}
-      />
-    </Wrapper>
-  );
+import { searchInput } from '../../store/atom';
+function Search({ filtering }: any) {
+	const [input, setInput] = useRecoilState<string>(searchInput);
+
+	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setInput(event.target.value);
+	};
+
+	useEffect(() => {
+		filtering(input);
+	}, [input]);
+
+	return (
+		<Wrapper>
+			<GlassImg><AiOutlineSearch size="15" /></GlassImg>
+			<SearchInput
+				value={input}
+				placeholder=""
+				onChange={handleInputChange}
+			/>
+		</Wrapper>
+	);
 };
 
 export default Search;

@@ -1,51 +1,51 @@
 import styled from "styled-components";
-import {BsFillChatDotsFill} from 'react-icons/bs';
-import {useNavigate} from "react-router-dom";
-import {useRecoilState} from 'recoil';
-import {IUser} from '../../store/interface';
-import {userInfo,partnerInfo,roomInfo,showProfile} from '../../store/atom';
+import { BsFillChatDotsFill } from 'react-icons/bs';
+import { useNavigate } from "react-router-dom";
+import { useRecoilState } from 'recoil';
+import { IUser } from '../../store/interface';
+import { userInfo, partnerInfo, roomInfo, showProfile } from '../../store/atom';
 import user from '../../data/user.json';
 
-function Profile(){
-  const [currentUser, setCurrentUser] = useRecoilState<IUser>(userInfo);
-  const [partnerUser, setPartnerUser] = useRecoilState<IUser>(partnerInfo);
-  const [profileNum, setProfileNum] = useRecoilState<number>(showProfile);
-  const [roomId, setRoomId] = useRecoilState<Number>(roomInfo);
-  const navigate = useNavigate();
-  
+function Profile() {
+	const [currentUser, setCurrentUser] = useRecoilState<IUser>(userInfo);
+	const [partnerUser, setPartnerUser] = useRecoilState<IUser>(partnerInfo);
+	const [profileNum, setProfileNum] = useRecoilState<number>(showProfile);
+	const [roomId, setRoomId] = useRecoilState<Number>(roomInfo);
+	const navigate = useNavigate();
+
 	const targetUser = user.find(item => item.userid === profileNum);
 	const targetUsername = targetUser?.username ?? '익명';
-  const targetStatus = targetUser?.status ?? '아무말';
+	const targetStatus = targetUser?.status ?? '아무말';
 	const imagePath = process.env.PUBLIC_URL + `/images/${profileNum}.jpg`;
-	
+
 	const handleClick = () => {
-    setCurrentUser({userid : 0, username : '성준'});
-    setPartnerUser({userid : profileNum,username : targetUsername});
-    setRoomId(profileNum);
-    navigate(`/chat/${profileNum}`);
-  }
+		setCurrentUser({ userid: 0, username: '성준' });
+		setPartnerUser({ userid: profileNum, username: targetUsername });
+		setRoomId(profileNum);
+		navigate(`/chat/${profileNum}`);
+	}
 	const handleCloseClick = () => {
 		setProfileNum(-1);
-  }
-	
-  return (
+	}
+
+	return (
 		<WrapProfile>
-			<Wrapper style={{ 
+			<Wrapper style={{
 				backgroundImage: `url(${imagePath}`,
 				backgroundSize: 'cover',
 				backgroundRepeat: 'no-repeat',
 				backgroundPosition: 'center center',
-				}}>
-				<CloseBtn onClick = {handleCloseClick}>X</CloseBtn>
-				<WrapProfileImg src={`${process.env.PUBLIC_URL}/images/${profileNum}.jpg`}/>
+			}}>
+				<CloseBtn onClick={handleCloseClick}>X</CloseBtn>
+				<WrapProfileImg src={`${process.env.PUBLIC_URL}/images/${profileNum}.jpg`} />
 				<WrapProfileName>{targetUsername}</WrapProfileName>
-        <WrapProfileStatus>{targetStatus}</WrapProfileStatus>
+				<WrapProfileStatus>{targetStatus}</WrapProfileStatus>
 			</Wrapper>
-      <SelectLink onClick = {handleClick}>
-        <BsFillChatDotsFill size = "50"/>
-      </SelectLink>
+			<SelectLink onClick={handleClick}>
+				<BsFillChatDotsFill size="50" />
+			</SelectLink>
 		</WrapProfile>
-  );
+	);
 };
 
 export default Profile;

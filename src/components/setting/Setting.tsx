@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import {AiFillGithub} from 'react-icons/ai';
+import { AiFillGithub } from 'react-icons/ai';
 function Setting(): JSX.Element {
-  return (
-    <SettingWrapper>
-      <GithubIcon href= "https://github.com/westofsky">
-        <AiFillGithub size = "50"/>
-      </GithubIcon>
-    </SettingWrapper>
-  )
+	return (
+		<SettingWrapper>
+			<GithubIcon href="https://github.com/westofsky">
+				<AiFillGithub size="50" />
+			</GithubIcon>
+		</SettingWrapper>
+	)
 }
 
 export default Setting;
