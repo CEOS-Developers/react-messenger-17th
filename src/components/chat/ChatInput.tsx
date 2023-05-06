@@ -1,9 +1,9 @@
 import {useRecoilState,useRecoilValue} from 'recoil';
 import {useState,useRef,useEffect} from 'react';
-import {ChatInputWrapper, Input, SubmitButton} from '../../styles/style.chatinput';
 import {FaTelegramPlane} from 'react-icons/fa';
 import {IChatRoom,IUser,IRoomId} from '../../store/interface';
 import {roomList,userInfo,partnerInfo,roomInfo} from '../../store/atom';
+import styled from 'styled-components';
 
 function ChatInput({roomid} : IRoomId) : JSX.Element {
   const currentUser = useRecoilValue<IUser>(userInfo);
@@ -79,3 +79,26 @@ function ChatInput({roomid} : IRoomId) : JSX.Element {
 }
 
 export default ChatInput;
+const ChatInputWrapper = styled.form`
+    margin : 0px 10px 10px;
+    display : flex;
+`
+
+const Input = styled.textarea`
+    padding: 10px;
+    width:80%;
+    border: none;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    outline: none;
+    resize: none;
+    background-color:transparent;
+`
+
+const SubmitButton = styled.button`
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border : none;
+    background-color:transparent;
+`
