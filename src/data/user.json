@@ -7,16 +7,16 @@
     {
       "userid" : 1,
       "username" : "오은영",
-      "status" : "오은영의 금쪽 상담소 만관부~"
+      "status" : "문제 아이는 없다, 양육에 문제가 있을 뿐"
     },
     {
       "userid" : 2,
-      "username" : "이도현",
+      "username" : "주여정",
       "status" : "동은아 .."
     },
     {
       "userid" : 3,
-      "username" : "임지연",
+      "username" : "박연진",
       "status" : "재준아 .."
     },
     {
@@ -32,6 +32,6 @@
     {
       "userid" : 6,
       "username" : "유선호",
-      "status" : "홍컴 집합하셈"
+      "status" : "홍컴 집합하셈!"
     }
   ]
