@@ -15,6 +15,7 @@ function Profile(){
   const navigate = useNavigate();
 	const targetUser = user.find(item => item.userid === profileNum);
 	const targetUsername = targetUser?.username ?? '익명';
+  const targetStatus = targetUser?.status ?? '아무말';
 	const imagePath = process.env.PUBLIC_URL + `/images/${profileNum}.jpg`;
 	const handleClick = () => {
     setCurrentUser({userid : 0, username : '성준'});
@@ -36,6 +37,7 @@ function Profile(){
 				<CloseBtn onClick = {handleCloseClick}>X</CloseBtn>
 				<WrapProfileImg src={`${process.env.PUBLIC_URL}/images/${profileNum}.jpg`}/>
 				<WrapProfileName>{targetUsername}</WrapProfileName>
+        <WrapProfileStatus>{targetStatus}</WrapProfileStatus>
 			</Wrapper>
       <SelectLink onClick = {handleClick}>
         <BsFillChatDotsFill size = "50"/>
@@ -95,4 +97,16 @@ const CloseBtn = styled.p`
   color : white;
   padding : 1rem;
   cursor : pointer;
+`
+const WrapProfileStatus = styled.p`
+  margin-top: 10px;
+  font-size : 1.2rem;
+  text-align : center;
+  color : black;
+  width : 200px;
+  padding : 10px;
+  background-color : rgba(255,255,255,0.6);
+  user-select : none;
+  border-radius : 1rem;
+
 `
