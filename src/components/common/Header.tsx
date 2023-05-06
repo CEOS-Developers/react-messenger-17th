@@ -52,4 +52,5 @@ const HeaderName = styled.p`
 
 const OrderLine = styled.p`
   font-size : 0.7rem;
+  cursor : pointer;
 `
