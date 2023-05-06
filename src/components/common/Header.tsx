@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { useRecoilState } from "recoil";
 import {orderChat} from '../../store/atom';
+
 interface IHeaderName{
     name : string
 }
@@ -17,6 +17,7 @@ function Header({name} : IHeaderName){
       setView("최신순");
     }
   };
+  
   return (
     <Wrapper>
       {name === "상담목록" ? (

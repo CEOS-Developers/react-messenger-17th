@@ -1,27 +1,29 @@
 import GlobalStyle from './styles/GlobalStyle';
-import Chat from './components/chat/Chat';
-import { useRecoilState } from 'recoil';
-import {TbBrandHipchat} from 'react-icons/tb';
-import {showDivState, hideButtonState} from './store/atom';
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import styled,{keyframes} from 'styled-components';
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import {TbBrandHipchat} from 'react-icons/tb';
 import Members from './views/Members';
 import Setting from './views/Setting';
 import ChatList from './views/ChatList';
-import {isSearch} from './store/atom';
-import { useEffect } from 'react';
+import Chat from './components/chat/Chat';
+import {showDivState, hideButtonState,isSearch} from './store/atom';
 
 function App(): JSX.Element {
   const [showDiv, setShowDiv] = useRecoilState(showDivState);
   const [hideButton, setHideButton] = useRecoilState(hideButtonState);
   const [isSearchVisible, setIsSearchVisible] = useRecoilState(isSearch);
+  
   const handleContextMenuClick = (e : any) => {
     e.preventDefault();
   }
+  
   const handleButtonClick = () => {
     setShowDiv(true);
     setHideButton(true);
   };
+  
   useEffect(() => {
     const handleKeyDown = (event: { ctrlKey: any; metaKey: any; key: string; preventDefault: () => void; }) => {
       if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
@@ -34,6 +36,7 @@ function App(): JSX.Element {
     };
     document.addEventListener('keydown', handleKeyDown);
   }, []);
+  
   return (
     <>
       <GlobalStyle/>

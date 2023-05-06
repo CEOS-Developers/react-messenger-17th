@@ -1,9 +1,9 @@
-import {useRecoilValue} from 'recoil';
-import {roomList,userInfo,roomInfo} from '../../store/atom';
-import ChatItem from './ChatItem';
-import {useRef,useEffect} from 'react';
-import {IChatRoom, IUser,IMessage,IRoomId} from '../../store/interface';
 import styled from 'styled-components';
+import {useRecoilValue} from 'recoil';
+import {useRef,useEffect} from 'react';
+import ChatItem from './ChatItem';
+import {IChatRoom, IUser,IMessage,IRoomId} from '../../store/interface';
+import {roomList,userInfo,roomInfo} from '../../store/atom';
 function ChatContent({roomid} : IRoomId): JSX.Element {
   const roomLists = useRecoilValue<IChatRoom[]>(roomList);
   const roomId = useRecoilValue<Number>(roomInfo);
@@ -13,11 +13,13 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
   const chatContent = useRef<HTMLDivElement>(null);
   const prevTimeValue = useRef<String | null>(null);
   let prevUserValue = -1;
+  
   const scrollChat = () => {
     if (chatContent.current){
       chatContent.current.scrollTop = chatContent.current.scrollHeight;
     }
   }
+  
   const makeTime = (time : number) =>{
     const newTime = new Date(time);
     let hours = newTime.getHours();
@@ -27,6 +29,7 @@ function ChatContent({roomid} : IRoomId): JSX.Element {
     const madeTime = hourFormat + ":" + minFormat;
     return madeTime;
   }
+  
   useEffect(() => {
     scrollChat();
   },[roomLists]);

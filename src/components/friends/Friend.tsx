@@ -10,6 +10,7 @@ function Friend({userid, status, username} : IFriendItem){
   const [roomId, setRoomId] = useRecoilState<Number>(roomInfo);
   const [profileNum, setProfileNum] = useRecoilState<number>(showProfile);
   const navigate = useNavigate();
+  
   const handleDoubleClick = () => {
     setCurrentUser({userid : 0, username : '성준'});
     setPartnerUser({userid : userid,username : username});
@@ -19,6 +20,7 @@ function Friend({userid, status, username} : IFriendItem){
   const handleClickImg = () => {
     setProfileNum(userid);
   }
+  
   return (
     <Wrapper onDoubleClick={handleDoubleClick}>
       <UserImage src={`${process.env.PUBLIC_URL}/images/${userid}.jpg`} onClick = {handleClickImg} />

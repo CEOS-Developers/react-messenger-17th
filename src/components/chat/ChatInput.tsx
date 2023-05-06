@@ -1,9 +1,9 @@
+import styled from 'styled-components';
 import {useRecoilState,useRecoilValue} from 'recoil';
 import {useState,useRef,useEffect} from 'react';
 import {FaTelegramPlane} from 'react-icons/fa';
 import {IChatRoom,IUser,IRoomId} from '../../store/interface';
 import {roomList,userInfo,partnerInfo,roomInfo} from '../../store/atom';
-import styled from 'styled-components';
 
 function ChatInput({roomid} : IRoomId) : JSX.Element {
   const currentUser = useRecoilValue<IUser>(userInfo);
@@ -13,14 +13,17 @@ function ChatInput({roomid} : IRoomId) : JSX.Element {
   const [inputValue, setInputValue] = useState<string>("");
   const roomIndex = roomLists.findIndex((room) => room.roomid === roomId);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(event.target.value);
   };
+  
   const handleKeyUp = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (!e.shiftKey && e.key === "Enter") {
       handleSubmit();
     }
   };
+  
   const handleSubmit = (event?: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
     if(!inputValue.trim()){
@@ -62,6 +65,7 @@ function ChatInput({roomid} : IRoomId) : JSX.Element {
       inputRef.current.focus();
     }
   })
+  
   return (
     <ChatInputWrapper onSubmit={handleSubmit}>
       <Input

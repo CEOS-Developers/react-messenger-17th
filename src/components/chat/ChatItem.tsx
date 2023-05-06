@@ -1,11 +1,12 @@
-import {useRecoilValue } from 'recoil';
-import {userInfo,partnerInfo} from '../../store/atom';
-import {IChatProps,IUser} from '../../store/interface';
 import styled from 'styled-components';
+import {useRecoilValue } from 'recoil';
+import {IChatProps,IUser} from '../../store/interface';
+import {userInfo,partnerInfo} from '../../store/atom';
 
 function ChatItem({id,userid,message,time,user} : IChatProps) : JSX.Element {
   const currentUser = useRecoilValue<IUser>(userInfo);
   const partnerUser = useRecoilValue<IUser>(partnerInfo);
+  
   return (
     <>
       {userid === currentUser.userid ? (

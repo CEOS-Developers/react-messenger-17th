@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import {BsFillChatDotsFill} from 'react-icons/bs';
-import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useRecoilState} from 'recoil';
 import {IUser} from '../../store/interface';
 import {userInfo,partnerInfo,roomInfo,showProfile} from '../../store/atom';
-import {useNavigate} from "react-router-dom";
 import user from '../../data/user.json';
 
 function Profile(){
@@ -13,10 +12,12 @@ function Profile(){
   const [profileNum, setProfileNum] = useRecoilState<number>(showProfile);
   const [roomId, setRoomId] = useRecoilState<Number>(roomInfo);
   const navigate = useNavigate();
+  
 	const targetUser = user.find(item => item.userid === profileNum);
 	const targetUsername = targetUser?.username ?? '익명';
   const targetStatus = targetUser?.status ?? '아무말';
 	const imagePath = process.env.PUBLIC_URL + `/images/${profileNum}.jpg`;
+	
 	const handleClick = () => {
     setCurrentUser({userid : 0, username : '성준'});
     setPartnerUser({userid : profileNum,username : targetUsername});
@@ -26,6 +27,7 @@ function Profile(){
 	const handleCloseClick = () => {
 		setProfileNum(-1);
   }
+	
   return (
 		<WrapProfile>
 			<Wrapper style={{ 

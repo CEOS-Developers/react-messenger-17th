@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import {AiFillGithub} from 'react-icons/ai';
 function Setting(): JSX.Element {
-    
   return (
     <SettingWrapper>
       <GithubIcon href= "https://github.com/westofsky">

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import {useNavigate} from "react-router-dom";
-import {userInfo,partnerInfo,roomInfo,showProfile} from '../../store/atom';
-import {IUser} from '../../store/interface';
 import {useRecoilState} from 'recoil';
+import {IUser} from '../../store/interface';
+import {userInfo,partnerInfo,roomInfo,showProfile} from '../../store/atom';
+
 interface IRoomInfo{
   roomid : number;
   userid : number;
@@ -12,12 +13,14 @@ interface IRoomInfo{
   active : boolean;
   onClick : () => void;
 }
+
 function ChatRoom({roomid, userid, username, messages,time,active,onClick} : IRoomInfo) : JSX.Element{
   const [currentUser, setCurrentUser] = useRecoilState<IUser>(userInfo);
   const [partnerUser, setPartnerUser] = useRecoilState<IUser>(partnerInfo);
   const [roomId, setRoomId] = useRecoilState<Number>(roomInfo);
   const [profileNum, setProfileNum] = useRecoilState<number>(showProfile);
   const navigate = useNavigate();
+  
   const makeTime = (time : number) =>{
     const newTime = new Date(time);
     const nowTime = new Date();
@@ -38,15 +41,18 @@ function ChatRoom({roomid, userid, username, messages,time,active,onClick} : IRo
     }
     return madeTime;
   }
+  
   const handleDoubleClick = () => {
     setCurrentUser({userid : 0, username : '성준'});
     setPartnerUser({userid : userid,username : username});
     setRoomId(userid);
     navigate(`/chat/${roomid}`);
   }
+  
   const handleClickImg = () => {
     setProfileNum(userid);
   }
+  
   return (
     <Wrapper active = {active} onClick = {onClick} onDoubleClick={handleDoubleClick}>
         <UserImage src={`${process.env.PUBLIC_URL}/images/${userid}.jpg`} onClick = {handleClickImg} />
