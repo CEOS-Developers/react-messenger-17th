@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { AiOutlineSearch } from 'react-icons/ai';
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRecoilState } from "recoil";
 import { searchInput } from '../../store/atom';
 function Search({ filtering }: any) {
 	const [input, setInput] = useRecoilState<string>(searchInput);
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInput(event.target.value);
@@ -14,10 +15,16 @@ function Search({ filtering }: any) {
 		filtering(input);
 	}, [input]);
 
+	useEffect(() => {
+		if (inputRef.current) {
+			inputRef.current.focus();
+		}
+	})
 	return (
 		<Wrapper>
 			<GlassImg><AiOutlineSearch size="15" /></GlassImg>
 			<SearchInput
+				ref={inputRef}
 				value={input}
 				placeholder=""
 				onChange={handleInputChange}
