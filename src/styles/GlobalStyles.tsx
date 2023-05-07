@@ -21,10 +21,12 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: center;
 
+    /*
     background-image: url('../../public/Imgs/backgroundImg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    */
   }
 
   ul {

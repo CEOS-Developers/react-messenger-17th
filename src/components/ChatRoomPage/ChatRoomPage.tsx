@@ -22,7 +22,7 @@ const ChatRoomPage = () => {
     <Container>
       <ChatRoomBox>
         <Header friendInfo={friendInfo} />
-        <ChatList friendInfo={friendInfo} chatList={chatList} />
+        <ChatList chatList={chatList} />
         <ChatInput friendInfo={friendInfo} chatList={chatList} />
       </ChatRoomBox>
     </Container>

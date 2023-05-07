@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+import { IChat } from '../../interface/interface';
 import Chat from './Chat';
 import styled from 'styled-components';
-import { IUser, IChat } from '../../interface/interface';
 
 type ChatListProps = {
-  friendInfo: IUser;
   chatList: IChat[];
 };
 
@@ -23,8 +22,8 @@ const ChatList = ({ chatList }: ChatListProps) => {
 
   return (
     <ChatListBox ref={chatListRef}>
-      {chatList.map((chat: IChat, idx: number) => (
-        <Chat key={idx} {...chat} />
+      {chatList.map((chat, idx: number) => (
+        <Chat key={idx} chat={chat} />
       ))}
     </ChatListBox>
   );

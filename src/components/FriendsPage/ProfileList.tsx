@@ -16,6 +16,7 @@ const ProfileList = () => {
         userImg={myInfo.userImg}
         statusMessage={myInfo.statusMessage}
       />
+
       <FriendProfileList>
         <FriendTitle>친구 {friendsInfo.length}</FriendTitle>
         <ul>

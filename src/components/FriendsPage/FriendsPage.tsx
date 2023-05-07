@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ProfileList from './ProfileList';
 import { useRecoilValue } from 'recoil';
 import { friendsInfoSelector } from '../../state/atom';
+import ProfileList from './ProfileList';
 import Profile from './Profile';
 import styled from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';

@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { currentUserState, myInfoSelector } from '../../state/atom';
+import { IUser } from '../../interface/interface';
 import styled from 'styled-components';
 import { RiArrowLeftSLine } from 'react-icons/ri';
-import { IUser } from '../../interface/interface';
 
 type HeaderProps = {
   friendInfo: IUser;
@@ -12,8 +12,8 @@ type HeaderProps = {
 
 const Header = ({ friendInfo }: HeaderProps) => {
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
   const myInfo = useRecoilValue(myInfoSelector);
+  const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
   const isMyAccount = currentUser.userId === myInfo.userId;
 
   const toggleUser = () => {

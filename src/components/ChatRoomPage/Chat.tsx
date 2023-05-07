@@ -4,7 +4,11 @@ import { IChat } from '../../interface/interface';
 import { useRecoilValue } from 'recoil';
 import { currentUserState, allUsersInfoState } from '../../state/atom';
 
-const Chat = (chat: IChat) => {
+type ChatProps = {
+  chat: IChat;
+};
+
+const Chat = ({ chat }: ChatProps) => {
   const currentUser = useRecoilValue(currentUserState);
   const allUsersInfo = useRecoilValue(allUsersInfoState);
   const isActive = chat.userId === currentUser.userId;
