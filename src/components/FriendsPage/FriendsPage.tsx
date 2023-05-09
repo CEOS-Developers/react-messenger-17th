@@ -33,22 +33,19 @@ const FriendsPage = () => {
               onChange={handleChange}
             />
           </InputBox>
-          <>
-            {friendsInfo.map((friend) => (
-              <>
-                {friend.userName.includes(text) ? (
-                  <Profile
-                    key={friend.userId}
-                    userName={friend.userName}
-                    userImg={friend.userImg}
-                    statusMessage={friend.statusMessage}
-                  />
-                ) : (
-                  <></>
-                )}
-              </>
-            ))}
-          </>
+
+          {friendsInfo.map((friend) => {
+            if (friend.userName.includes(text)) {
+              return (
+                <Profile
+                  key={friend.userId}
+                  userName={friend.userName}
+                  userImg={friend.userImg}
+                  statusMessage={friend.statusMessage}
+                />
+              );
+            }
+          })}
         </>
       ) : (
         <ProfileList />

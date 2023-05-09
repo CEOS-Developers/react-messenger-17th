@@ -9,10 +9,11 @@ type ChatProps = {
 };
 
 const Chat = ({ chat }: ChatProps) => {
-  const currentUser = useRecoilValue(currentUserState);
   const allUsersInfo = useRecoilValue(allUsersInfoState);
-  const isActive = chat.userId === currentUser.userId;
   const userInfo = allUsersInfo.find((user) => user.userId === chat.userId)!;
+
+  const currentUser = useRecoilValue(currentUserState);
+  const isActive = chat.userId === currentUser.userId;
 
   return (
     <ChatContainer isActive={isActive}>

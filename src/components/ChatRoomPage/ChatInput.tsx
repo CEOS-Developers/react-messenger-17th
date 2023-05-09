@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { currentUserState, allChatRoomsInfoState } from '../../state/atom';
+import { IChat, IUser } from '../../interface/interface';
 import styled from 'styled-components';
 import { IoIosSend } from 'react-icons/io';
-import { IChat, IUser } from '../../interface/interface';
 
 type ChatInputProps = {
   friendInfo: IUser;
@@ -11,19 +11,12 @@ type ChatInputProps = {
 };
 
 const ChatInput = ({ friendInfo, chatList }: ChatInputProps) => {
-  const currentUser = useRecoilValue(currentUserState);
   const [text, setText] = useState('');
   const [newChatList, setNewChatList] = useState(chatList);
+  const currentUser = useRecoilValue(currentUserState);
   const [allChatRoomsInfo, setAllChatRoomsInfo] = useRecoilState(
     allChatRoomsInfoState
   );
-
-  const addChat = () => {
-    setNewChatList([
-      ...newChatList,
-      { userId: currentUser.userId, content: text, time: currentTime() },
-    ]);
-  };
 
   const currentTime = () => {
     let hours = ('0' + new Date().getHours()).slice(-2);
@@ -32,16 +25,20 @@ const ChatInput = ({ friendInfo, chatList }: ChatInputProps) => {
     return hours + ':' + minutes;
   };
 
+  const addChat = () => {
+    setNewChatList([
+      ...newChatList,
+      { userId: currentUser.userId, content: text, time: currentTime() },
+    ]);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!text.trim().length) {
-      return;
+    if (text.trim()) {
+      addChat();
+      setText(''); //초기화
     }
-
-    addChat();
-
-    setText('');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
